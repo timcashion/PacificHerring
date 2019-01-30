@@ -2,7 +2,7 @@
 title: "HerringTest"
 author: "Tim Cashion"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-output: github_document
+output: html_document
 always_allow_html: yes
 ---
 
@@ -49,9 +49,9 @@ fisherytype_value_plot <- fisherytype_value %>%
   scale_color_ipsum() + 
   NULL
 
-print(fisherytype_value_plot)
-# p <- ggplotly(fisherytype_value_plot)
-# p
+#print(fisherytype_value_plot)
+p <- ggplotly(fisherytype_value_plot)
+p
 
 
 ```
