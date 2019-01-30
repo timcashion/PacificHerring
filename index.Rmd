@@ -27,6 +27,10 @@ number_call <- function(num, decimals){
   return(x)
 }
 
+
+Sys.setenv("plotly_username"="tcashion")
+Sys.setenv("plotly_api_key"="Id6eUYBY8tOU2V0gRuXd")
+
 ```
 
 
@@ -52,7 +56,7 @@ fisherytype_value_plot <- fisherytype_value %>%
 #print(fisherytype_value_plot)
 p <- ggplotly(fisherytype_value_plot)
 p
-
+#api_create(p, filename = "herring-fishery-type-plot")
 
 ```
 
