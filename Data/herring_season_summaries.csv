@@ -1,0 +1,677 @@
+Year,Measure,Fishery,Gear,Area,Value,Unit
+2018,ExpectedUse,Roe herring,Gillnet,StraitofGeorgia,"11,177",tons
+2018,ExpectedUse,Roe herring,Gillnet,PrinceRupertDistrict,"1,528",tons
+2018,ExpectedUse,Roe herring,Seine,StraitofGeorgia,"9,813",tons
+2018,ExpectedUse,Roe herring,Seine,PrinceRupertDistrict,730,tons
+2018,ExpectedUse,Special use,,StraitofGeorgia,902,
+2018,QuotaIssued,Roe herring,Gillnet,StraitofGeorgia,"11,177",tons
+2018,QuotaIssued,Roe herring,Gillnet,PrinceRupertDistrict,"1,528",tons
+2018,QuotaIssued,Roe herring,Seine,StraitofGeorgia,"9,813",tons
+2018,QuotaIssued,Roe herring,Seine,PrinceRupertDistrict,730,tons
+2018,QuotaIssued,SOK,NA,PrinceRupertDistrict,"51,846.00",lbs
+2018,QuotaIssued,SOK,NA,CentralCoast,"387,650.00",lbs
+2018,QuotaIssued,SOK,NA,Area10/12,"62,565.00",lbs
+2018,QuotaIssued,Food and Bait,,StraitofGeorgia,"6,954",tons
+2018,QuotaIssued,Food and Bait,,PrinceRupertDistrict,0,tons
+2018,QuotaIssued,Special use,,StraitofGeorgia,671,
+2018,Landings,Roe herring,Gillnet,StraitofGeorgia,"11,076",tons
+2018,Landings,Roe herring,Gillnet,PrinceRupertDistrict,459,tons
+2018,Landings,Roe herring,Seine,StraitofGeorgia,"3,429",tons
+2018,Landings,Roe herring,Seine,PrinceRupertDistrict,0,tons
+2018,Landings,SOK,NA,PrinceRupertDistrict,"20,832",lbs
+2018,Landings,SOK,NA,CentralCoast,"289,358",lbs
+2018,Landings,SOK,NA,Area10/12,"18,761",lbs
+2018,Landings,Food and Bait,,StraitofGeorgia,"6,005",tons
+2018,Landings,Food and Bait,,PrinceRupertDistrict,N/A,
+2018,Landings,Special use,,StraitofGeorgia,Unknown(Privacy),
+2018,#Pools,Roe herring,Gillnet,StraitofGeorgia,13,
+2018,#Pools,Roe herring,Gillnet,PrinceRupertDistrict,6,
+2018,#Pools,Roe herring,Seine,StraitofGeorgia,7,
+2018,#Pools,Roe herring,Seine,PrinceRupertDistrict,1,
+2018,#Licences,Roe herring,Gillnet,StraitofGeorgia,970,
+2018,#Licences,Roe herring,Gillnet,PrinceRupertDistrict,245,
+2018,#Licences,Roe herring,Seine,StraitofGeorgia,198,
+2018,#Licences,Roe herring,Seine,PrinceRupertDistrict,34,
+2018,#Licences,SOK,NA,PrinceRupertDistrict,3,
+2018,#Licences,SOK,NA,CentralCoast,15,
+2018,#Licences,SOK,NA,Area10/12,4,
+2018,#Licences,Food and Bait,,StraitofGeorgia,252,
+2018,#Licences,Food and Bait,,PrinceRupertDistrict,0,
+2018,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,11.522,tons
+2018,Tonsperlicence,Roe herring,Gillnet,PrinceRupertDistrict,6.237,tons
+2018,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,49.561,tons
+2018,Tonsperlicence,Roe herring,Seine,PrinceRupertDistrict,21.471,tons
+2018,Tonsperlicence,Food and Bait,,StraitofGeorgia,23.809 / 46* / 80** ,
+2018,Tonsperlicence,Food and Bait,,PrinceRupertDistrict,0 ,tons
+2018,Open,Roe herring,Gillnet,StraitofGeorgia,"1st - Mar2, 2018 12:00 ",
+2018,Open,Roe herring,Gillnet,PrinceRupertDistrict,2018-03-25 9:00,
+2018,Open,Roe herring,Seine,StraitofGeorgia,2018-03-05 12:00,
+2018,Open,Roe herring,Seine,PrinceRupertDistrict,No opening ,
+2018,Open,SOK,NA,PrinceRupertDistrict,- ,
+2018,Open,SOK,NA,CentralCoast,- ,
+2018,Open,SOK,NA,Area10/12,- ,
+2017,ExpectedUse,Roe herring,Gillnet,StraitofGeorgia,"15,172",tons
+2017,ExpectedUse,Roe herring,Gillnet,PrinceRupertDistrict,"1,500",tons
+2017,ExpectedUse,Roe herring,Seine,StraitofGeorgia,"13,013",tons
+2017,ExpectedUse,Roe herring,Seine,PrinceRupertDistrict,"1,000",tons
+2017,ExpectedUse,Roe herring,Seine,CentralCoast,215,tons
+2017,QuotaIssued,Roe herring,Gillnet,StraitofGeorgia,"15,172",tons
+2017,QuotaIssued,Roe herring,Gillnet,PrinceRupertDistrict,"1,500",tons
+2017,QuotaIssued,Roe herring,Seine,StraitofGeorgia,"13,013",tons
+2017,QuotaIssued,Roe herring,Seine,PrinceRupertDistrict,"1,000",tons
+2017,QuotaIssued,Roe herring,Seine,CentralCoast,215,tons
+2017,QuotaIssued,Food and Bait,,StraitofGeorgia,"7,542",tons
+2017,QuotaIssued,Food and Bait,,PrinceRupertDistrict,500,tons
+2017,Landings,Roe herring,Gillnet,StraitofGeorgia,"10,166",tons
+2017,Landings,Roe herring,Gillnet,PrinceRupertDistrict,"1,541",tons
+2017,Landings,Roe herring,Seine,StraitofGeorgia,"9,695",tons
+2017,Landings,Roe herring,Seine,PrinceRupertDistrict,"1,124",tons
+2017,Landings,Roe herring,Seine,CentralCoast,0,tons
+2017,Landings,Food and Bait,,StraitofGeorgia,"7,383",tons
+2017,Landings,Food and Bait,,PrinceRupertDistrict,*N/A,
+2017,#Pools,Roe herring,Gillnet,StraitofGeorgia,11,
+2017,#Pools,Roe herring,Gillnet,PrinceRupertDistrict,6,
+2017,#Pools,Roe herring,Seine,StraitofGeorgia,8,
+2017,#Pools,Roe herring,Seine,PrinceRupertDistrict,1,
+2017,#Pools,Roe herring,Seine,CentralCoast,1,
+2017,#Licences,Roe herring,Gillnet,StraitofGeorgia,753,
+2017,#Licences,Roe herring,Gillnet,PrinceRupertDistrict,455,
+2017,#Licences,Roe herring,Seine,StraitofGeorgia,175,
+2017,#Licences,Roe herring,Seine,PrinceRupertDistrict,52,
+2017,#Licences,Roe herring,Seine,CentralCoast,227,
+2017,#Licences,Food and Bait,,StraitofGeorgia,250,
+2017,#Licences,Food and Bait,,PrinceRupertDistrict,1,
+2017,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,20.149,tons
+2017,Tonsperlicence,Roe herring,Gillnet,PrinceRupertDistrict,3.297,tons
+2017,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,74.36,tons
+2017,Tonsperlicence,Roe herring,Seine,PrinceRupertDistrict,19.231,tons
+2017,Tonsperlicence,Roe herring,Seine,CentralCoast,0.947,tons
+2017,Tonsperlicence,Food and Bait,,StraitofGeorgia,29.41/61.68,tons
+2017,Tonsperlicence,Food and Bait,,PrinceRupertDistrict,500,tons
+2017,Open,Roe herring,Gillnet,StraitofGeorgia,2017-03-04 11:00,
+2017,Open,Roe herring,Gillnet,PrinceRupertDistrict,2017-03-17 15:00,
+2017,Open,Roe herring,Seine,StraitofGeorgia,2017-03-06 11:00,
+2017,Open,Roe herring,Seine,PrinceRupertDistrict,2017-03-23 7:11,
+2017,Open,Roe herring,Seine,CentralCoast,No opening,
+2016,ExpectedUse,Roe herring,Gillnet,StraitofGeorgia,"11,571",tons
+2016,ExpectedUse,Roe herring,Gillnet,PrinceRupertDistrict,"1,500",tons
+2016,ExpectedUse,Roe herring,Seine,StraitofGeorgia,"8,374",tons
+2016,ExpectedUse,Roe herring,Seine,PrinceRupertDistrict,"1,000",tons
+2016,ExpectedUse,Roe herring,Seine,CentralCoast,215,tons
+2016,QuotaIssued,Roe herring,Gillnet,StraitofGeorgia,"11,571",tons
+2016,QuotaIssued,Roe herring,Gillnet,PrinceRupertDistrict,"1,500",tons
+2016,QuotaIssued,Roe herring,Seine,StraitofGeorgia,"8,374",tons
+2016,QuotaIssued,Roe herring,Seine,PrinceRupertDistrict,"1,000",tons
+2016,QuotaIssued,Roe herring,Seine,CentralCoast,215,tons
+2016,QuotaIssued,Food and Bait,,StraitofGeorgia,7768,
+2016,QuotaIssued,Food and Bait,,PrinceRupertDistrict,500,
+2016,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,761",tons
+2016,Landings,Roe herring,Gillnet,PrinceRupertDistrict,"1,521",tons
+2016,Landings,Roe herring,Seine,StraitofGeorgia,"8,407",tons
+2016,Landings,Roe herring,Seine,PrinceRupertDistrict,803,tons
+2016,Landings,Roe herring,Seine,CentralCoast,234,tons
+2016,Landings,Food and Bait,,StraitofGeorgia,7639,
+2016,Landings,Food and Bait,,PrinceRupertDistrict,*N/A,
+2016,#Pools,Roe herring,Gillnet,StraitofGeorgia,11,
+2016,#Pools,Roe herring,Gillnet,PrinceRupertDistrict,6,
+2016,#Pools,Roe herring,Seine,StraitofGeorgia,8,
+2016,#Pools,Roe herring,Seine,PrinceRupertDistrict,1,
+2016,#Pools,Roe herring,Seine,CentralCoast,1,
+2016,#Licences,Roe herring,Gillnet,StraitofGeorgia,812,
+2016,#Licences,Roe herring,Gillnet,PrinceRupertDistrict,346,
+2016,#Licences,Roe herring,Seine,StraitofGeorgia,186,
+2016,#Licences,Roe herring,Seine,PrinceRupertDistrict,8,
+2016,#Licences,Roe herring,Seine,CentralCoast,2,
+2016,#Licences,Food and Bait,,StraitofGeorgia,241,
+2016,#Licences,Food and Bait,,PrinceRupertDistrict,6,
+2016,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,14.25,tons
+2016,Tonsperlicence,Roe herring,Gillnet,PrinceRupertDistrict,4.335,tons
+2016,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,45.022,tons
+2016,Tonsperlicence,Roe herring,Seine,PrinceRupertDistrict,43.478,tons
+2016,Tonsperlicence,Roe herring,Seine,CentralCoast,107.5,tons
+2016,Open,Roe herring,Gillnet,StraitofGeorgia,"*Mar6, 2016 10:15",
+2016,Open,Roe herring,Gillnet,PrinceRupertDistrict,2016-03-18 19:00,
+2016,Open,Roe herring,Seine,StraitofGeorgia,2016-03-03 7:45,
+2016,Open,Roe herring,Seine,PrinceRupertDistrict,"*Mar20, 2016 16:15",
+2016,Open,Roe herring,Seine,CentralCoast,2016-03-26 6:30,
+2015,ExpectedUse,Roe herring,Gillnet,StraitofGeorgia,"13,975",tons
+2015,ExpectedUse,Roe herring,Gillnet,PrinceRupertDistrict,"1,200",tons
+2015,ExpectedUse,Roe herring,Gillnet,CentralCoast,600,tons
+2015,ExpectedUse,Roe herring,Gillnet,WestCoastVancouverIsland,"1,000",tons
+2015,ExpectedUse,Roe herring,Seine,StraitofGeorgia,"15,440",tons
+2015,ExpectedUse,Roe herring,Seine,PrinceRupertDistrict,800,tons
+2015,ExpectedUse,Roe herring,Seine,WestCoastVancouverIsland,"2,000",tons
+2015,ExpectedUse,Roe herring,Seine,HaidaGwaii,800,tons
+2015,ExpectedUse,Roe herring,Seine,CentralCoast,800,tons
+2015,QuotaIssued,Roe herring,Gillnet,StraitofGeorgia,"13,975",tons
+2015,QuotaIssued,Roe herring,Gillnet,PrinceRupertDistrict,"1,200",tons
+2015,QuotaIssued,Roe herring,Gillnet,CentralCoast,600,tons
+2015,QuotaIssued,Roe herring,Gillnet,WestCoastVancouverIsland,"1,000",tons
+2015,QuotaIssued,Roe herring,Seine,StraitofGeorgia,"15,440",tons
+2015,QuotaIssued,Roe herring,Seine,PrinceRupertDistrict,800,tons
+2015,QuotaIssued,Roe herring,Seine,WestCoastVancouverIsland,"2,000",tons
+2015,QuotaIssued,Roe herring,Seine,HaidaGwaii,800,tons
+2015,QuotaIssued,Roe herring,Seine,CentralCoast,800,tons
+2015,QuotaIssued,Food and Bait,,StraitofGeorgia,"9,085",tons
+2015,QuotaIssued,Food and Bait,,PrinceRupertDistrict,500,tons
+2015,Landings,Roe herring,Gillnet,StraitofGeorgia,"4,107",tons
+2015,Landings,Roe herring,Gillnet,PrinceRupertDistrict,"1,092",tons
+2015,Landings,Roe herring,Gillnet,CentralCoast,0,
+2015,Landings,Roe herring,Gillnet,WestCoastVancouverIsland,0,
+2015,Landings,Roe herring,Seine,StraitofGeorgia,"9,278",tons
+2015,Landings,Roe herring,Seine,PrinceRupertDistrict,812,tons
+2015,Landings,Roe herring,Seine,WestCoastVancouverIsland,0,
+2015,Landings,Roe herring,Seine,HaidaGwaii,0*,
+2015,Landings,Roe herring,Seine,CentralCoast,689,tons
+2015,Landings,Food and Bait,,StraitofGeorgia,"7,931",tons
+2015,Landings,Food and Bait,,PrinceRupertDistrict,*N/A,
+2015,#Pools,Roe herring,Gillnet,StraitofGeorgia,22,
+2015,#Pools,Roe herring,Gillnet,PrinceRupertDistrict,5,
+2015,#Pools,Roe herring,Gillnet,CentralCoast,3,
+2015,#Pools,Roe herring,Gillnet,WestCoastVancouverIsland,3,
+2015,#Pools,Roe herring,Seine,StraitofGeorgia,8,
+2015,#Pools,Roe herring,Seine,PrinceRupertDistrict,1,
+2015,#Pools,Roe herring,Seine,WestCoastVancouverIsland,1,
+2015,#Pools,Roe herring,Seine,HaidaGwaii,1,
+2015,#Pools,Roe herring,Seine,CentralCoast,1,
+2015,#Licences,Roe herring,Gillnet,StraitofGeorgia,1028,
+2015,#Licences,Roe herring,Gillnet,PrinceRupertDistrict,125,
+2015,#Licences,Roe herring,Gillnet,CentralCoast,60,
+2015,#Licences,Roe herring,Gillnet,WestCoastVancouverIsland,15,
+2015,#Licences,Roe herring,Seine,StraitofGeorgia,216,
+2015,#Licences,Roe herring,Seine,PrinceRupertDistrict,8,
+2015,#Licences,Roe herring,Seine,WestCoastVancouverIsland,7,
+2015,#Licences,Roe herring,Seine,HaidaGwaii,2,
+2015,#Licences,Roe herring,Seine,CentralCoast,9,
+2015,#Licences,Food and Bait,,StraitofGeorgia,210,
+2015,#Licences,Food and Bait,,PrinceRupertDistrict,10,
+2015,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,13.594,tons
+2015,Tonsperlicence,Roe herring,Gillnet,PrinceRupertDistrict,9.6,tons
+2015,Tonsperlicence,Roe herring,Gillnet,CentralCoast,10,tons
+2015,Tonsperlicence,Roe herring,Gillnet,WestCoastVancouverIsland,66.667,tons
+2015,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,71.481,tons
+2015,Tonsperlicence,Roe herring,Seine,PrinceRupertDistrict,100,tons
+2015,Tonsperlicence,Roe herring,Seine,WestCoastVancouverIsland,285.714,tons
+2015,Tonsperlicence,Roe herring,Seine,HaidaGwaii,400,tons
+2015,Tonsperlicence,Roe herring,Seine,CentralCoast,88.889,tons
+2015,Tonsperlicence,Food and Bait,,StraitofGeorgia,35.123/65,tons
+2015,Tonsperlicence,Food and Bait,,PrinceRupertDistrict,50,tons
+2015,Open,Roe herring,Gillnet,StraitofGeorgia,"Feb28, 2015
+14:30",
+2015,Open,Roe herring,Gillnet,PrinceRupertDistrict,"Mar22, 2015
+08:00",
+2015,Open,Roe herring,Gillnet,CentralCoast,"Mar31, 2015
+12:00",
+2015,Open,Roe herring,Gillnet,WestCoastVancouverIsland,No opening,
+2015,Open,Roe herring,Seine,StraitofGeorgia,"Feb24, 2015
+17:00",
+2015,Open,Roe herring,Seine,PrinceRupertDistrict,"Mar21,
+2015 07:53",
+2015,Open,Roe herring,Seine,WestCoastVancouverIsland,"Mar8, 2015
+16:00",
+2015,Open,Roe herring,Seine,HaidaGwaii,No fishery,
+2015,Open,Roe herring,Seine,CentralCoast,"Mar22,
+2015 16:48",
+2014,ExpectedUse,Roe herring,Gillnet,StraitofGeorgia,"6,090",tons
+2014,ExpectedUse,Roe herring,Gillnet,PrinceRupertDistrict,"1,200",tons
+2014,ExpectedUse,Roe herring,Gillnet,CentralCoast,750,
+2014,ExpectedUse,Roe herring,Gillnet,WestCoastVancouverIsland,825,
+2014,ExpectedUse,Roe herring,Seine,StraitofGeorgia,"7,543",tons
+2014,ExpectedUse,Roe herring,Seine,PrinceRupertDistrict,800,tons
+2014,ExpectedUse,Roe herring,Seine,WestCoastVancouverIsland,"1,292",tons
+2014,ExpectedUse,Roe herring,Seine,HaidaGwaii,"1,200",tons
+2014,QuotaIssued,Roe herring,Gillnet,StraitofGeorgia,"6,090",tons
+2014,QuotaIssued,Roe herring,Gillnet,PrinceRupertDistrict,"1,200",tons
+2014,QuotaIssued,Roe herring,Gillnet,CentralCoast,750,
+2014,QuotaIssued,Roe herring,Gillnet,WestCoastVancouverIsland,825,
+2014,QuotaIssued,Roe herring,Seine,StraitofGeorgia,"7,543",tons
+2014,QuotaIssued,Roe herring,Seine,PrinceRupertDistrict,800,tons
+2014,QuotaIssued,Roe herring,Seine,WestCoastVancouverIsland,"1,292",tons
+2014,QuotaIssued,Roe herring,Seine,HaidaGwaii,"1,200",tons
+2014,QuotaIssued,SOK,NA,Area10/12,"8,000",tons
+2014,QuotaIssued,Food and Bait,,StraitofGeorgia,200,tons
+2014,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,167",tons
+2014,Landings,Roe herring,Gillnet,PrinceRupertDistrict,"1,230",tons
+2014,Landings,Roe herring,Gillnet,CentralCoast,757,
+2014,Landings,Roe herring,Gillnet,WestCoastVancouverIsland,0*,
+2014,Landings,Roe herring,Seine,StraitofGeorgia,"7,584",tons
+2014,Landings,Roe herring,Seine,PrinceRupertDistrict,791,tons
+2014,Landings,Roe herring,Seine,WestCoastVancouverIsland,0*,
+2014,Landings,Roe herring,Seine,HaidaGwaii,0,
+2014,Landings,SOK,NA,Area10/12,"8,000",tons
+2014,Landings,Food and Bait,,StraitofGeorgia,*N/A,
+2014,#Pools,Roe herring,Gillnet,StraitofGeorgia,11,
+2014,#Pools,Roe herring,Gillnet,PrinceRupertDistrict,5,
+2014,#Pools,Roe herring,Gillnet,CentralCoast,6,
+2014,#Pools,Roe herring,Gillnet,WestCoastVancouverIsland,4,
+2014,#Pools,Roe herring,Seine,StraitofGeorgia,9,
+2014,#Pools,Roe herring,Seine,PrinceRupertDistrict,1,
+2014,#Pools,Roe herring,Seine,WestCoastVancouverIsland,1,
+2014,#Pools,Roe herring,Seine,HaidaGwaii,1,
+2014,#Licences,Roe herring,Gillnet,StraitofGeorgia,1018,
+2014,#Licences,Roe herring,Gillnet,PrinceRupertDistrict,172,
+2014,#Licences,Roe herring,Gillnet,CentralCoast,50,
+2014,#Licences,Roe herring,Gillnet,WestCoastVancouverIsland,23,
+2014,#Licences,Roe herring,Seine,StraitofGeorgia,195,
+2014,#Licences,Roe herring,Seine,PrinceRupertDistrict,16,
+2014,#Licences,Roe herring,Seine,WestCoastVancouverIsland,27,
+2014,#Licences,Roe herring,Seine,HaidaGwaii,13,
+2014,#Licences,SOK,NA,Area10/12,100,
+2014,#Licences,Food and Bait,,StraitofGeorgia,4,
+2014,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,5.982,tons
+2014,Tonsperlicence,Roe herring,Gillnet,PrinceRupertDistrict,6.977,tons
+2014,Tonsperlicence,Roe herring,Gillnet,CentralCoast,15,tons
+2014,Tonsperlicence,Roe herring,Gillnet,WestCoastVancouverIsland,35.87,tons
+2014,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,38.682,tons
+2014,Tonsperlicence,Roe herring,Seine,PrinceRupertDistrict,50,tons
+2014,Tonsperlicence,Roe herring,Seine,WestCoastVancouverIsland,47.852,tons
+2014,Tonsperlicence,Roe herring,Seine,HaidaGwaii,92.308,tons
+2014,Tonsperlicence,SOK,NA,Area10/12,80,tons
+2014,Tonsperlicence,Food and Bait,,StraitofGeorgia,50,tons
+2014,Open,Roe herring,Gillnet,StraitofGeorgia,"Mar5, 2014
+09:30",
+2014,Open,Roe herring,Gillnet,PrinceRupertDistrict,"Mar30, 2014
+08:00",
+2014,Open,Roe herring,Gillnet,CentralCoast,"Apr1, 2014
+14:30",
+2014,Open,Roe herring,Gillnet,WestCoastVancouverIsland,No fishery,
+2014,Open,Roe herring,Seine,StraitofGeorgia,"Mar3, 2014
+11:00",
+2014,Open,Roe herring,Seine,PrinceRupertDistrict,"Mar23, 2014
+07:25",
+2014,Open,Roe herring,Seine,WestCoastVancouverIsland,No fishery,
+2014,Open,Roe herring,Seine,HaidaGwaii,No fishery,
+2013,ExpectedUse,Roe herring,Gillnet,StraitofGeorgia,"6,350",tons
+2013,ExpectedUse,Roe herring,Gillnet,PrinceRupertDistrict,"1,300",tons
+2013,ExpectedUse,Roe herring,Seine,StraitofGeorgia,"6,655",tons
+2013,ExpectedUse,Roe herring,Seine,PrinceRupertDistrict,800,tons
+2013,QuotaIssued,Roe herring,Gillnet,StraitofGeorgia,"6,350",tons
+2013,QuotaIssued,Roe herring,Gillnet,PrinceRupertDistrict,"1,300",tons
+2013,QuotaIssued,Roe herring,Seine,StraitofGeorgia,"6,655",tons
+2013,QuotaIssued,Roe herring,Seine,PrinceRupertDistrict,800,tons
+2013,QuotaIssued,Food and Bait,,StraitofGeorgia,"4,445",tons
+2013,QuotaIssued,Food and Bait,,PrinceRupertDistrict,50,tons
+2013,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,509",tons
+2013,Landings,Roe herring,Gillnet,PrinceRupertDistrict,"1,415",tons
+2013,Landings,Roe herring,Seine,StraitofGeorgia,"6,723",tons
+2013,Landings,Roe herring,Seine,PrinceRupertDistrict,818,tons
+2013,Landings,Food and Bait,,StraitofGeorgia,"4,400",tons
+2013,Landings,Food and Bait,,PrinceRupertDistrict,-,
+2013,#Pools,Roe herring,Gillnet,StraitofGeorgia,15,
+2013,#Pools,Roe herring,Gillnet,PrinceRupertDistrict,7,
+2013,#Pools,Roe herring,Seine,StraitofGeorgia,9,
+2013,#Pools,Roe herring,Seine,PrinceRupertDistrict,1,
+2013,#Licences,Roe herring,Gillnet,StraitofGeorgia,1049,
+2013,#Licences,Roe herring,Gillnet,PrinceRupertDistrict,215,
+2013,#Licences,Roe herring,Seine,StraitofGeorgia,226,
+2013,#Licences,Roe herring,Seine,PrinceRupertDistrict,24,
+2013,#Licences,Food and Bait,,StraitofGeorgia,101,
+2013,#Licences,Food and Bait,,PrinceRupertDistrict,0,
+2013,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,6.053,tons
+2013,Tonsperlicence,Roe herring,Gillnet,PrinceRupertDistrict,6.047,tons
+2013,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,29.447,tons
+2013,Tonsperlicence,Roe herring,Seine,PrinceRupertDistrict,33.333,tons
+2013,Open,Roe herring,Gillnet,StraitofGeorgia,2013-03-02 16:00,
+2013,Open,Roe herring,Gillnet,PrinceRupertDistrict,2013-03-20 8:00,
+2013,Open,Roe herring,Seine,StraitofGeorgia,2013-03-03 17:30,
+2013,Open,Roe herring,Seine,PrinceRupertDistrict,"Mar19, 2013 17:15/Mar.
+22, 2013 11:05",
+2012,ExpectedUse,Roe herring,Gillnet,StraitofGeorgia,"4,850",tons
+2012,ExpectedUse,Roe herring,Gillnet,PrinceRupertDistrict,"1,000",tons
+2012,ExpectedUse,Roe herring,Seine,StraitofGeorgia,"6,650",tons
+2012,ExpectedUse,Roe herring,Seine,PrinceRupertDistrict,500,tons
+2012,QuotaIssued,Roe herring,Gillnet,StraitofGeorgia,"4,850",tons
+2012,QuotaIssued,Roe herring,Gillnet,PrinceRupertDistrict,"1,000",tons
+2012,QuotaIssued,Roe herring,Seine,StraitofGeorgia,"6,650",tons
+2012,QuotaIssued,Roe herring,Seine,PrinceRupertDistrict,500,tons
+2012,QuotaIssued,Food and Bait,,StraitofGeorgia,"6,000",tons
+2012,QuotaIssued,Food and Bait,,PrinceRupertDistrict,60,tons
+2012,Landings,Roe herring,Gillnet,StraitofGeorgia,"4,496",tons
+2012,Landings,Roe herring,Gillnet,PrinceRupertDistrict,"1,010",tons
+2012,Landings,Roe herring,Seine,StraitofGeorgia,"3,494",tons
+2012,Landings,Roe herring,Seine,PrinceRupertDistrict,514,tons
+2012,Landings,Food and Bait,,StraitofGeorgia,"3,950",tons
+2012,Landings,Food and Bait,,PrinceRupertDistrict,-,
+2012,#Pools,Roe herring,Gillnet,StraitofGeorgia,33,
+2012,#Pools,Roe herring,Gillnet,PrinceRupertDistrict,8,
+2012,#Pools,Roe herring,Seine,StraitofGeorgia,10,
+2012,#Pools,Roe herring,Seine,PrinceRupertDistrict,1,
+2012,#Licences,Roe herring,Gillnet,StraitofGeorgia,1054,
+2012,#Licences,Roe herring,Gillnet,PrinceRupertDistrict,118,
+2012,#Licences,Roe herring,Seine,StraitofGeorgia,238,
+2012,#Licences,Roe herring,Seine,PrinceRupertDistrict,11,
+2012,#Licences,Food and Bait,,StraitofGeorgia,70,
+2012,#Licences,Food and Bait,,PrinceRupertDistrict,0,
+2012,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,4.6,tons
+2012,Tonsperlicence,Roe herring,Gillnet,PrinceRupertDistrict,8.47,tons
+2012,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,27.94,tons
+2012,Tonsperlicence,Roe herring,Seine,PrinceRupertDistrict,45.45,tons
+2012,Tonsperlicence,Food and Bait,,StraitofGeorgia,60,tons
+2012,Tonsperlicence,Food and Bait,,PrinceRupertDistrict,60,tons
+2012,Open,Roe herring,Gillnet,StraitofGeorgia,"Mar4, 2012 13:00h",
+2012,Open,Roe herring,Gillnet,PrinceRupertDistrict,"Mar24, 2012 10:00h",
+2012,Open,Roe herring,Seine,StraitofGeorgia,"Mar4, 2012 15:25h/Mar.
+17, 2012 08:20h",
+2012,Open,Roe herring,Seine,PrinceRupertDistrict,"Mar30, 2012 06:30h",
+2011,ExpectedUse,Roe herring,Gillnet,StraitofGeorgia,"5,785",tons
+2011,ExpectedUse,Roe herring,Gillnet,PrinceRupertDistrict,"1,346",tons
+2011,ExpectedUse,Roe herring,Seine,StraitofGeorgia,7715,
+2011,ExpectedUse,Roe herring,Seine,PrinceRupertDistrict,1000,
+2011,QuotaIssued,Roe herring,Gillnet,StraitofGeorgia,"5,785",tons
+2011,QuotaIssued,Roe herring,Gillnet,PrinceRupertDistrict,"1,346",tons
+2011,QuotaIssued,Roe herring,Seine,StraitofGeorgia,7715,
+2011,QuotaIssued,Roe herring,Seine,PrinceRupertDistrict,1000,
+2011,QuotaIssued,Food and Bait,,StraitofGeorgia,300,tons
+2011,QuotaIssued,Food and Bait,,PrinceRupertDistrict,50,tons
+2011,Landings,Roe herring,Gillnet,StraitofGeorgia,"4,868",tons
+2011,Landings,Roe herring,Gillnet,PrinceRupertDistrict,"1,392",tons
+2011,Landings,Roe herring,Seine,StraitofGeorgia,0,
+2011,Landings,Roe herring,Seine,PrinceRupertDistrict,973,
+2011,Landings,Food and Bait,,StraitofGeorgia,283,tons
+2011,Landings,Food and Bait,,PrinceRupertDistrict,-,
+2011,#Pools,Roe herring,Gillnet,StraitofGeorgia,36,
+2011,#Pools,Roe herring,Gillnet,PrinceRupertDistrict,8,
+2011,#Pools,Roe herring,Seine,StraitofGeorgia,13,
+2011,#Pools,Roe herring,Seine,PrinceRupertDistrict,1,
+2011,#Licences,Roe herring,Gillnet,StraitofGeorgia,1133,
+2011,#Licences,Roe herring,Gillnet,PrinceRupertDistrict,95,
+2011,#Licences,Roe herring,Seine,StraitofGeorgia,238,
+2011,#Licences,Roe herring,Seine,PrinceRupertDistrict,10,
+2011,#Licences,Food and Bait,,StraitofGeorgia,6,
+2011,#Licences,Food and Bait,,PrinceRupertDistrict,0,
+2011,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,5.106,tons
+2011,Tonsperlicence,Roe herring,Gillnet,PrinceRupertDistrict,14.168,tons
+2011,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,32.416,
+2011,Tonsperlicence,Roe herring,Seine,PrinceRupertDistrict,100,
+2011,Open,Roe herring,Gillnet,StraitofGeorgia,"Mar13, 2011 11:00h",
+2011,Open,Roe herring,Gillnet,PrinceRupertDistrict,"Mar26, 2011 09:00h",
+2011,Open,Roe herring,Seine,StraitofGeorgia,-,
+2011,Open,Roe herring,Seine,PrinceRupertDistrict,Mar25 2011 11:45h,
+2010,ExpectedUse,Roe herring,Gillnet,StraitofGeorgia,"3,480",tons
+2010,ExpectedUse,Roe herring,Gillnet,PrinceRupertDistrict,"1,037",tons
+2010,ExpectedUse,Roe herring,Seine,StraitofGeorgia,"5,020",tons
+2010,ExpectedUse,Roe herring,Seine,PrinceRupertDistrict,500,tons
+2010,QuotaIssued,Roe herring,Gillnet,StraitofGeorgia,"3,480",tons
+2010,QuotaIssued,Roe herring,Gillnet,PrinceRupertDistrict,"1,037",tons
+2010,QuotaIssued,Roe herring,Seine,StraitofGeorgia,"5,020",tons
+2010,QuotaIssued,Roe herring,Seine,PrinceRupertDistrict,500,tons
+2010,QuotaIssued,Food and Bait,,StraitofGeorgia,300,tons
+2010,QuotaIssued,Food and Bait,,PrinceRupertDistrict,50,tons
+2010,Landings,Roe herring,Gillnet,StraitofGeorgia,"3,576",tons
+2010,Landings,Roe herring,Gillnet,PrinceRupertDistrict,"1,115",tons
+2010,Landings,Roe herring,Seine,StraitofGeorgia,"5,004",tons
+2010,Landings,Roe herring,Seine,PrinceRupertDistrict,523,tons
+2010,Landings,Food and Bait,,StraitofGeorgia,284,tons
+2010,Landings,Food and Bait,,PrinceRupertDistrict,-,
+2010,#Pools,Roe herring,Gillnet,StraitofGeorgia,13,
+2010,#Pools,Roe herring,Gillnet,PrinceRupertDistrict,1,
+2010,#Pools,Roe herring,Seine,StraitofGeorgia,8,
+2010,#Pools,Roe herring,Seine,PrinceRupertDistrict,1,
+2010,#Licences,Roe herring,Gillnet,StraitofGeorgia,990,
+2010,#Licences,Roe herring,Gillnet,PrinceRupertDistrict,264,
+2010,#Licences,Roe herring,Seine,StraitofGeorgia,223,
+2010,#Licences,Roe herring,Seine,PrinceRupertDistrict,27,
+2010,#Licences,Food and Bait,,StraitofGeorgia,6,
+2010,#Licences,Food and Bait,,PrinceRupertDistrict,0,
+2010,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,3.515,tons
+2010,Tonsperlicence,Roe herring,Gillnet,PrinceRupertDistrict,3.928,tons
+2010,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,22.511,
+2010,Tonsperlicence,Roe herring,Seine,PrinceRupertDistrict,18.519,
+2010,Tonsperlicence,Food and Bait,,StraitofGeorgia,50,tons
+2010,Tonsperlicence,Food and Bait,,PrinceRupertDistrict,50,tons
+2010,Open,Roe herring,Gillnet,StraitofGeorgia,"Feb26, 2010 14:00h",
+2010,Open,Roe herring,Gillnet,PrinceRupertDistrict,29-Mar-10,
+2010,Open,Roe herring,Seine,StraitofGeorgia,"Open Feb28, 2010 07:00h ",
+2010,Open,Roe herring,Seine,PrinceRupertDistrict,"Mar23, 2010 09:05h",
+1980,Landings,Roe herring,Gillnet,StraitofGeorgia,"3,502",tons
+1981,Landings,Roe herring,Gillnet,StraitofGeorgia,"5,584",tons
+1982,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,154",tons
+1983,Landings,Roe herring,Gillnet,StraitofGeorgia,"9,495",tons
+1984,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,657",tons
+1985,Landings,Roe herring,Gillnet,StraitofGeorgia,"3,852",tons
+1986,Landings,Roe herring,Gillnet,StraitofGeorgia,0,tons
+1987,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,612",tons
+1988,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,601",tons
+1989,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,525.00",tons
+1990,Landings,Roe herring,Gillnet,StraitofGeorgia,"8,693.00",tons
+1991,Landings,Roe herring,Gillnet,StraitofGeorgia,"9,844.00",tons
+1992,Landings,Roe herring,Gillnet,StraitofGeorgia,"9,393",tons
+1993,Landings,Roe herring,Gillnet,StraitofGeorgia,"9,948.00",tons
+1994,Landings,Roe herring,Gillnet,StraitofGeorgia,"12,249.00",tons
+1995,Landings,Roe herring,Gillnet,StraitofGeorgia,"9,112",tons
+1996,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,528.00",tons
+1997,Landings,Roe herring,Gillnet,StraitofGeorgia,"6,294",tons
+1998,Landings,Roe herring,Gillnet,StraitofGeorgia,"7,343.00",tons
+1999,Landings,Roe herring,Gillnet,StraitofGeorgia,"7,296",tons
+2000,Landings,Roe herring,Gillnet,StraitofGeorgia,"8,155.00",tons
+2001,Landings,Roe herring,Gillnet,StraitofGeorgia,"8,281",tons
+2002,Landings,Roe herring,Gillnet,StraitofGeorgia,"8,640.00",tons
+2003,Landings,Roe herring,Gillnet,StraitofGeorgia,"8,707",tons
+2004,Landings,Roe herring,Gillnet,StraitofGeorgia,"5,637.00",tons
+2005,Landings,Roe herring,Gillnet,StraitofGeorgia,"9,657",tons
+2006,Landings,Roe herring,Gillnet,StraitofGeorgia,"7,698.00",tons
+2007,Landings,Roe herring,Gillnet,StraitofGeorgia,"5,826",tons
+2008,Landings,Roe herring,Gillnet,StraitofGeorgia,"3,033.00",tons
+2009,Landings,Roe herring,Gillnet,StraitofGeorgia,"4,340",tons
+2010,Landings,Roe herring,Gillnet,StraitofGeorgia,"3,576.00",tons
+1980,Landings,Roe herring,Seine,StraitofGeorgia,0,tons
+1981,Landings,Roe herring,Seine,StraitofGeorgia,"2,294.00",tons
+1982,Landings,Roe herring,Seine,StraitofGeorgia,"3,651",tons
+1983,Landings,Roe herring,Seine,StraitofGeorgia,"8,576.00",tons
+1984,Landings,Roe herring,Seine,StraitofGeorgia,"4,548",tons
+1985,Landings,Roe herring,Seine,StraitofGeorgia,"2,915.00",tons
+1986,Landings,Roe herring,Seine,StraitofGeorgia,0,tons
+1987,Landings,Roe herring,Seine,StraitofGeorgia,"3,429.00",tons
+1988,Landings,Roe herring,Seine,StraitofGeorgia,"1,621",tons
+1989,Landings,Roe herring,Seine,StraitofGeorgia,"1,562.00",tons
+1990,Landings,Roe herring,Seine,StraitofGeorgia,0,tons
+1991,Landings,Roe herring,Seine,StraitofGeorgia,"1,020.00",tons
+1992,Landings,Roe herring,Seine,StraitofGeorgia,"3,430",tons
+1993,Landings,Roe herring,Seine,StraitofGeorgia,"4,383.00",tons
+1994,Landings,Roe herring,Seine,StraitofGeorgia,"4,902",tons
+1995,Landings,Roe herring,Seine,StraitofGeorgia,"4,209.00",tons
+1996,Landings,Roe herring,Seine,StraitofGeorgia,"6,995",tons
+1997,Landings,Roe herring,Seine,StraitofGeorgia,"9,410.00",tons
+1998,Landings,Roe herring,Seine,StraitofGeorgia,"6,259",tons
+1999,Landings,Roe herring,Seine,StraitofGeorgia,"5,104.00",tons
+2000,Landings,Roe herring,Seine,StraitofGeorgia,"6,689",tons
+2001,Landings,Roe herring,Seine,StraitofGeorgia,"7,358.00",tons
+2002,Landings,Roe herring,Seine,StraitofGeorgia,"9,685",tons
+2003,Landings,Roe herring,Seine,StraitofGeorgia,"10,897.00",tons
+2004,Landings,Roe herring,Seine,StraitofGeorgia,"7,737",tons
+2005,Landings,Roe herring,Seine,StraitofGeorgia,"7,710.00",tons
+2006,Landings,Roe herring,Seine,StraitofGeorgia,"9,060",tons
+2007,Landings,Roe herring,Seine,StraitofGeorgia,"4,260.00",tons
+2008,Landings,Roe herring,Seine,StraitofGeorgia,"6,664",tons
+2009,Landings,Roe herring,Seine,StraitofGeorgia,"6,265.00",tons
+2010,Landings,Roe herring,Seine,StraitofGeorgia,"5,004",tons
+1980,Landings,Roe herring,Gillnet,HaidaGwaii,1334,tons
+1981,Landings,Roe herring,Gillnet,HaidaGwaii,1879,tons
+1982,Landings,Roe herring,Gillnet,HaidaGwaii,1551,tons
+1983,Landings,Roe herring,Gillnet,HaidaGwaii,1024,tons
+1984,Landings,Roe herring,Gillnet,HaidaGwaii,589,tons
+1985,Landings,Roe herring,Gillnet,HaidaGwaii,1644,tons
+1986,Landings,Roe herring,Gillnet,HaidaGwaii,981,tons
+1987,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1988,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1989,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1990,Landings,Roe herring,Gillnet,HaidaGwaii,1290,tons
+1991,Landings,Roe herring,Gillnet,HaidaGwaii,598,tons
+1992,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1993,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1994,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1995,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1996,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1997,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1998,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1999,Landings,Roe herring,Gillnet,HaidaGwaii,521,tons
+2000,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2001,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2002,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2003,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2004,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2005,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2006,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2007,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2008,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2009,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+2010,Landings,Roe herring,Gillnet,HaidaGwaii,0,tons
+1980,Landings,Roe herring,Seine,HaidaGwaii,2321,tons
+1981,Landings,Roe herring,Seine,HaidaGwaii,4281,tons
+1982,Landings,Roe herring,Seine,HaidaGwaii,2594,tons
+1983,Landings,Roe herring,Seine,HaidaGwaii,5071,tons
+1984,Landings,Roe herring,Seine,HaidaGwaii,4427,tons
+1985,Landings,Roe herring,Seine,HaidaGwaii,4832,tons
+1986,Landings,Roe herring,Seine,HaidaGwaii,2720,tons
+1987,Landings,Roe herring,Seine,HaidaGwaii,1896,tons
+1988,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+1989,Landings,Roe herring,Seine,HaidaGwaii,1211,tons
+1990,Landings,Roe herring,Seine,HaidaGwaii,5787,tons
+1991,Landings,Roe herring,Seine,HaidaGwaii,6367,tons
+1992,Landings,Roe herring,Seine,HaidaGwaii,3650,tons
+1993,Landings,Roe herring,Seine,HaidaGwaii,3470,tons
+1994,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+1995,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+1996,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+1997,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+1998,Landings,Roe herring,Seine,HaidaGwaii,1512,tons
+1999,Landings,Roe herring,Seine,HaidaGwaii,2484,tons
+2000,Landings,Roe herring,Seine,HaidaGwaii,1640,tons
+2001,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+2002,Landings,Roe herring,Seine,HaidaGwaii,502,tons
+2003,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+2004,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+2005,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+2006,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+2007,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+2008,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+2009,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+2010,Landings,Roe herring,Seine,HaidaGwaii,0,tons
+1980,Landings,Roe herring,Gillnet,PrinceRupertDistrict,1153,tons
+1981,Landings,Roe herring,Gillnet,PrinceRupertDistrict,392,tons
+1982,Landings,Roe herring,Gillnet,PrinceRupertDistrict,0,tons
+1983,Landings,Roe herring,Gillnet,PrinceRupertDistrict,0,tons
+1984,Landings,Roe herring,Gillnet,PrinceRupertDistrict,2072,tons
+1985,Landings,Roe herring,Gillnet,PrinceRupertDistrict,3831,tons
+1986,Landings,Roe herring,Gillnet,PrinceRupertDistrict,5039,tons
+1987,Landings,Roe herring,Gillnet,PrinceRupertDistrict,4485,tons
+1988,Landings,Roe herring,Gillnet,PrinceRupertDistrict,4781,tons
+1989,Landings,Roe herring,Gillnet,PrinceRupertDistrict,5231,tons
+1990,Landings,Roe herring,Gillnet,PrinceRupertDistrict,2603,tons
+1991,Landings,Roe herring,Gillnet,PrinceRupertDistrict,0,tons
+1992,Landings,Roe herring,Gillnet,PrinceRupertDistrict,3912,tons
+1993,Landings,Roe herring,Gillnet,PrinceRupertDistrict,4155,tons
+1994,Landings,Roe herring,Gillnet,PrinceRupertDistrict,2530,tons
+1995,Landings,Roe herring,Gillnet,PrinceRupertDistrict,1522,tons
+1996,Landings,Roe herring,Gillnet,PrinceRupertDistrict,3075,tons
+1997,Landings,Roe herring,Gillnet,PrinceRupertDistrict,6007,tons
+1998,Landings,Roe herring,Gillnet,PrinceRupertDistrict,3501,tons
+1999,Landings,Roe herring,Gillnet,PrinceRupertDistrict,2028,tons
+2000,Landings,Roe herring,Gillnet,PrinceRupertDistrict,3308,tons
+2001,Landings,Roe herring,Gillnet,PrinceRupertDistrict,2100,tons
+2002,Landings,Roe herring,Gillnet,PrinceRupertDistrict,2681,tons
+2003,Landings,Roe herring,Gillnet,PrinceRupertDistrict,2706,tons
+2004,Landings,Roe herring,Gillnet,PrinceRupertDistrict,2330,tons
+2005,Landings,Roe herring,Gillnet,PrinceRupertDistrict,2142,tons
+2006,Landings,Roe herring,Gillnet,PrinceRupertDistrict,1697,tons
+2007,Landings,Roe herring,Gillnet,PrinceRupertDistrict,1067,tons
+2008,Landings,Roe herring,Gillnet,PrinceRupertDistrict,1266,tons
+2009,Landings,Roe herring,Gillnet,PrinceRupertDistrict,1418,tons
+2010,Landings,Roe herring,Gillnet,PrinceRupertDistrict,1113,tons
+1980,Landings,Roe herring,Seine,PrinceRupertDistrict,1809,tons
+1981,Landings,Roe herring,Seine,PrinceRupertDistrict,1159,tons
+1982,Landings,Roe herring,Seine,PrinceRupertDistrict,0,tons
+1983,Landings,Roe herring,Seine,PrinceRupertDistrict,0,tons
+1984,Landings,Roe herring,Seine,PrinceRupertDistrict,1822,tons
+1985,Landings,Roe herring,Seine,PrinceRupertDistrict,3086,tons
+1986,Landings,Roe herring,Seine,PrinceRupertDistrict,3796,tons
+1987,Landings,Roe herring,Seine,PrinceRupertDistrict,1918,tons
+1988,Landings,Roe herring,Seine,PrinceRupertDistrict,3585,tons
+1989,Landings,Roe herring,Seine,PrinceRupertDistrict,3805,tons
+1990,Landings,Roe herring,Seine,PrinceRupertDistrict,2224,tons
+1991,Landings,Roe herring,Seine,PrinceRupertDistrict,0,tons
+1992,Landings,Roe herring,Seine,PrinceRupertDistrict,1230,tons
+1993,Landings,Roe herring,Seine,PrinceRupertDistrict,2000,tons
+1994,Landings,Roe herring,Seine,PrinceRupertDistrict,2017,tons
+1995,Landings,Roe herring,Seine,PrinceRupertDistrict,797,tons
+1996,Landings,Roe herring,Seine,PrinceRupertDistrict,0,tons
+1997,Landings,Roe herring,Seine,PrinceRupertDistrict,0,tons
+1998,Landings,Roe herring,Seine,PrinceRupertDistrict,0,tons
+1999,Landings,Roe herring,Seine,PrinceRupertDistrict,0,tons
+2000,Landings,Roe herring,Seine,PrinceRupertDistrict,1366,tons
+2001,Landings,Roe herring,Seine,PrinceRupertDistrict,839,tons
+2002,Landings,Roe herring,Seine,PrinceRupertDistrict,2059,tons
+2003,Landings,Roe herring,Seine,PrinceRupertDistrict,1383,tons
+2004,Landings,Roe herring,Seine,PrinceRupertDistrict,1646,tons
+2005,Landings,Roe herring,Seine,PrinceRupertDistrict,1567,tons
+2006,Landings,Roe herring,Seine,PrinceRupertDistrict,820,tons
+2007,Landings,Roe herring,Seine,PrinceRupertDistrict,0,tons
+2008,Landings,Roe herring,Seine,PrinceRupertDistrict,566,tons
+2009,Landings,Roe herring,Seine,PrinceRupertDistrict,786,tons
+2010,Landings,Roe herring,Seine,PrinceRupertDistrict,523,tons
+1980,Landings,Roe herring,Gillnet,CentralCoast,0,tons
+1981,Landings,Roe herring,Gillnet,CentralCoast,0,tons
+1982,Landings,Roe herring,Gillnet,CentralCoast,4488,tons
+1983,Landings,Roe herring,Gillnet,CentralCoast,3945,tons
+1984,Landings,Roe herring,Gillnet,CentralCoast,3949,tons
+1985,Landings,Roe herring,Gillnet,CentralCoast,2529,tons
+1986,Landings,Roe herring,Gillnet,CentralCoast,1296,tons
+1987,Landings,Roe herring,Gillnet,CentralCoast,1014,tons
+1988,Landings,Roe herring,Gillnet,CentralCoast,1069,tons
+1989,Landings,Roe herring,Gillnet,CentralCoast,3209,tons
+1990,Landings,Roe herring,Gillnet,CentralCoast,3357,tons
+1991,Landings,Roe herring,Gillnet,CentralCoast,1915,tons
+1992,Landings,Roe herring,Gillnet,CentralCoast,1085,tons
+1993,Landings,Roe herring,Gillnet,CentralCoast,2007,tons
+1994,Landings,Roe herring,Gillnet,CentralCoast,2406,tons
+1995,Landings,Roe herring,Gillnet,CentralCoast,1581,tons
+1996,Landings,Roe herring,Gillnet,CentralCoast,369,tons
+1997,Landings,Roe herring,Gillnet,CentralCoast,33,tons
+1998,Landings,Roe herring,Gillnet,CentralCoast,498,tons
+1999,Landings,Roe herring,Gillnet,CentralCoast,1558,tons
+2000,Landings,Roe herring,Gillnet,CentralCoast,1021,tons
+2001,Landings,Roe herring,Gillnet,CentralCoast,509,tons
+2002,Landings,Roe herring,Gillnet,CentralCoast,440,tons
+2003,Landings,Roe herring,Gillnet,CentralCoast,319,tons
+2004,Landings,Roe herring,Gillnet,CentralCoast,0,tons
+2005,Landings,Roe herring,Gillnet,CentralCoast,0,tons
+2006,Landings,Roe herring,Gillnet,CentralCoast,0,tons
+2007,Landings,Roe herring,Gillnet,CentralCoast,0,tons
+2008,Landings,Roe herring,Gillnet,CentralCoast,0,tons
+2009,Landings,Roe herring,Gillnet,CentralCoast,0,tons
+2010,Landings,Roe herring,Gillnet,CentralCoast,0,tons
+1980,Landings,Roe herring,Seine,CentralCoast,0,tons
+1981,Landings,Roe herring,Seine,CentralCoast,0,tons
+1982,Landings,Roe herring,Seine,CentralCoast,2489,tons
+1983,Landings,Roe herring,Seine,CentralCoast,2272,tons
+1984,Landings,Roe herring,Seine,CentralCoast,3955,tons
+1985,Landings,Roe herring,Seine,CentralCoast,2993,tons
+1986,Landings,Roe herring,Seine,CentralCoast,2224,tons
+1987,Landings,Roe herring,Seine,CentralCoast,2583,tons
+1988,Landings,Roe herring,Seine,CentralCoast,3490,tons
+1989,Landings,Roe herring,Seine,CentralCoast,6796,tons
+1990,Landings,Roe herring,Seine,CentralCoast,5336,tons
+1991,Landings,Roe herring,Seine,CentralCoast,7300,tons
+1992,Landings,Roe herring,Seine,CentralCoast,6913,tons
+1993,Landings,Roe herring,Seine,CentralCoast,8655,tons
+1994,Landings,Roe herring,Seine,CentralCoast,10036,tons
+1995,Landings,Roe herring,Seine,CentralCoast,8406,tons
+1996,Landings,Roe herring,Seine,CentralCoast,3900,tons
+1997,Landings,Roe herring,Seine,CentralCoast,2805,tons
+1998,Landings,Roe herring,Seine,CentralCoast,7919,tons
+1999,Landings,Roe herring,Seine,CentralCoast,5967,tons
+2000,Landings,Roe herring,Seine,CentralCoast,6513,tons
+2001,Landings,Roe herring,Seine,CentralCoast,5665,tons
+2002,Landings,Roe herring,Seine,CentralCoast,2636,tons
+2003,Landings,Roe herring,Seine,CentralCoast,2054,tons
+2004,Landings,Roe herring,Seine,CentralCoast,2559,tons
+2005,Landings,Roe herring,Seine,CentralCoast,3618,tons
+2006,Landings,Roe herring,Seine,CentralCoast,2710,tons
+2007,Landings,Roe herring,Seine,CentralCoast,439,tons
+2008,Landings,Roe herring,Seine,CentralCoast,0,tons
+2009,Landings,Roe herring,Seine,CentralCoast,0,tons
+2010,Landings,Roe herring,Seine,CentralCoast,0,tons
+2019,Tonsperlicence,Roe herring,Gillnet,StraitofGeorgia,9.0542,tons
+2019,Tonsperlicence,Roe herring,Seine,StraitofGeorgia,39.7658,tons
+2019,#Licences,Roe herring,Gillnet,StraitofGeorgia,1267,
+2019,#Licences,Roe herring,Seine,StraitofGeorgia,252,
