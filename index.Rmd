@@ -3,7 +3,7 @@ title: "Economic Value of Pacific Herring in the Strait of Georgia"
 author: "Tim Cashion"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output:
-  bookdown::html_document2
+  bookdown::gitbook
 bibliography: MyCollection.bib
 always_allow_html: yes
 biblio-style: "apalike"
