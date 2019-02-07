@@ -56,7 +56,7 @@ fisherytype_value_plot <- fisherytype_value %>%
 #print(fisherytype_value_plot)
 p <- ggplotly(fisherytype_value_plot)
 p
-#api_create(p, filename = "herring-fishery-type-plot")
+api_create(p, filename = "herring-fishery-type-plot")
 
 ```
 

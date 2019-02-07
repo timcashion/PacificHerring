@@ -25,7 +25,9 @@ cpi <- read_csv("./Data/Canadian_CPI.csv") %>%
 cpi_2015 <- inflation_adjust(cpi, 2015) %>% 
   rename(Year=year)
 #theme_set(theme_ipsum()) # Doesn't work on PC because it's missing Arial Narrow font.
-theme_set(theme_ipsum_rc())
+theme_set(theme_ipsum_rc() + 
+            theme(text=element_text(family="Alegreya Sans SC Light")))
+
 
 number_call <- function(num, decimals){
   x <- prettyNum(num, big.mark = ",", small.mark = ".", digits=decimals) 
@@ -42,7 +44,12 @@ short_to_metric_multiplier <- 2000 /2204.623
 
 ```
 
-Prepared for Pacific Wild
+
+Prepared for Pacific Wild  
+
+```{r PW-logo, fig.align = 'center'}
+knitr::include_graphics("./PW Logo files/PNG (raster)/large-png-pacific-wild-logo/pw-icon-dark-light-bg@2x.png", )
+```
 
 
 ```{r}
@@ -103,6 +110,48 @@ fisherytype_value_plot <- fisherytype_value %>%
 
 #fisherytype_value_plot <- ggplotly(fisherytype_value_plot)
 ggplotly(fisherytype_value_plot)
+```
+
+
+
+For the 2019 season, the expected catches across all herring fisheries is ~30,000 tonnes (Figure \@ref(fig:bar-chart-area-use)). The gillnet and seine roe fisheries are going to occur solely within the Strait of Georgia. Outside the Strait of Georgia, there are small fisheries as part of First Nations and commercial spawn on kelp fisheries (SOK), as well as Food, Social, and Ceremonial (FSC) fisheries. Other special use herring fisheries include human food and bait, sport fishing bait, personal use and fish for zoos and aquaria totalling ~800 tonnes. Grouping these together, the only commercial fishing outside the Strait of Georgia is for commercial spawn on kelp herring fisheries. 
+
+```{r bar-chart-area-use, echo=F, warning=F, message=F, fig.cap="Expected catches (metric tonnes) of herring by area and fishery for the 2019 season"}
+expected_2019 <- read.csv("./Data/Herring2019SeasonExpectedUse.csv")
+expected_2019_melt <- gather(expected_2019, key="Fishery", value=value, -Area, -AreaRegion)
+fishery_types <- expected_2019_melt %>% filter(Area=="FisheryType") %>% 
+  select(c(Fishery,value)) %>% 
+  rename(FisheryGroup=value)
+expected_2019_melt <-  expected_2019_melt %>% filter(!(Area=="FisheryType"))
+expected_2019_melt$value[is.na(expected_2019_melt$value)] <- 0
+expected_2019_melt <- expected_2019_melt %>% 
+  left_join(fishery_types)
+expected_2019_melt <- expected_2019_melt %>% 
+  filter(is.na(FisheryGroup)==F) %>% 
+  mutate(value=as.numeric(as.character(value)))
+expected_2019_melt$value[is.na(expected_2019_melt$value)] <- 0
+expected_2019_melt$value <- expected_2019_melt$value *short_to_metric_multiplier
+
+
+expected_2019_summary <- expected_2019_melt %>% 
+  ungroup() %>% 
+  group_by(AreaRegion, FisheryGroup) %>% 
+  summarize(value=sum(value)) %>% 
+  arrange(desc(value))
+
+expected_2019_summary <- expected_2019_summary %>% 
+  mutate(FisheryGroup = fct_relevel(FisheryGroup, c("Food and Bait", "Roe"), after=4))
+
+expected_2019_summary_plot <- expected_2019_summary  %>% 
+  ggplot(aes(x=AreaRegion, y=value, fill=FisheryGroup)) +
+  geom_col() +
+  scale_fill_ipsum() + 
+  ylab("Expected use (metric tonnes)") +
+  xlab("") + 
+  labs(fill="Fishery group") +
+  NULL
+
+ggplotly(expected_2019_summary_plot)
 ```
 
 
@@ -567,7 +616,7 @@ catch_area_plot <- catch_area %>% ggplot(aes(x=Year,y=Amount, color=Area)) +
   annotate(geom="text", x=end_year+.25, y= end_year_value-2000, label=paste(end_year_perc_value, "%", sep=""), color="#75b8d1") +
   scale_color_ipsum() + 
   NULL
-plot(catch_area_plot)
+ggplotly(catch_area_plot)
 
 ```
 
@@ -585,7 +634,7 @@ fisherytype_landed_value_plot <- fisherytype_value %>%
   scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-plot(fisherytype_landed_value_plot)
+ggplotly(fisherytype_landed_value_plot)
 ```
 
 
@@ -601,7 +650,7 @@ fisherytype_end_value_plot <- fisherytype_value %>%
   scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-plot(fisherytype_end_value_plot)
+ggplotly(fisherytype_end_value_plot)
 ```
 
 The decline in total value of the fishery is both a function of a decline in landings, and a decline in ex-vessel prices received by fishers. There is some indication, however, that the prices reported by fishers does not necessarily indicate lower profitability as processors have been more willing to pay fishers' fees (e.g., licence costs and Dockside Monitoring Program costs) thus lowering their cost of fishing [@SeafoodProducersAssociationofBC2015a]. Thus, the ex-vessel price decreases may be partially or wholly offset by the increased costs covered by processors. 
@@ -650,7 +699,7 @@ exvessel_price_plot <- price_factor_clean %>%
   # scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-plot(exvessel_price_plot)
+ggplotly(exvessel_price_plot)
 
 ```
 
@@ -688,7 +737,7 @@ herring_species_gear_plot <- herring_species_gear %>%
   labs(colour="Fishery") + 
   scale_color_ipsum() + 
   NULL
-print(herring_species_gear_plot)
+ggplotly(herring_species_gear_plot)
 
 ```
 
@@ -704,7 +753,7 @@ value_added_plot <- price_factor_clean %>%
   # scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-plot(value_added_plot)
+ggplotly(value_added_plot)
 
 
 ```
@@ -723,9 +772,15 @@ licences$Licence_Holder <- NA
 licences$Licence_Holder <- if_else(is.na(licences$`LICENCE HOLDER FIRST NAME`),
                                    licences$`LICENCE HOLDER LAST NAME`,
                                    paste(licences$`LICENCE HOLDER FIRST NAME`, licences$`LICENCE HOLDER LAST NAME`))
+licences$Licence_Operator <- NA 
+licences$Licence_Operator <- if_else(is.na(licences$`LICENCE OPERATOR FIRST NAME`),
+                                   licences$`LICENCE OPERATOR LAST NAME`,
+                                   paste(licences$`LICENCE OPERATOR FIRST NAME`, licences$`LICENCE OPERATOR LAST NAME`))
 
-
-
+licences$Vessel_Holder <- NA
+licences$Vessel_Holder <- if_else(is.na(licences$`VESSEL OWNER FIRST NAME`)==T,
+                                   licences$`VESSEL OWNER LAST NAME`,
+                                   paste(licences$`VESSEL OWNER FIRST NAME`, licences$`VESSEL OWNER LAST NAME`))
 
 #LICENCE HOLDER last name contains most of the company names:
 
@@ -734,11 +789,37 @@ pattison <- append(pattison, "JIM PATTISON ENTERPRISES LTD.") #Alternative namin
 
 key_groups <- c("ROE HERRING SEINE", "ROE HERRING GILL NET", "HERRING - FOOD & BAIT")
 
-licences$OWNER <- NA
+licences$LICENCE_OWNER <- NA
+licences$LICENCE_OWNER[which(licences$Licence_Holder %in% pattison)] <- "Pattison"
+licences$LICENCE_OWNER[is.na(licences$LICENCE_OWNER)] <- "Other"
 
-licences$OWNER[which(licences$Licence_Holder %in% pattison)] <- "Pattison"
-licences$OWNER[is.na(licences$OWNER)] <- "Other"
+licences$LICENCE_OPERATOR <- NA
+licences$LICENCE_OPERATOR[which(licences$Licence_Operator %in% pattison)] <- "Pattison"
+licences$LICENCE_OPERATOR[is.na(licences$LICENCE_OPERATOR)] <- "Other"
 
+licences$VESSEL_OWNER <- NA
+licences$VESSEL_OWNER[which(licences$Vessel_Holder %in% pattison)] <- "Pattison"
+licences$VESSEL_OWNER[is.na(licences$VESSEL_OWNER)] <- "Other"
+
+licences$Licence_Owner_Operator <- NA
+licences$Licence_Owner_Operator <- if_else(licences$Licence_Holder==licences$Licence_Operator,
+                                         1, 
+                                         0)
+licences$Licence_Owner_Operator <- if_else(licences$LICENCE_OWNER==licences$LICENCE_OPERATOR,
+                                         if_else(licences$LICENCE_OWNER=="Pattison",
+                                                 1,
+                                                 0), 
+                                         0)
+
+licences$Licence_Vessel_Owner <- NA
+licences$Licence_Vessel_Owner <- if_else(licences$Licence_Holder==licences$Vessel_Holder,
+                                         1, 
+                                         0)
+licences$Licence_Vessel_Owner <- if_else(licences$LICENCE_OWNER==licences$VESSEL_OWNER,
+                                         if_else(licences$LICENCE_OWNER=="Pattison",
+                                                 1,
+                                                 0), 
+                                         0)
 #write_csv(licences, "Licence for Sarah Harper.csv")
 
 licences <- licences %>% filter(grepl(`FISHERY GROUP`, pattern="HERRING")) %>% 
@@ -746,6 +827,18 @@ licences <- licences %>% filter(grepl(`FISHERY GROUP`, pattern="HERRING")) %>%
   # rename(Group = GROUP) %>% 
   # mutate(Group = str_to_title(Group))
   filter(Year > 1989)
+
+
+
+key_groups <- c("ROE HERRING SEINE", "ROE HERRING GILL NET")
+area_replacements <- c("HERRING SEINE |ROE HERRING |HERRING GILL NET |HERRING FOOD AND BAIT |ROE HERRING \\(CO\\) |ROE HERRING\\(CO\\) |FOOD AND BAIT HERRING |\\(CO\\) ")
+
+licences$AREA <- str_replace_all(licences$AREA,
+                                 pattern= area_replacements, 
+                                 replacement= "")
+licences$AREA <- str_replace_all(licences$AREA,
+                                 pattern= "WCVI .*", 
+                                 replacement= "WCVI")
 
 
 herring_lic <- licences %>% 
@@ -762,7 +855,7 @@ herring_lic_plot <- herring_lic %>% ggplot(aes(x=Year, y=n, color=Group)) +
   ylab("Number of herring licences") + 
   scale_color_ipsum() + 
   NULL 
-herring_lic_plot
+ggplotly(herring_lic_plot)
 
 
 
@@ -773,51 +866,62 @@ herring_lic_plot
 The trend in licences by area should be interpreted with caution as the field is blank for many of the entries in the commercial licence database. However, there does appear to be movement of licences to the remaining fishing areas as would be expected as some of the main fishing areas have been closed for several years (Figure \@ref(fig:licence-area)). This trend is apparent for the Strait of Georgia as well since 2000 (Figure \@ref(fig:licence-sog)).
 
 
-```{r licence-area,  echo=F, warning=F, message=F, fig.cap=""}
-
-
-key_groups <- c("ROE HERRING SEINE", "ROE HERRING GILL NET")
-area_replacements <- c("HERRING SEINE |ROE HERRING |HERRING GILL NET |HERRING FOOD AND BAIT |ROE HERRING \\(CO\\) |ROE HERRING\\(CO\\) |FOOD AND BAIT HERRING |\\(CO\\) ")
-
-licences$AREA <- str_replace_all(licences$AREA,
-                                 pattern= area_replacements, 
-                                 replacement= "")
-licences$AREA <- str_replace_all(licences$AREA,
-                                 pattern= "WCVI .*", 
-                                 replacement= "WCVI")
-
-#unique(licences$AREA)
-
+```{r licence-area, echo=F, warning=F, message=F, fig.cap="Net licence movement for the two main roe fishing areas."}
+licences$TAB_NO_YEAR <- paste(licences$`LICENCE PREFIX`, licences$`LICENCE ROOT`, sep="/")
 
 lic_area <- licences %>%
   filter(Year > 1997) %>% 
-  group_by(AREA, `FISHERY GROUP`) %>% 
-  tally()
+  arrange(TAB_NO_YEAR, Year)
 
-lic_area <- licences %>% 
-  filter(Year > 1997) %>% 
-  filter(`FISHERY GROUP` %in% key_groups) %>% 
-  group_by(AREA, Year) %>%
+licence_list <- unique(lic_area$TAB_NO_YEAR)
+lic_area_lag <- data_frame()
+year_df <- data_frame(Year=seq(1998, 2018, 1))
+
+for (l in licence_list){
+  sub_df <- lic_area %>% filter(TAB_NO_YEAR==l)
+  sub_df <- left_join(year_df, sub_df)
+  sub_df$LagAREA = lag(sub_df$AREA, 1)
+  lic_area_lag <- bind_rows(lic_area_lag, sub_df)
+}
+lic_area_lag$Change <- 0
+lic_area_lag <- lic_area_lag %>% 
+  mutate(Change = if_else(AREA==LagAREA, 0, 1)) %>% 
+  mutate(ChangeInArea = if_else(Change==1, paste(LagAREA, AREA, sep="/"), "None")) %>%
+  mutate(OppositeChange = if_else(Change==1, paste(AREA, LagAREA, sep="/"), "None"))
+
+lic_area_lag_summary <- lic_area_lag %>%
+  filter(`FISHERY GROUP` %in% key_groups) %>%
+  group_by(AREA, LagAREA, ChangeInArea, OppositeChange, Year) %>%
   summarize(n=n()) %>%
-  mutate(Group = AREA) 
+  mutate(Group = ChangeInArea) %>% 
+  filter(Group != "None") %>% 
+  filter(is.na(Group)==F)
 
-lic_area$Group <- gsub(lic_area$Group, pattern="QCI", replacement="HG")
-lic_area$Group <- gsub(lic_area$Group, pattern="GULF", replacement="SoG")
+lic_area_lag_summary2 <- lic_area_lag_summary %>% 
+  rename(loss_n = n) %>% 
+  ungroup() %>% 
+  mutate(ChangeInArea = OppositeChange) %>% 
+  select(-OppositeChange)
+head(lic_area_lag_summary)
+net_change_area_licences <- lic_area_lag_summary %>% 
+  left_join(lic_area_lag_summary2, by=c("ChangeInArea", "Year")) %>%
+  mutate(NetChange = n-loss_n) %>% 
+  rename(AREA = AREA.x,
+         LagAREA = LagAREA.x)
 
-lic_area$Group[is.na(lic_area$Group)] <- "UNKNOWN AREA"
-#lic_area$Group <- str_to_title(lic_area$Group)
-
-herring_lic_area_plot <- lic_area %>% ggplot(aes(x=Year, y=n, color=Group)) +
+areas <- c("GULF", "PRINCE RUPERT")
+herring_lic_area_plot <- net_change_area_licences %>% 
+  filter(AREA %in% areas) %>% 
+  ggplot(aes(x=Year, y=NetChange, color=LagAREA)) +
   geom_line() +
-  ylab("Number of herring licences") + 
+  ylab("Number of herring licences switching to new area") + 
   labs(color="Area") + 
   scale_color_ipsum() + 
+  facet_wrap(~AREA, ncol=1) + 
   NULL 
-herring_lic_area_plot
-
+ggplotly(herring_lic_area_plot)
 
 ```
-
 
 
 
@@ -849,7 +953,7 @@ herring_lic_sog_plot <- lic_area %>% ggplot(aes(x=Year, y=n, color=Group)) +
   labs(color="Area") + 
   scale_color_ipsum() + 
   NULL 
-herring_lic_sog_plot
+ggplotly(herring_lic_sog_plot)
 
 
 ```
@@ -902,11 +1006,11 @@ The largest owner(s) of herring roe licences are the companies belonging to the 
 herring_lic_pattison <- licences %>% 
   filter(`FISHERY GROUP` %in% key_groups) %>% 
   mutate(Year = as.numeric(`LICENCE SUFFIX`)) %>%
-  group_by(`FISHERY GROUP`, Year, OWNER) %>%
+  group_by(`FISHERY GROUP`, Year, LICENCE_OWNER) %>%
   summarize(n=n()) %>%
   ungroup() %>% 
   mutate(`FISHERY GROUP` = str_to_title(`FISHERY GROUP`),
-         Group = paste(`FISHERY GROUP`, OWNER, sep="/"))
+         Group = paste(`FISHERY GROUP`, LICENCE_OWNER, sep="/"))
 
 herring_lic_pattison_plot <- herring_lic_pattison %>% ggplot(aes(x=Year, y=n, color=Group)) +
   geom_line() +
@@ -914,7 +1018,7 @@ herring_lic_pattison_plot <- herring_lic_pattison %>% ggplot(aes(x=Year, y=n, co
   #facet_wrap(~`FISHERY GROUP`, ncol=1, scales="free_y") + 
   scale_color_ipsum() + 
   NULL 
-herring_lic_pattison_plot 
+ggplotly(herring_lic_pattison_plot)
 
 ```
 
@@ -959,7 +1063,7 @@ gini_plot <- gini_df %>% ggplot(aes(x=Year, y=Gini, color=Fishery)) +
   ylab("Gini Index") + 
   scale_color_ipsum() + 
   NULL 
-gini_plot 
+ggplotly(gini_plot)
 
 
 ```
@@ -988,7 +1092,7 @@ licence_value_plot <- licence_value %>%
   facet_wrap(~Fishery, ncol=1, scales = "free") +
   scale_color_ipsum() + 
   NULL
-print(licence_value_plot)
+ggplotly(licence_value_plot)
 ```
 
 
@@ -1028,7 +1132,7 @@ bc_seafood_average_plot <- bc_seafood_average %>%
   xlab("") + 
   ylab("") + 
   NULL
-print(bc_seafood_average_plot)
+ggplotly(bc_seafood_average_plot)
 
 ```
 
@@ -1089,7 +1193,7 @@ sog_salmon_amount <- sog_salmon %>% ggplot(aes(x=Year, y=AMOUNT/unit, color=SPEC
   scale_x_continuous(expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-sog_salmon_amount
+ggplotly(sog_salmon_amount)
 
 ```
 
@@ -1101,7 +1205,7 @@ sog_salmon_value <- sog_salmon %>% ggplot(aes(x=Year, y=VALUE/unit, color=SPECIE
   scale_x_continuous(expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-sog_salmon_value
+ggplotly(sog_salmon_value)
 ```
 
 In addition to the commercial fishery in the Strait of Georgia, there is a valuable recreational fishery for salmon in the Strait of Georgia. While other areas of the BC coast account for larger numbers of salmon caught by recreational fishers, the Strait of Georgia has the most fishing effort recorded in boat days for those areas with data (Note: Northern and Central coast data was not available for this year). One crude measure of the value of the recreational fisheries is the value they produce in fish themselves if the fish was sold commercially [@Colquhoun2015]. This measure of value is crude and non-inclusive as recreational fishing is not solely for the production of fish, and countless studies have shown that the value recreational fishing gives to society far exceeds this 'product' value. Nevertheless, the product value of recreational tidal water salmon fisheries in BC is over 15 million dollars annually, with the Strait of Georgia accounting for 1.3 million dollars of this.   
@@ -1132,7 +1236,7 @@ sog_rec_pieces_plot <- sog_rec %>%
   scale_fill_ipsum() + 
   ylab("Salmon (# of individuals)") + 
   NULL
-print(sog_rec_pieces_plot)
+ggplotly(sog_rec_pieces_plot)
 ```
 
 
@@ -1184,7 +1288,7 @@ sog_rec_value_plot <- sog_rec %>%
   scale_fill_ipsum() + 
   ylab("Catch value (Million $)") + 
   NULL
-print(sog_rec_value_plot)
+ggplotly(sog_rec_value_plot)
 
 ```
 
@@ -1201,7 +1305,7 @@ sog_rec_effort_plot <- sog_rec %>%
   ylab("Fishing effort (# of boat days)") + 
   
   NULL
-print(sog_rec_effort_plot)
+ggplotly(sog_rec_effort_plot)
 ```
 
 # Going forward: A look into closing the roe herring fishery
