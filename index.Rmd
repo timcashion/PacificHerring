@@ -29,10 +29,12 @@ cpi_2015 <- inflation_adjust(cpi, 2015) %>%
   rename(Year=year)
 #theme_set(theme_ipsum()) # Doesn't work on PC because it's missing Arial Narrow font.
 theme_set(theme_ipsum_rc() + 
-            theme(text=element_text(family="Alegreya Sans SC Light"),
-                  axis.title.x = element_text(family="Alegreya Sans SC Light"),
-                  axis.title.y = element_text(family="Alegreya Sans SC Light")
+            theme(text=element_text(family="Alegreya Sans"),
+                  axis.title.x = element_text(family="Alegreya Sans"),
+                  axis.title.y = element_text(family="Alegreya Sans")
                   ))
+plot_font <- list(
+  family = 'Alegreya Sans')
 
 
 number_call <- function(num, decimals){
@@ -409,14 +411,14 @@ fisherytype_value_plot <- fisherytype_value %>%
   NULL
 
 #fisherytype_value_plot <- ggplotly(fisherytype_value_plot)
-ggplotly(fisherytype_value_plot)
+ggplotly(fisherytype_value_plot) %>% layout(font=plot_font)
 ```
 
 
 
 For the 2019 season, the expected catches across all herring fisheries is ~30,000 tonnes (Figure \@ref(fig:bar-chart-area-use)). The gillnet and seine roe fisheries are going to occur solely within the Strait of Georgia. Outside the Strait of Georgia, there are small fisheries as part of First Nations and commercial spawn on kelp fisheries (SOK), as well as Food, Social, and Ceremonial (FSC) fisheries. Other special use herring fisheries include human food and bait, sport fishing bait, personal use and fish for zoos and aquaria totalling ~800 tonnes. Grouping these together, the only commercial fishing outside the Strait of Georgia is for commercial spawn on kelp herring fisheries. 
 
-```{r bar-chart-area-use, echo=F, warning=F, message=F, fig.cap="Expected catches (metric tonnes) of herring by area and fishery for the 2019 season. Source: DFO, 2018"}
+```{r bar-chart-area-use, echo=F, warning=F, message=F, fig.cap="Expected catches (metric tonnes) of herring by area and fishery for the 2019 season areas. CC: Central Coast; HG: Haida Gwaii; PR: Prince Rupert; SOG: Strait of Georgia; WCVI: West Coast Vancouver Island. Source: DFO, 2018"}
 expected_2019 <- read.csv("./Data/Herring2019SeasonExpectedUse.csv")
 expected_2019_melt <- gather(expected_2019, key="Fishery", value=value, -Area, -AreaRegion)
 fishery_types <- expected_2019_melt %>% filter(Area=="FisheryType") %>% 
@@ -451,13 +453,14 @@ expected_2019_summary_plot <- expected_2019_summary  %>%
   labs(fill="Fishery group") +
   NULL
 
-ggplotly(expected_2019_summary_plot)
+ggplotly(expected_2019_summary_plot) %>% layout(font=plot_font)
+
 ```
 
 
 
 
-```{r roe-fishery-sog, echo=F, warning=F, message=F, fig.cap="Roe herring landings by gear and  area. Source: Compiled season summary data from DFO reports."}
+```{r roe-fishery-sog, echo=F, warning=F, message=F, fig.cap="Roe herring landings by gear in the Strait of Georgia. Source: Compiled season summary data from DFO reports."}
 season_summary <- read_csv("./Data/herring_season_summaries.csv")
 
 fisheries <- c("Roe herring", "Food and Bait")
@@ -488,7 +491,7 @@ season_summary_plot <- season_summary %>%
   scale_color_ipsum() + 
   NULL
 #plot(season_summary_plot)
-ggplotly(season_summary_plot)
+ggplotly(season_summary_plot) %>% layout(font=plot_font)
 
 ```
 
@@ -620,7 +623,7 @@ fte_plot <- processing %>%
   NULL
   
 #print(fte_plot)
-ggplotly(fte_plot)
+ggplotly(fte_plot) %>% layout(font=plot_font)
 ```
 
 
@@ -818,16 +821,6 @@ season_summary_quota_licence <- season_summary_quota_licence %>%
   summarize(Value=sum(Value))
 
 season_summary_quota_licence$Fishery <- fct_relevel(season_summary_quota_licence$Fishery, "Gillnet roe herring", after=2)
-season_summary_quota_roe_plot <- season_summary_quota_licence %>% 
-  ggplot(aes(x=Year,y=Value, color=Fishery)) +
-  geom_line() +
-  ylab("Tons per licence") + 
-  scale_y_continuous(expand=c(0,0)) + 
-  scale_x_continuous(breaks = c(seq(2010, 2019, 4)), labels=c(seq(2010, 2019, 4)), expand=c(0,0)) +
-  scale_color_ipsum() + 
-  NULL
-plot(season_summary_quota_roe_plot)
-
 quota_per_licence_2019_gillnet <- season_summary_quota_licence %>% 
   filter(Year==2019) %>%
   filter(Fishery=="Gillnet roe herring") %>% 
@@ -837,6 +830,17 @@ quota_per_licence_2019_seine <- season_summary_quota_licence %>%
   filter(Fishery=="Seine roe herring") %>% 
   pull(Value)
 
+
+season_summary_quota_roe_plot <- season_summary_quota_licence %>% 
+  ggplot(aes(x=Year,y=Value, color=Fishery)) +
+  geom_line() +
+  ylab("Tons per licence") + 
+  scale_y_continuous(expand=c(0,0)) + 
+  scale_x_continuous(breaks = c(seq(2010, 2019, 4)), labels=c(seq(2010, 2019, 4)), expand=c(0,0)) +
+  scale_color_ipsum() + 
+  NULL
+
+ggplotly(season_summary_quota_roe_plot)
 
 ```
 
