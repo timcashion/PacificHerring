@@ -8,6 +8,8 @@ bibliography: MyCollection.bib
 always_allow_html: yes
 biblio-style: "apalike"
 nocite: '@*'
+font-import: http://fonts.googleapis.com/css?family=Alegreya+Sans
+font-family: 'Alegreya Sans'
 ---
 
 ```{r setup, include=FALSE}
@@ -49,8 +51,9 @@ short_to_metric_multiplier <- 2000 /2204.623
 ```
 
 ```{css, echo=FALSE}
+
 body {
-   font-family: Alegreya Sans SC Light;
+   font-family: "Alegreya Sans", sans-serif;
    font-size: 14px;
    line-height: 1.6;
    padding-top: 10px;
