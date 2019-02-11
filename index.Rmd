@@ -7,7 +7,7 @@ output:
 bibliography: MyCollection.bib
 always_allow_html: yes
 biblio-style: "apalike"
-
+nocite: '@*'
 ---
 
 ```{r setup, include=FALSE}
@@ -18,6 +18,7 @@ library(tidyverse)
 library(hrbrthemes)
 library(bookdown)
 library(plotly)
+library(kableExtra)
 source("./R/cpi_function.R")
 cpi <- read_csv("./Data/Canadian_CPI.csv") %>% 
   mutate(base_year=2002) %>% 
@@ -26,7 +27,10 @@ cpi_2015 <- inflation_adjust(cpi, 2015) %>%
   rename(Year=year)
 #theme_set(theme_ipsum()) # Doesn't work on PC because it's missing Arial Narrow font.
 theme_set(theme_ipsum_rc() + 
-            theme(text=element_text(family="Alegreya Sans SC Light")))
+            theme(text=element_text(family="Alegreya Sans SC Light"),
+                  axis.title.x = element_text(family="Alegreya Sans SC Light"),
+                  axis.title.y = element_text(family="Alegreya Sans SC Light")
+                  ))
 
 
 number_call <- function(num, decimals){
@@ -48,21 +52,15 @@ short_to_metric_multiplier <- 2000 /2204.623
 Prepared for Pacific Wild  
 
 ```{r PW-logo, fig.align = 'center'}
-knitr::include_graphics("./PW Logo files/PNG (raster)/large-png-pacific-wild-logo/pw-icon-dark-light-bg@2x.png", )
+knitr::include_graphics("./PW Logo files/PNG (raster)/large-png-pacific-wild-logo/pw-logo-dark-transparent-bg@2x.png")
+
 ```
 
 
 ```{r}
 #Notes:
-
-
 #Update bibliography and check references
-#Label code chunks and work on printing figure captions along in report.
-#Work on price and value added graphs as right now they don't say much
-
-#Sections without a lot of data:
-#By-products from Processing!
-
+#Add sources for all figures. 
 
 ```
 
@@ -89,7 +87,7 @@ knitr::include_graphics("DFO_Map.png")
 # The Fisheries
 The Pacific herring fishery was formerly the largest fishery in BC until the fishery collapsed in the 1960s. Until that point, most of the fishery was used for the production of fishmeal and fish oil to support agriculture and livestock. The fishery was re-started in the 1970s with smaller catches destined for a high-value export of roe to the Japanese market. This fishery has proceeded to today being the main component of the herring fishery in BC (Figure \@ref(fig:catch-by-type)), with other fisheries being of much less importance by catch and value. The exception to this is the spawn on kelp fishery which is fished both commercial and as a Food, Social, and Ceremonial fishery by First Nations in BC. The other major component of the herring fishery in BC is the food and bait fishery. There are several other smaller special herring fisheries that are much smaller in tonnage and value than the three aforementioned components. Here we focus on the economically most important fishery: the herring roe fishery (Figure \@ref(fig:roe-fishery-sog)). 
 
-```{r catch-by-type, echo=F, warning=F, message=F, fig.cap="Catch of herring by fishery type"}
+```{r catch-by-type, echo=F, warning=F, message=F, fig.cap="Catch of herring by fishery type. Source: BC Ministry of Agriculture, 2018."}
 ##Plots of catch, landed value, and wholesale values
 fisherytype_value <- read_csv("./Data/HerringValueFisheries.csv")
 fisherytype_value <- fisherytype_value %>%
@@ -103,8 +101,8 @@ fisherytype_value_plot <- fisherytype_value %>%
   ggplot(aes(x=Year,y=Value, color=Fishery)) +
   geom_line() +
   ylab("Landings (thousand tonnes)") + 
-  scale_y_continuous(expand=c(0,0)) + 
-  scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
+  # scale_y_continuous(expand=c(0,0)) + 
+  # scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
 
@@ -116,7 +114,7 @@ ggplotly(fisherytype_value_plot)
 
 For the 2019 season, the expected catches across all herring fisheries is ~30,000 tonnes (Figure \@ref(fig:bar-chart-area-use)). The gillnet and seine roe fisheries are going to occur solely within the Strait of Georgia. Outside the Strait of Georgia, there are small fisheries as part of First Nations and commercial spawn on kelp fisheries (SOK), as well as Food, Social, and Ceremonial (FSC) fisheries. Other special use herring fisheries include human food and bait, sport fishing bait, personal use and fish for zoos and aquaria totalling ~800 tonnes. Grouping these together, the only commercial fishing outside the Strait of Georgia is for commercial spawn on kelp herring fisheries. 
 
-```{r bar-chart-area-use, echo=F, warning=F, message=F, fig.cap="Expected catches (metric tonnes) of herring by area and fishery for the 2019 season"}
+```{r bar-chart-area-use, echo=F, warning=F, message=F, fig.cap="Expected catches (metric tonnes) of herring by area and fishery for the 2019 season. Source: DFO, 2018"}
 expected_2019 <- read.csv("./Data/Herring2019SeasonExpectedUse.csv")
 expected_2019_melt <- gather(expected_2019, key="Fishery", value=value, -Area, -AreaRegion)
 fishery_types <- expected_2019_melt %>% filter(Area=="FisheryType") %>% 
@@ -130,7 +128,7 @@ expected_2019_melt <- expected_2019_melt %>%
   filter(is.na(FisheryGroup)==F) %>% 
   mutate(value=as.numeric(as.character(value)))
 expected_2019_melt$value[is.na(expected_2019_melt$value)] <- 0
-expected_2019_melt$value <- expected_2019_melt$value *short_to_metric_multiplier
+expected_2019_melt$value <- round(expected_2019_melt$value *short_to_metric_multiplier, 1)
 
 
 expected_2019_summary <- expected_2019_melt %>% 
@@ -140,7 +138,7 @@ expected_2019_summary <- expected_2019_melt %>%
   arrange(desc(value))
 
 expected_2019_summary <- expected_2019_summary %>% 
-  mutate(FisheryGroup = fct_relevel(FisheryGroup, c("Food and Bait", "Roe"), after=4))
+  mutate(FisheryGroup = fct_relevel(FisheryGroup, c("Food and bait", "Roe"), after=4))
 
 expected_2019_summary_plot <- expected_2019_summary  %>% 
   ggplot(aes(x=AreaRegion, y=value, fill=FisheryGroup)) +
@@ -157,7 +155,7 @@ ggplotly(expected_2019_summary_plot)
 
 
 
-```{r roe-fishery-sog, echo=F, warning=F, message=F, fig.cap="Roe herring landings by gear and  area"}
+```{r roe-fishery-sog, echo=F, warning=F, message=F, fig.cap="Roe herring landings by gear and  area. Source: Compiled season summary data from DFO reports."}
 season_summary <- read_csv("./Data/herring_season_summaries.csv")
 
 fisheries <- c("Roe herring", "Food and Bait")
@@ -174,12 +172,12 @@ season_summary$Value <- gsub(season_summary$Value, pattern="-", replacement="0")
 season_summary$Value <- gsub(season_summary$Value, pattern=",", replacement="")
 season_summary$Value <- gsub(season_summary$Value, pattern="\\*N/A", replacement="")
 season_summary$Value <- as.numeric(season_summary$Value)
-season_summary$Value <- season_summary$Value * 2000 /2204.623 #Convert from short tons to tonnes
+season_summary$Value <- season_summary$Value * short_to_metric_multiplier #Convert from short tons to tonnes
 
-season_summary$Fishery[is.na(season_summary$Gear)==F] <- paste(season_summary$Gear[is.na(season_summary$Gear)==F], season_summary$Fishery[is.na(season_summary$Gear)==F], sep= " ")
+season_summary$Fishery[is.na(season_summary$Gear)==F] <- paste(season_summary$Gear[is.na(season_summary$Gear)==F], str_to_lower(season_summary$Fishery[is.na(season_summary$Gear)==F]), sep= " ")
 
 season_summary_plot <- season_summary %>% 
-  filter(Area=="StraitofGeorgia") %>% 
+  filter(Area=="Strait of Georgia") %>% 
   ggplot(aes(x=Year,y=Value)) +
   geom_line(aes(color=Fishery)) +
   stat_summary(fun.y = sum, na.rm = TRUE, aes(group = 3, color = 'Total', label="Total"), geom ='line') + 
@@ -277,9 +275,9 @@ herring_fm_prod <- prettyNum(roe_herring_2014_2015 * carcass_weight * fm_yield, 
 ```
 
 
-While the roe is the backbone of the fishery, the majority by weight is the by-product of herring carcasses used for fishmeal and fish oil. There is limited information on the value of the carcasses, by all accounts the carcasses from the roe herring fishery are used to produce fishmeal and fish oil in BC. This fishmeal and fish oil are used primarily for salmon feed production that is fed to BC farmed salmon [@McGrath2015a]. Using industry average information, we can estimate the amount of fishmeal produced on average from the roe herring fishery, and the amount likely required by the BC farmed salmon industry. 
+While the roe is the backbone of the fishery, the majority by weight is the by-product of herring carcasses used for fishmeal and fish oil. There is limited information on the value of the carcasses, but one processor contacted during this study said that they are not paid for the carcasses, but they are picked up by the reduction company for no cost. By all accounts the carcasses from the roe herring fishery are used to produce fishmeal and fish oil in BC.  This fishmeal and fish oil are used primarily for salmon feed production that is fed to BC farmed salmon [@McGrath2015a]. Using industry average information, we can estimate the amount of fishmeal produced on average from the roe herring fishery, and the amount likely required by the BC farmed salmon industry. 
 
-The carcass weight that is used for fishmeal is between 84% and 89% of the landed weight [@McGrath2015a; Anonymous Pers. Comm.]. The feed conversion ratio (the ratio of feed used per output of salmon) for farmed salmon in BC was 1.313 in 2009 [@Pelletier2009]. The average annual amount of farmed Atlantic salmon produced in BC was `r number_call(bc_farmed_salmon_prod, 5)` tonnes from 2014 to 2016. A standard BC salmon feed contains `r number_call(herring_fm_perc, 1)`% herring by-product meal and `r number_call(herring_fo_perc, 1)`% herring by-product oil [@McGrath2015a]. Thus, we can estimate the herring fishmeal required to be `r number_call(herring_fm_req, 1)` tonnes. Alternatively, we can estimate the amount of herring fishmeal and fish oil produced from the roe fishery by-products (averaged for 2014 and 2015) as `r number_call(herring_fm_prod, 0)` and `r number_call(herring_fo_prod, 0)` tonnes, respectively. Based on current export prices for herring meal and herring oil from Canada [@FAO2016a], the value of these combined products is estimated to be `r number_call((herring_fm_prod_value+herring_fo_prod_value)/1000000, 2)` million CAD. 
+The carcass weight that is used for fishmeal is between 84% and 89% of the landed weight [@McGrath2015a; Anonymous Pers. Comm.]. The feed conversion ratio (the ratio of feed used per output of salmon) for farmed salmon in BC was 1.313 in 2009 [@Pelletier2009]. The average annual amount of farmed Atlantic salmon produced in BC was `r number_call(bc_farmed_salmon_prod, 5)` tonnes from 2014 to 2016 [@AgriServiceBC2017]. A standard BC salmon feed contains `r number_call(herring_fm_perc, 1)`% herring by-product meal and `r number_call(herring_fo_perc, 1)`% herring by-product oil [@McGrath2015a]. Thus, we can estimate the herring fishmeal required to be `r number_call(herring_fm_req, 1)` tonnes. Alternatively, we can estimate the amount of herring fishmeal and fish oil produced from the roe fishery by-products (averaged for 2014 and 2015) as `r number_call(herring_fm_prod, 0)` and `r number_call(herring_fo_prod, 0)` tonnes, respectively. Based on current export prices for herring meal and herring oil from Canada [@FAO2016a], the value of these combined products is estimated to be `r number_call((herring_fm_prod_value+herring_fo_prod_value)/1000000, 2)` million CAD. 
 
 
 # The Supply Chain
@@ -287,7 +285,7 @@ Here, we measure employment in full-time equivalents (FTEs) to standardize the i
 
 The combined fisheries for herring roe and food and bait generated 790 jobs during the season equivalent to 91 full-time equivalents [@SeafoodProducersAssociationofBC2015a]. The processing of herring generates more jobs, hours of work and total income for those involved than the capture portion of the fishery. There are additional jobs generated through spin-off employment including transportation, unloading of herring, and marketing and sales, although these are a much smaller portion when compared to fishing and processing. 
 
-```{r ftes-processing, echo=F, warning=F, message=F, fig.cap="Processing employment by fishery type"}
+```{r ftes-processing, echo=F, warning=F, message=F, fig.cap="Processing employment by fishery type. Source: Estimated based on processing requirements in DFO, 2018."}
 # According to a survey commissioned by DFO to link seafood landings with processing areas and employment, on average the processing of spawn-on-kelp requires 36 hrs/Metric Tonne at a wage of $25/hr. In contrast, the processing of roe herring requires 22 hrs/Metric Tonne at a wage of $25/hr, and the processing of Food & Bait herring requires 12.5 hrs/Metric Tonne at a wage of $20/hr. Based on the landings data reported above, an average of 210 full time equivalent (FTE) jobs were required annually over the past five years for herring processing and paid wages (on average) of $10M/yr. #Source: IFMP Pacific Herring 2018/2019
 #For this analysis, I assume fte hours is equal to 2080 (52 weeks *40hrs/week)
 fte_value <- 2080
@@ -296,7 +294,7 @@ processing <- fisherytype_value %>%
   filter(Measure=="Landings") %>%
   mutate(Value = Value * 1000) #Convert 1000 tonnes into tonnes
 
-processing_labour <- data.frame("Fishery"=c("Spawn on Kelp", "Roe Herring", "Food and Bait"),
+processing_labour <- data.frame("Fishery"=c("Spawn on kelp", "Roe herring", "Food and bait"),
                  "Hours" = c(36, 22, 12.5),
                  "Wages" = c(25, 25, 20)) %>%
   mutate(WagesPerTonne = Hours*Wages)
@@ -307,7 +305,7 @@ processing <- processing %>%
          Income = (Hours*Value*Wages))
 
 fte_tonne_proc <- processing %>% 
-  filter(Fishery=="Roe Herring") %>%
+  filter(Fishery=="Roe herring") %>%
   mutate(x=FTEs/Value) %>% 
   pull(x)
 
@@ -324,7 +322,7 @@ ggplotly(fte_plot)
 ```
 
 
-```{r income-processing, echo=F, warning=F, message=F, fig.cap="Income from processing"}
+```{r income-processing, echo=F, warning=F, message=F, fig.cap="Wage income from processing (inflation adjusted million $). Source: Estimated based on processing requirements in DFO, 2018."}
 #Plot by income
 #Income plot is not adjusted to 2015 dollars as it explicitly back-casts current wages to the past. 
 #This should be clarified in text. 
@@ -339,12 +337,14 @@ income_plot <- processing %>%
 
 #Add in total line for Income
 income_total_plot <-processing %>% group_by(Year) %>% 
-  mutate(TotalIncome=sum(Income)) %>% 
-  ggplot(aes(x=Year, y=Income/1000000, color=Fishery)) +
+  mutate(Income=Income/1000000,
+         TotalIncome=sum(Income)) %>% 
+  ggplot(aes(x=Year, y=Income, color=Fishery)) +
   geom_line() +
-  geom_line(aes(y=TotalIncome/1000000, color="black", label="Total")) + 
+  geom_line(aes(y=TotalIncome, color="Total", label="Total")) + 
+  #scale_fill_manual(values=c("black")) + 
   ylab("Wages (Million 2017$)") + 
-  scale_color_ipsum(name = "Fishery", labels = c("Total", "Food and Bait", "Roe herring", "Spawn on Kelp")) + 
+  scale_color_ipsum(name = "Fishery", labels = c("Total", "Food and bait", "Roe herring", "Spawn on kelp")) + 
   NULL
 
 
@@ -383,9 +383,15 @@ other_labour <- other_labour %>%
 
 ```{r supply-chain-table, echo=F, warning=F, message=F}
 supply_chain_table <- read_csv("./Data/supply-chain-table.csv")
-#colnames(supply_chain_table)[1] <- ""
-kable(supply_chain_table, caption = "Fishery expenses, wages, and jobs for the herring supply chain")
+note1 <- supply_chain_table[8,1] %>% pull()
+note2 <- supply_chain_table[9,1] %>% pull()
 
+supply_chain_table <- supply_chain_table[1:7,]
+kable(supply_chain_table, caption = "Fishery expenses, wages, and jobs for the herring supply chain") %>% 
+  add_footnote(note1, notation="alphabet") %>% 
+  add_footnote(note2, notation="alphabet")
+
+?kable
 ```
 
 
@@ -412,9 +418,9 @@ season_summary$Value <- gsub(season_summary$Value, pattern="-", replacement="0")
 season_summary$Value <- gsub(season_summary$Value, pattern=",", replacement="")
 season_summary$Value <- gsub(season_summary$Value, pattern="\\*N/A", replacement="")
 season_summary$Value <- as.numeric(season_summary$Value)
-season_summary$Value <- season_summary$Value * 2000 /2204.623 #Convert from short tons to tonnes
+season_summary$Value <- season_summary$Value * short_to_metric_multiplier #Convert from short tons to tonnes
 
-season_summary$Fishery[is.na(season_summary$Gear)==F] <- paste(season_summary$Gear[is.na(season_summary$Gear)==F], season_summary$Fishery[is.na(season_summary$Gear)==F], sep= " ")
+season_summary$Fishery[is.na(season_summary$Gear)==F] <- paste(season_summary$Gear[is.na(season_summary$Gear)==F], str_to_lower(season_summary$Fishery[is.na(season_summary$Gear)==F]), sep= " ")
 
 season_summary_landings <- season_summary %>% 
   filter(Measure=="Landings")
@@ -445,9 +451,9 @@ season_summary_landings <- season_summary %>%
 ```
 
 
-```{r season-summary-gillnet, echo=F, warning=F, fig.asp= 0.62, message=F, fig.cap="Gillnet roe herring landings by area"}
+```{r season-summary-gillnet, echo=F, warning=F, fig.asp= 0.62, message=F, fig.cap="Gillnet roe herring landings by area. Source: Compiled season summary data from DFO reports."}
 season_summary_gillnet_roe_plot <- season_summary_landings %>% 
-  filter(Fishery=="Gillnet Roe herring") %>% 
+  filter(Fishery=="Gillnet roe herring") %>% 
   ggplot(aes(x=Year,y=Value, color=Area)) +
   geom_line() +
   ylab("Amount (tonnes)") + 
@@ -460,9 +466,9 @@ ggplotly(season_summary_gillnet_roe_plot)
 ```
 
 
-```{r season-summary-seine, echo=F, warning=F, message=F, fig.cap="Seine roe herring landings by area", fig.asp= 0.62}
+```{r season-summary-seine, echo=F, warning=F, message=F, fig.cap="Seine roe herring landings by area. Source: Compiled season summary data from DFO reports.", fig.asp= 0.62}
 season_summary_seine_roe_plot <- season_summary_landings %>% 
-  filter(Fishery=="Seine Roe herring") %>% 
+  filter(Fishery=="Seine roe herring") %>% 
   ggplot(aes(x=Year,y=Value, color=Area)) +
   geom_line() +
   ylab("Amount (tonnes)") + 
@@ -478,10 +484,10 @@ ggplotly(season_summary_seine_roe_plot)
 The herring fishery is divided into five major stock areas. In the 1980s and 1990s the catch was more evenly distributed amongst these areas but the catch became concentrated in the Strait of Georgia over time, and now the most important area for the roe herring fishery is the Strait (Figure \@ref(fig:catches-area)). For the upcoming herring season (March-April 2019), there are no catches in the roe herring fisheries expected outside of the Strait of Georgia [@DFO2018]. The catches for the gillnet roe fishery have risen sharply in the past few years while the seine roe fishery landings have declined. The total quota assigned has fluctuated but the proportion used by the gillnet fishery has risen in recent years. This is partially attributed to an increasing number of seine roe licences being used to fish in the food and bait fishery instead of the roe fishery. The initial allocation of herring roe catches by gear type is a 55:45 split for the seine roe fishery [@DFO2018]. 
 
 
-```{r quota-sog, echo=F, warning=F, message=F, fig.cap="Roe herring quota issued in the Strait of Georgia by licence type"}
+```{r quota-sog, echo=F, warning=F, message=F, fig.cap="Roe herring quota issued in the Strait of Georgia by licence type. Source: Compiled season summary data from DFO reports."}
 season_summary_quota <- season_summary %>% 
   filter(Measure=="QuotaIssued") %>% 
-  filter(Area=="StraitofGeorgia")
+  filter(Area=="Strait of Georgia")
 season_summary_quota <- season_summary_quota %>% 
   group_by(Year, Fishery) %>% 
   summarize(Value=sum(Value))
@@ -502,15 +508,15 @@ ggplotly(season_summary_quota_roe_plot)
 
 
 
-```{r quota-per-licence-sog, echo=F, warning=F, message=F, fig.cap="Roe herring quota per licence in the Strait of Georgia by licence type"}
+```{r quota-per-licence-sog, echo=F, warning=F, message=F, fig.cap="Roe herring quota per licence in the Strait of Georgia by licence type. Source: Compiled season summary data from DFO reports."}
 season_summary_quota_licence <- season_summary %>% 
   filter(Measure=="Tonsperlicence") %>% 
-  filter(Area=="StraitofGeorgia")
+  filter(Area=="Strait of Georgia")
 season_summary_quota_licence <- season_summary_quota_licence %>% 
   group_by(Year, Fishery) %>% 
   summarize(Value=sum(Value))
 
-season_summary_quota_licence$Fishery <- fct_relevel(season_summary_quota_licence$Fishery, "Gillnet Roe herring", after=2)
+season_summary_quota_licence$Fishery <- fct_relevel(season_summary_quota_licence$Fishery, "Gillnet roe herring", after=2)
 season_summary_quota_roe_plot <- season_summary_quota_licence %>% 
   ggplot(aes(x=Year,y=Value, color=Fishery)) +
   geom_line() +
@@ -523,18 +529,18 @@ plot(season_summary_quota_roe_plot)
 
 quota_per_licence_2019_gillnet <- season_summary_quota_licence %>% 
   filter(Year==2019) %>%
-  filter(Fishery=="Gillnet Roe herring") %>% 
+  filter(Fishery=="Gillnet roe herring") %>% 
   pull(Value)
 quota_per_licence_2019_seine <- season_summary_quota_licence %>% 
   filter(Year==2019) %>%
-  filter(Fishery=="Seine Roe herring") %>% 
+  filter(Fishery=="Seine roe herring") %>% 
   pull(Value)
 
 
 ```
 
 
-```{r catches-area, echo=F, warning=F, message=F, fig.cap="Roe herring catches by major fishing area"}
+```{r catches-area, echo=F, warning=F, message=F, fig.cap="Roe herring catches by major fishing area. Source: Compiled season summary data from DFO reports."}
 # catch_area <- read_csv("./Data/HerringCatchAreaExpectedUse.csv")
 catch_area <- read_csv("./Data/herring_season_summaries.csv")
 
@@ -546,15 +552,15 @@ catch_area$Value[which(catch_area$Value=="0*")] <- 0
 catch_area$Value[which(catch_area$Value=="-")] <- 0 
 catch_area$Value <- gsub(catch_area$Value, pattern=",", replacement="")
 catch_area$Value <- as.numeric(catch_area$Value)
-catch_area$Amount <- catch_area$Value* 2000 /2204.623 #Convert short tons to tonnes 
+catch_area$Amount <- catch_area$Value* short_to_metric_multiplier #Convert short tons to tonnes 
 
 
 #Clean up names
-df <- data.frame(Area=c("StraitofGeorgia", 
-                        "PrinceRupertDistrict",
-                        "CentralCoast",
-                        "WestCoastVancouverIsland",
-                        "HaidaGwaii"), 
+df <- data.frame(Area=c("Strait of Georgia", 
+                        "Prince Rupert",
+                        "Central Coast",
+                        "West Coast Vancouver Island",
+                        "Haida Gwaii"), 
                  AREA=c("SOG",
                         "PR",
                         "CC",
@@ -612,8 +618,8 @@ catch_area_plot <- catch_area %>% ggplot(aes(x=Year,y=Amount, color=Area)) +
   ylab("Amount (tonnes)") + 
   #scale_y_continuous(labels=c(seq(0, 25000, 5000)), expand=c(0,0)) + 
   #scale_x_continuous(labels=c(seq(2001, 2019, 4)), expand=c(0,0)) +
-  annotate(geom="text", x=start_year+.75, y= start_year_value+2000, label=paste(start_year_perc_value, "%", sep=""), color="#75b8d1") + 
-  annotate(geom="text", x=end_year+.25, y= end_year_value-2000, label=paste(end_year_perc_value, "%", sep=""), color="#75b8d1") +
+  #annotate(geom="text", x=start_year+.75, y= start_year_value+2000, label=paste(start_year_perc_value, "%", sep=""), color="#75b8d1") + 
+  #annotate(geom="text", x=end_year+.25, y= end_year_value-2000, label=paste(end_year_perc_value, "%", sep=""), color="#75b8d1") +
   scale_color_ipsum() + 
   NULL
 ggplotly(catch_area_plot)
@@ -623,7 +629,7 @@ ggplotly(catch_area_plot)
 
 Over the past 10 years, the roe herring fishery has fluctuated between an ex-vessel value of 4 and 17 million (Figure \@ref(fig:landed-value)). Formerly the values were much higher exceeding 100 million CAD in 1987. In addition, the wholesale value is substantially higher than the landed value as herring roe is a value-added product. 
 
-```{r landed-value, echo=F, warning=F, message=F, fig.cap="Ex-vessel value of herring fisheries"}
+```{r landed-value, echo=F, warning=F, message=F, fig.cap="Ex-vessel value of herring fisheries. Source: BC Ministry of Agriculture, 2018."}
 
 fisherytype_landed_value_plot <- fisherytype_value %>%
   filter(Measure=="Landed value") %>% 
@@ -631,7 +637,7 @@ fisherytype_landed_value_plot <- fisherytype_value %>%
   geom_line() +
   ylab("Ex-vessel value (Million $)") + 
   scale_y_continuous(expand=c(0,0)) + 
-  scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
+  scale_x_continuous(expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
 ggplotly(fisherytype_landed_value_plot)
@@ -640,7 +646,7 @@ ggplotly(fisherytype_landed_value_plot)
 
 As herring roe is a processed product, it naturally has a higher price than the raw material of whole herring. In addition, the wholesale value includes the value of the fishery derived from the processing of roe and production of fishmeal and fish oil from the herring by-products. 
 
-```{r wholesale-value, echo=F, warning=F, message=F, fig.cap="Wholesale value of herring fisheries"}
+```{r wholesale-value, echo=F, warning=F, message=F, fig.cap="Wholesale value of herring fisheries. Source: BC Ministry of Agriculture, 2018."}
 fisherytype_end_value_plot <- fisherytype_value %>%
   filter(Measure=="Wholesale value") %>% 
   ggplot(aes(x=Year,y=Value, color=Fishery)) +
@@ -655,7 +661,7 @@ ggplotly(fisherytype_end_value_plot)
 
 The decline in total value of the fishery is both a function of a decline in landings, and a decline in ex-vessel prices received by fishers. There is some indication, however, that the prices reported by fishers does not necessarily indicate lower profitability as processors have been more willing to pay fishers' fees (e.g., licence costs and Dockside Monitoring Program costs) thus lowering their cost of fishing [@SeafoodProducersAssociationofBC2015a]. Thus, the ex-vessel price decreases may be partially or wholly offset by the increased costs covered by processors. 
 
-```{r ex-vessel-price, echo=F, warning=F, message=F, fig.cap="Ex-vessel price by fishery"}
+```{r ex-vessel-price, echo=F, warning=F, message=F, fig.cap="Ex-vessel price by fishery. Source: BC Ministry of Agriculture, 2018."}
 fisherytype_value <- read_csv("./Data/HerringValueFisheries.csv")
 fisherytype_value <- fisherytype_value %>%
   mutate_if(is.character, as.factor) %>%
@@ -691,7 +697,7 @@ write_csv(price_factor_clean %>% filter(key=="ExVesselPrice"), "RoeHerringExVess
 
 exvessel_price_plot <- price_factor_clean %>%
   filter(key=="ExVesselPrice") %>%
-  filter(Fishery!="Spawn on Kelp") %>%
+  filter(Fishery!="Spawn on kelp") %>%
   ggplot(aes(x=Year, y=Value, color=Fishery)) +
   geom_line() + 
   ylab("Price ($/kg)") + 
@@ -701,11 +707,12 @@ exvessel_price_plot <- price_factor_clean %>%
   NULL
 ggplotly(exvessel_price_plot)
 
+
 ```
 
 There are differences in the price within the roe fishery itself. The seine fishery generally fetches a lower value than the gillnet fishery as the gillnet is more selective towards larger and older individuals which thus have a higher proportion of roe. This was confirmed by an industry expert, who estimates that 11-13% of the seine catch by weight is roe while the gillnet fishery is 14-16% roe by weight. In some years, this has led to price differences on the order of 3-4 times greater for gillnet than seine catches. While there are differences in the relative price of gillnet caught herring versus seine caught herring, they both follow the general trend of a large decline in ex-vessel prices over the past 25 years. 
 
-```{r ex-vessel-price-gear, echo=F, warning=F, message=F, fig.cap="Coastwide ex-vessel price by gear for the roe fishery"}
+```{r ex-vessel-price-gear, echo=F, warning=F, message=F, fig.cap="Coastwide ex-vessel price by gear for the roe fishery. Source: DFO, 2017"}
 #Catch plots
 catch <- read_csv("./Data/FinfishOutputData_Clean.csv")
 catch <- catch %>% mutate(TONNES=AMOUNT/1000) %>% 
@@ -742,7 +749,7 @@ ggplotly(herring_species_gear_plot)
 ```
 
 
-```{r value-added-plot, echo=F, warning=F, message=F, fig.cap="Value-added factor by fishery"}
+```{r value-added-plot, echo=F, warning=F, message=F, fig.cap="Value-added factor by fishery. Source: BC Ministry of Agriculture, 2018."}
 value_added_plot <- price_factor_clean %>%
   filter(key=="AddedValue") %>%
 #  filter(Fishery!="Spawn on Kelp") %>%
@@ -787,7 +794,7 @@ licences$Vessel_Holder <- if_else(is.na(licences$`VESSEL OWNER FIRST NAME`)==T,
 pattison <- read_csv("./Data/pattison_holdings.csv") %>% select(`CORPORATION NAME`) %>% pull()
 pattison <- append(pattison, "JIM PATTISON ENTERPRISES LTD.") #Alternative naming of large Pattison company 
 
-key_groups <- c("ROE HERRING SEINE", "ROE HERRING GILL NET", "HERRING - FOOD & BAIT")
+key_groups <- c("Roe herring seine", "Roe herring gillnet", "Food and bait")
 
 licences$LICENCE_OWNER <- NA
 licences$LICENCE_OWNER[which(licences$Licence_Holder %in% pattison)] <- "Pattison"
@@ -839,20 +846,31 @@ licences$AREA <- str_replace_all(licences$AREA,
 licences$AREA <- str_replace_all(licences$AREA,
                                  pattern= "WCVI .*", 
                                  replacement= "WCVI")
+licences$AREA <- str_replace_all(licences$AREA,
+                                 pattern= "QCI", 
+                                 replacement= "Haida Gwaii")
 
+licences$AREA <- str_to_upper(licences$AREA)
+licences$AREA[which(licences$AREA=="GULF")] <- "Strait of Georgia"
+licences$AREA[which(licences$AREA=="PRINCE RUPERT")] <- "Prince Rupert"
 
+licences$`FISHERY GROUP`[which(licences$`FISHERY GROUP`=="ROE HERRING SEINE")] <- "Roe herring seine"
+licences$`FISHERY GROUP`[which(licences$`FISHERY GROUP`=="ROE HERRING GILL NET")] <- "Roe herring gillnet"
+licences$`FISHERY GROUP`[which(licences$`FISHERY GROUP`=="HERRING - FOOD & BAIT")] <- "Food and bait"
+key_groups <- c("Roe herring seine", "Roe herring gillnet")
 herring_lic <- licences %>% 
   filter(`FISHERY GROUP` %in% key_groups) %>% 
   group_by(`FISHERY GROUP`, Year) %>%
   summarize(n=n()) %>%
-  mutate(Group = `FISHERY GROUP`) %>% 
-  mutate(Group = str_to_title(Group))
+  mutate(Group = `FISHERY GROUP`)
 
 
 
 herring_lic_plot <- herring_lic %>% ggplot(aes(x=Year, y=n, color=Group)) +
   geom_line() +
   ylab("Number of herring licences") + 
+  scale_y_continuous(limits = c(0,1500), expand=c(0,0)) + 
+  scale_x_continuous(expand=c(0,0)) + 
   scale_color_ipsum() + 
   NULL 
 ggplotly(herring_lic_plot)
@@ -902,22 +920,26 @@ lic_area_lag_summary2 <- lic_area_lag_summary %>%
   ungroup() %>% 
   mutate(ChangeInArea = OppositeChange) %>% 
   select(-OppositeChange)
-head(lic_area_lag_summary)
 net_change_area_licences <- lic_area_lag_summary %>% 
   left_join(lic_area_lag_summary2, by=c("ChangeInArea", "Year")) %>%
   mutate(NetChange = n-loss_n) %>% 
   rename(AREA = AREA.x,
          LagAREA = LagAREA.x)
 
-areas <- c("GULF", "PRINCE RUPERT")
+
+areas <- c("Strait of Georgia", "Prince Rupert")
+
+
 herring_lic_area_plot <- net_change_area_licences %>% 
   filter(AREA %in% areas) %>% 
-  ggplot(aes(x=Year, y=NetChange, color=LagAREA)) +
+  rename(`Source Area`= LagAREA) %>% 
+  ggplot(aes(x=Year, y=NetChange, color=`Source Area`)) +
   geom_line() +
   ylab("Number of herring licences switching to new area") + 
   labs(color="Area") + 
   scale_color_ipsum() + 
   facet_wrap(~AREA, ncol=1) + 
+  #theme(plot.title = element_text(hjust = 0.5)) + 
   NULL 
 ggplotly(herring_lic_area_plot)
 
@@ -925,23 +947,15 @@ ggplotly(herring_lic_area_plot)
 
 
 
-```{r licence-sog,  echo=F, warning=F, message=F, fig.cap=""}
+```{r licence-sog,  echo=F, warning=F, message=F, fig.cap="Number of herring licences in the Strait of Georgia (excluding special use)"}
 
 
-key_groups <- c("ROE HERRING SEINE", "ROE HERRING GILL NET", "HERRING - FOOD & BAIT")
-area_replacements <- c("HERRING SEINE |ROE HERRING |HERRING GILL NET |HERRING FOOD AND BAIT |ROE HERRING \\(CO\\) |ROE HERRING\\(CO\\) |FOOD AND BAIT HERRING |\\(CO\\) ")
+key_groups <- c("Roe herring seine", "Roe herring gillnet", "Food and bait")
 
-licences$AREA <- str_replace_all(licences$AREA,
-                                 pattern= area_replacements, 
-                                 replacement= "")
-licences$AREA <- str_replace_all(licences$AREA,
-                                 pattern= "WCVI .*", 
-                                 replacement= "WCVI")
-
-
+#unique(licences$AREA)
 lic_area <- licences %>% 
   filter(Year > 1997) %>% 
-  filter(AREA=="GULF") %>% 
+  filter(AREA=="Strait of Georgia") %>% 
   filter(`FISHERY GROUP` %in% key_groups) %>% 
   group_by(`FISHERY GROUP`, Year) %>%
   summarize(n=n()) %>%
@@ -953,6 +967,8 @@ herring_lic_sog_plot <- lic_area %>% ggplot(aes(x=Year, y=n, color=Group)) +
   labs(color="Area") + 
   scale_color_ipsum() + 
   NULL 
+#herring_lic_sog_plot
+
 ggplotly(herring_lic_sog_plot)
 
 
@@ -968,16 +984,16 @@ licences$Licence_Holder[which(licences$Licence_Holder %in% pattison)] <- "JIM PA
 
 lic_2018 <- licences %>% 
   filter(Year==2018) %>% 
-  filter(grepl(`FISHERY GROUP`, pattern="ROE")) %>% 
+  filter(grepl(`FISHERY GROUP`, pattern="Roe")) %>% 
   group_by(Licence_Holder, `FISHERY GROUP`) %>%
   summarize(Count=n())
 
-pattison_roe_seine_2018 <- lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="ROE HERRING SEINE" & lic_2018$Licence_Holder=="JIM PATTISON GROUP")] / sum(lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="ROE HERRING SEINE")])
-pattison_roe_gillnet_2018 <- lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="ROE HERRING GILL NET" & lic_2018$Licence_Holder=="JIM PATTISON GROUP")] / sum(lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="ROE HERRING GILL NET")])
+pattison_roe_seine_2018 <- lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="Roe herring seine" & lic_2018$Licence_Holder=="JIM PATTISON GROUP")] / sum(lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="Roe herring seine")])
+pattison_roe_gillnet_2018 <- lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="Roe herring gillnet" & lic_2018$Licence_Holder=="JIM PATTISON GROUP")] / sum(lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="Roe herring gillnet")])
 
 
-pattison_roe_seine_2019_quota <- lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="ROE HERRING SEINE" & lic_2018$Licence_Holder=="JIM PATTISON GROUP")] * quota_per_licence_2019_seine
-pattison_roe_gillnet_2019_quota <- lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="ROE HERRING GILL NET" & lic_2018$Licence_Holder=="JIM PATTISON GROUP")] * quota_per_licence_2019_gillnet
+pattison_roe_seine_2019_quota <- lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="Roe herring seine" & lic_2018$Licence_Holder=="JIM PATTISON GROUP")] * quota_per_licence_2019_seine
+pattison_roe_gillnet_2019_quota <- lic_2018$Count[which(lic_2018$`FISHERY GROUP`=="Roe herring gillnet" & lic_2018$Licence_Holder=="JIM PATTISON GROUP")] * quota_per_licence_2019_gillnet
 
 top_n <- 10
 top_10_company_table <- group_by(lic_2018, Licence_Holder) %>%
@@ -1017,17 +1033,18 @@ herring_lic_pattison_plot <- herring_lic_pattison %>% ggplot(aes(x=Year, y=n, co
   ylab("Number of licences") + 
   #facet_wrap(~`FISHERY GROUP`, ncol=1, scales="free_y") + 
   scale_color_ipsum() + 
+  labs(color="") + 
   NULL 
 ggplotly(herring_lic_pattison_plot)
 
 ```
 
 
-A standard measure of inequality is the Gini index. The Gini index is a value between 0 and 1, where 1 represents perfect inequality and 0 represents perfect equality. This measure has been applied to fishing licences and fleets to measure equity. It was applied to the BC salmon and herring fisheries and found a large share of corporate control. As corporate control has become a concern for BC, here we investigate the change in inequality in the fishery over time. There has been a significant increase in the inequality of the herring licence division over time occurring in both the seine and gillnet roe fisheries (Figure \@ref(fig:gini-time)). 
+A standard measure of inequality is the Gini index. The Gini index is a value between 0 and 1, where 1 represents perfect inequality and 0 represents perfect equality. This measure has been applied to fishing licences and fleets to measure equity. It was applied to the BC salmon and herring fisheries and found a large share of corporate control [@Haas2016]. As corporate control has become a concern for BC, here we investigate the change in inequality in the fishery over time. There has been a significant increase in the inequality of the herring licence division over time occurring in both the seine and gillnet roe fisheries (Figure \@ref(fig:gini-time)). 
 
 
 ```{r gini-time, echo=F, warning=F, message=F, fig.cap="Gini coefficient for roe herring licences"}
-key_groups <- c("ROE HERRING SEINE", "ROE HERRING GILL NET")
+key_groups <- c("Roe herring seine", "Roe herring gillnet")
 licences_agg <- licences %>% 
   filter(`FISHERY GROUP` %in% key_groups) %>% 
   group_by(Year, `FISHERY GROUP`, Licence_Holder) %>% 
@@ -1071,9 +1088,12 @@ ggplotly(gini_plot)
 
 The value of roe herring licences for both the gillnet and seine have declined substantially since high levels in the late 1990s and early 2000s. The outright licence fees are so much lower that the lease value of these licences has dropped to near zero. By industry accounts, there is very little leasing of licences in the gillnet fishery and almost none in the seine fishery. 
 
-```{r licence-value, echo=F, warning=F, message=F, fig.height=6, fig.cap="Herring licence values by fishery type and fee"}
+```{r licence-value, echo=F, warning=F, message=F, fig.height=6, fig.cap="Herring licence values by fishery type and fee. Source: Compiled from various reports of Nelson Bros Fisheries Ltd."}
 licence_value <- read_csv("./Data/licence_value.csv")
-licence_value$Fee <- fct_relevel(licence_value$Fee, "Full Fee", "Reduced Fee", "Lease")
+licence_value$Fee <- gsub(licence_value$Fee, pattern="Fee", replacement = "fee")
+licence_value$Fee <- fct_relevel(licence_value$Fee, "Full fee", "Reduced fee", "Lease")
+
+
 licence_value <- licence_value %>% 
   left_join(cpi_2015) %>% 
   mutate(Value = Value*adj_value)
@@ -1093,31 +1113,37 @@ licence_value_plot <- licence_value %>%
   scale_color_ipsum() + 
   NULL
 ggplotly(licence_value_plot)
+
+##The above plot has overlapping labels for the facet titles and they are not left aligned
 ```
 
 
 # How does the roe herring fishery stack up?
 Based on data from BC statistics [@AgriServiceBC2018], wild salmon processing generates ~4x as much in wages as herring processing does. In 2016 when wild salmon and herring catches were comparable (24,700 tonnes and 24,100 tonnes, respectively), wild salmon generated 5.4x as many processing jobs (annual average of 1,400 compared to 332 for herring) [@AgriServiceBC2018]. Similarly, these jobs resulted in higher wages for wild salmon that generated just over \$2,000/tonne processed while herring was \$525/tonne. 
 
-```{r bc-seafood,  echo=F, warning=F, message=F, fig.cap="Harvest and value (landed and wholesale) of BC seafood production averaged over 2014-2016"}
+```{r bc-seafood,  echo=F, warning=F, message=F, fig.cap="Harvest and value (landed and wholesale) of BC seafood production averaged over 2014-2016. Source: BC AgriService 2017."}
 bc_seafood <- read_csv("./Data/BC_Seafood_Production.csv")
-bc_seafood$System <- "Wild"
-bc_seafood$System[grepl(bc_seafood$Group , pattern="Farmed", ignore.case=T)] <- "Farmed"
+bc_seafood$System <- "wild"
+bc_seafood$System[grepl(bc_seafood$Group , pattern="Farmed", ignore.case=T)] <- "farmed"
 bc_seafood$Group <- gsub(bc_seafood$Group, pattern="Shellfish .*", replacement = "Shellfish")
 bc_seafood$Group <- gsub(bc_seafood$Group, pattern="Other .*", replacement = "Other")
 
-#bc_seafood$Group <- gsub(bc_seafood$Group, pattern=" .*", replacement = "")
 
 
 bc_seafood$Group <- str_to_title(bc_seafood$Group)
+bc_seafood$Group <- gsub(bc_seafood$Group, pattern="Farmed", replacement = "farmed")
+bc_seafood$Group <- gsub(bc_seafood$Group, pattern="Wild", replacement = "wild")
+
 bc_seafood$Measure <- str_to_title(bc_seafood$Measure)
+bc_seafood$Measure <- gsub(bc_seafood$Measure, pattern="Value", replacement="value")
+
 # bc_seafood$Measure <- gsub(bc_seafood$Measure, pattern="(\\$ Millions)", replacement="Value\\n(\\$ Millions)")
 bc_seafood$Measure <- str_replace_all(bc_seafood$Measure, 
                      pattern="\\(\\$ Millions\\)", 
-                     replacement= "\n($ Millions)")
+                     replacement= "\n($ millions)")
 bc_seafood$Measure <- str_replace_all(bc_seafood$Measure, 
                      pattern="\\(000 Tonnes\\)", 
-                     replacement= "\n(000 Tonnes)")
+                     replacement= "\n(000 tonnes)")
 
 
 bc_seafood_average <- bc_seafood %>% 
@@ -1127,10 +1153,10 @@ bc_seafood_average <- bc_seafood %>%
 bc_seafood_average_plot <- bc_seafood_average %>% 
   ggplot(aes(x=Measure, y=Value, fill=Group)) + 
   geom_col() + 
-  scale_color_ipsum() + 
   scale_fill_ipsum() + 
   xlab("") + 
   ylab("") + 
+  labs(fill="Seafood category") + 
   NULL
 ggplotly(bc_seafood_average_plot)
 
@@ -1139,7 +1165,7 @@ ggplotly(bc_seafood_average_plot)
 
 Compared to other valuable species in the Strait of Georgia, such as salmon, herring catches are higher in tonnage but lower in value. 
 
-```{r salmon-district-amount,  echo=F, warning=F, message=F, fig.cap="Commercial salmon landings in the Strait of Georgia"}
+```{r salmon-district-amount,  echo=F, warning=F, message=F, fig.cap="Commercial salmon landings in the Strait of Georgia. Source: DFO, 2017."}
 salmon_district_data <- read_csv("./Data/SalmonDistrictOutputData.csv") %>% 
   rename(Year = YEAR) %>% 
   left_join(cpi_2015) %>% 
@@ -1169,40 +1195,45 @@ sog_total <- salmon_district_data %>%
 catch_area_salmon <- catch_area %>%
   left_join(price_factor_clean) %>% 
   filter(key=="ExVesselPrice") %>% 
-  filter(Fishery=="Roe Herring") %>% 
+  filter(Fishery=="Roe herring") %>% 
   mutate(Area=as.factor(Area)) %>% 
   filter(Area=="SOG") %>% 
   mutate(AMOUNT = Amount*1000, # Convert to kilograms
          SPECIES = "Roe herring",
          VALUE = Value*AMOUNT)  #Exvessel price is in $/kg
   
-
+unit <- 1000000
 sog_salmon <- sog_salmon %>% 
   bind_rows(sog_total) %>% 
   bind_rows(catch_area_salmon) %>%
   filter(Year > 2000) %>%  # Only have herring data by area back to 2001 so am only using this time period.
-  filter(Year < 2016)
+  filter(Year < 2016) %>% 
+  mutate(AMOUNT=AMOUNT/unit,
+         VALUE=VALUE/unit) 
 
-unit <- 1000000
 
 
-sog_salmon_amount <- sog_salmon %>% ggplot(aes(x=Year, y=AMOUNT/unit, color=SPECIES)) +
+
+sog_salmon_amount <- sog_salmon %>% ggplot(aes(x=Year, y=AMOUNT, color=SPECIES)) +
   geom_line() +
   ylab("Landings (1000 tonnes)") +
   scale_y_continuous(expand=c(0,0)) +
   scale_x_continuous(expand=c(0,0)) +
+  labs(color="Species") + 
   scale_color_ipsum() + 
   NULL
 ggplotly(sog_salmon_amount)
 
 ```
 
-```{r salmon-district-value,  echo=F, warning=F, message=F, fig.cap="Commercial salmon ex-vessel value in the Strait of Georgia"}
-sog_salmon_value <- sog_salmon %>% ggplot(aes(x=Year, y=VALUE/unit, color=SPECIES)) +
+```{r salmon-district-value,  echo=F, warning=F, message=F, fig.cap="Commercial salmon ex-vessel value in the Strait of Georgia. Source: DFO, 2017."}
+
+sog_salmon_value <- sog_salmon %>% ggplot(aes(x=Year, y=VALUE, color=SPECIES)) +
   geom_line() +
   ylab("Value (Million $)") +
   scale_y_continuous(expand=c(0,0)) +
   scale_x_continuous(expand=c(0,0)) +
+  labs(color="Species") + 
   scale_color_ipsum() + 
   NULL
 ggplotly(sog_salmon_value)
@@ -1210,7 +1241,7 @@ ggplotly(sog_salmon_value)
 
 In addition to the commercial fishery in the Strait of Georgia, there is a valuable recreational fishery for salmon in the Strait of Georgia. While other areas of the BC coast account for larger numbers of salmon caught by recreational fishers, the Strait of Georgia has the most fishing effort recorded in boat days for those areas with data (Note: Northern and Central coast data was not available for this year). One crude measure of the value of the recreational fisheries is the value they produce in fish themselves if the fish was sold commercially [@Colquhoun2015]. This measure of value is crude and non-inclusive as recreational fishing is not solely for the production of fish, and countless studies have shown that the value recreational fishing gives to society far exceeds this 'product' value. Nevertheless, the product value of recreational tidal water salmon fisheries in BC is over 15 million dollars annually, with the Strait of Georgia accounting for 1.3 million dollars of this.   
 
-```{r recreational-fishes, echo=F, warning=F, message=F, fig.cap="Recreational salmon landings (tidal water) in BC by area", fig.subcap = c("JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island.")}
+```{r recreational-fishes, echo=F, warning=F, message=F, fig.cap="Recreational salmon landings (tidal water) in BC by area for 2009. JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island. Source: DFO, 2016"}
 sog_rec <- read_csv("./Data/salmon_recreational_2009.csv")
 
 areas <- c("NorthCentral", "Johnstone Strait", "Strait of Georgia", "Juan de Fuca Strait", "WCVI")
@@ -1240,7 +1271,8 @@ ggplotly(sog_rec_pieces_plot)
 ```
 
 
-```{r recreational-value, echo=F, warning=F, message=F, fig.cap="Recreational salmon value (tidal water) in BC by area", fig.subcap = c("JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island.")}
+```{r recreational-value, echo=F, warning=F, message=F, fig.cap="Recreational salmon value (tidal water) in BC by area  for 2009. JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island. Source: Estimated based on commercial value of salmon and landings data from DFO, 2016"}
+
 
 salmon_district_data <- read_csv("./Data/SalmonDistrictOutputData.csv") %>% 
   rename(Year = YEAR) %>% 
@@ -1280,10 +1312,10 @@ sog_rec$Species <- gsub(sog_rec$Species, pattern=" Salmon", replacement="")
 sog_rec_value_plot <- sog_rec %>% 
   left_join(sog_salmon_price_unit)  %>% 
   filter(Measure=="Pieces") %>% 
-  mutate(VALUE = Value * unit_price) %>% 
+  mutate(VALUE = (Value * unit_price)) %>% 
   group_by(Area, Species) %>% 
-  summarize(VALUE=sum(VALUE)) %>% 
-  ggplot(aes(x=Area, y=VALUE/unit, fill=Species)) + 
+  summarize(VALUE=sum(VALUE)/unit) %>% 
+  ggplot(aes(x=Area, y=VALUE, fill=Species)) + 
   geom_col() +
   scale_fill_ipsum() + 
   ylab("Catch value (Million $)") + 
@@ -1294,7 +1326,7 @@ ggplotly(sog_rec_value_plot)
 
 
 
-```{r recreational-effort, echo=F, warning=F, message=F, fig.cap="Recreational salmon fishing effort in the Strait of Georgia", fig.subcap = c("Boat effort was not available for the North Central coast.", "JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island.")}
+```{r recreational-effort, echo=F, warning=F, message=F, fig.cap="Recreational salmon fishing effort in the Strait of Georgia for 2009. JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island. Source: DFO, 2016", fig.subcap = c("Boat effort was not available for the North Central coast.")}
 sog_rec_effort_plot <- sog_rec %>% 
   filter(Measure=="Boat Effort") %>% 
   group_by(Area) %>% 
@@ -1367,5 +1399,17 @@ These strategies may not fully consider the potential strategic importance of th
 # Conclusion
 
 The roe herring fishery's catches declined substantially over the 2000s, but have begun to increase again since 2011. However, the value the fishery has not responded in the same way due to decreasing prices paid to the fishers (ex-vessel value), and the decline in value of the main product of the fishery: herring roe. The fishery is now concentrated solely in the Strait of Georgia. 
+
+```{r other-references, echo=F}
+bc_ministry <- 1
+
+
+
+```
+
+
+```{r}
+
+```
 
 # References
