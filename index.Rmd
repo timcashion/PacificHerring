@@ -34,7 +34,8 @@ theme_set(theme_ipsum_rc() +
                   axis.title.y = element_text(family="Alegreya Sans")
                   ))
 plot_font <- list(
-  family = 'Alegreya Sans')
+  family = c("Alegreya Sans", "Open Sans"),
+  familysrc = "http://fonts.googleapis.com/css?family=Alegreya+Sans")
 
 
 number_call <- function(num, decimals){
@@ -410,7 +411,6 @@ fisherytype_value_plot <- fisherytype_value %>%
   scale_color_ipsum() + 
   NULL
 
-#fisherytype_value_plot <- ggplotly(fisherytype_value_plot)
 ggplotly(fisherytype_value_plot) %>% layout(font=plot_font)
 ```
 
@@ -418,7 +418,7 @@ ggplotly(fisherytype_value_plot) %>% layout(font=plot_font)
 
 For the 2019 season, the expected catches across all herring fisheries is ~30,000 tonnes (Figure \@ref(fig:bar-chart-area-use)). The gillnet and seine roe fisheries are going to occur solely within the Strait of Georgia. Outside the Strait of Georgia, there are small fisheries as part of First Nations and commercial spawn on kelp fisheries (SOK), as well as Food, Social, and Ceremonial (FSC) fisheries. Other special use herring fisheries include human food and bait, sport fishing bait, personal use and fish for zoos and aquaria totalling ~800 tonnes. Grouping these together, the only commercial fishing outside the Strait of Georgia is for commercial spawn on kelp herring fisheries. 
 
-```{r bar-chart-area-use, echo=F, warning=F, message=F, fig.cap="Expected catches (metric tonnes) of herring by area and fishery for the 2019 season areas. CC: Central Coast; HG: Haida Gwaii; PR: Prince Rupert; SOG: Strait of Georgia; WCVI: West Coast Vancouver Island. Source: DFO, 2018"}
+```{r bar-chart-area-use, echo=F, warning=F, message=F, fig.cap="Expected catches (metric tonnes) of herring by area and fishery for the 2019 season areas. CC: Central Coast; HG: Haida Gwaii; PR: Prince Rupert; SOG: Strait of Georgia; WCVI: West Coast Vancouver Island. FSC: Food, Social, and Ceremonial; SOK: Spawn on Kelp. Source: DFO, 2018"}
 expected_2019 <- read.csv("./Data/Herring2019SeasonExpectedUse.csv")
 expected_2019_melt <- gather(expected_2019, key="Fishery", value=value, -Area, -AreaRegion)
 fishery_types <- expected_2019_melt %>% filter(Area=="FisheryType") %>% 
@@ -654,7 +654,7 @@ income_total_plot <-processing %>% group_by(Year) %>%
 
 
 # print(income_total_plot)
-ggplotly(income_total_plot)
+ggplotly(income_total_plot) %>% layout(font=plot_font)
 ```
 
 ```{r other-labour, echo=F, warning=F, message=F, fig.cap="Other labour from herring industry"}
@@ -766,7 +766,7 @@ season_summary_gillnet_roe_plot <- season_summary_landings %>%
   scale_color_ipsum() + 
   NULL
 #plot(season_summary_gillnet_roe_plot)
-ggplotly(season_summary_gillnet_roe_plot)
+ggplotly(season_summary_gillnet_roe_plot) %>% layout(font=plot_font)
 ```
 
 
@@ -781,7 +781,7 @@ season_summary_seine_roe_plot <- season_summary_landings %>%
   scale_color_ipsum() + 
   NULL
 # plot(season_summary_seine_roe_plot)
-ggplotly(season_summary_seine_roe_plot)
+ggplotly(season_summary_seine_roe_plot) %>% layout(font=plot_font)
 ```
 
 
@@ -806,7 +806,7 @@ season_summary_quota_roe_plot <- season_summary_quota %>%
   stat_summary(fun.y = sum, na.rm = TRUE, aes(group = 3, color = 'Total roe herring'), geom ='line') + 
   NULL
 #plot(season_summary_quota_roe_plot)
-ggplotly(season_summary_quota_roe_plot)
+ggplotly(season_summary_quota_roe_plot) %>% layout(font=plot_font)
 
 ```
 
@@ -840,7 +840,7 @@ season_summary_quota_roe_plot <- season_summary_quota_licence %>%
   scale_color_ipsum() + 
   NULL
 
-ggplotly(season_summary_quota_roe_plot)
+ggplotly(season_summary_quota_roe_plot) %>% layout(font=plot_font)
 
 ```
 
@@ -927,7 +927,7 @@ catch_area_plot <- catch_area %>% ggplot(aes(x=Year,y=Amount, color=Area)) +
   #annotate(geom="text", x=end_year+.25, y= end_year_value-2000, label=paste(end_year_perc_value, "%", sep=""), color="#75b8d1") +
   scale_color_ipsum() + 
   NULL
-ggplotly(catch_area_plot)
+ggplotly(catch_area_plot) %>% layout(font=plot_font)
 
 ```
 
@@ -945,7 +945,7 @@ fisherytype_landed_value_plot <- fisherytype_value %>%
   scale_x_continuous(expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-ggplotly(fisherytype_landed_value_plot)
+ggplotly(fisherytype_landed_value_plot) %>% layout(font=plot_font)
 ```
 
 
@@ -961,7 +961,7 @@ fisherytype_end_value_plot <- fisherytype_value %>%
   scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-ggplotly(fisherytype_end_value_plot)
+ggplotly(fisherytype_end_value_plot) %>% layout(font=plot_font)
 ```
 
 The decline in total value of the fishery is both a function of a decline in landings, and a decline in ex-vessel prices received by fishers. There is some indication, however, that the prices reported by fishers does not necessarily indicate lower profitability as processors have been more willing to pay fishers' fees (e.g., licence costs and Dockside Monitoring Program costs) thus lowering their cost of fishing [@SeafoodProducersAssociationofBC2015a]. Thus, the ex-vessel price decreases may be partially or wholly offset by the increased costs covered by processors. 
@@ -1010,7 +1010,7 @@ exvessel_price_plot <- price_factor_clean %>%
   # scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-ggplotly(exvessel_price_plot)
+ggplotly(exvessel_price_plot) %>% layout(font=plot_font)
 
 
 ```
@@ -1049,7 +1049,7 @@ herring_species_gear_plot <- herring_species_gear %>%
   labs(colour="Fishery") + 
   scale_color_ipsum() + 
   NULL
-ggplotly(herring_species_gear_plot)
+ggplotly(herring_species_gear_plot) %>% layout(font=plot_font)
 
 ```
 
@@ -1065,7 +1065,7 @@ value_added_plot <- price_factor_clean %>%
   # scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
-ggplotly(value_added_plot)
+ggplotly(value_added_plot) %>% layout(font=plot_font)
 
 
 ```
@@ -1178,7 +1178,7 @@ herring_lic_plot <- herring_lic %>% ggplot(aes(x=Year, y=n, color=Group)) +
   scale_x_continuous(expand=c(0,0)) + 
   scale_color_ipsum() + 
   NULL 
-ggplotly(herring_lic_plot)
+ggplotly(herring_lic_plot) %>% layout(font=plot_font)
 
 
 
@@ -1234,6 +1234,10 @@ net_change_area_licences <- lic_area_lag_summary %>%
 
 areas <- c("Strait of Georgia", "Prince Rupert")
 
+net_change_area_licences$AREA <- gsub(net_change_area_licences$AREA, pattern= "BC COAST WIDE", replacement = "BC Coast Wide")
+net_change_area_licences$AREA <- gsub(net_change_area_licences$AREA, pattern= "HAIDA GWAII", replacement = "Haida Gwaii")
+net_change_area_licences$AREA <- gsub(net_change_area_licences$AREA, pattern= "CENTRAL", replacement = "Central Coast")
+net_change_area_licences$AREA <- gsub(net_change_area_licences$AREA, pattern= "WCVI", replacement = "West Coast Vancouver Island")
 
 herring_lic_area_plot <- net_change_area_licences %>% 
   filter(AREA %in% areas) %>% 
@@ -1246,7 +1250,7 @@ herring_lic_area_plot <- net_change_area_licences %>%
   facet_wrap(~AREA, ncol=1) + 
   #theme(plot.title = element_text(hjust = 0.5)) + 
   NULL 
-ggplotly(herring_lic_area_plot)
+ggplotly(herring_lic_area_plot) %>% layout(font=plot_font)
 
 ```
 
@@ -1274,7 +1278,7 @@ herring_lic_sog_plot <- lic_area %>% ggplot(aes(x=Year, y=n, color=Group)) +
   NULL 
 #herring_lic_sog_plot
 
-ggplotly(herring_lic_sog_plot)
+ggplotly(herring_lic_sog_plot) %>% layout(font=plot_font)
 
 
 ```
@@ -1340,7 +1344,7 @@ herring_lic_pattison_plot <- herring_lic_pattison %>% ggplot(aes(x=Year, y=n, co
   scale_color_ipsum() + 
   labs(color="") + 
   NULL 
-ggplotly(herring_lic_pattison_plot)
+ggplotly(herring_lic_pattison_plot) %>% layout(font=plot_font)
 
 ```
 
@@ -1385,7 +1389,7 @@ gini_plot <- gini_df %>% ggplot(aes(x=Year, y=Gini, color=Fishery)) +
   ylab("Gini Index") + 
   scale_color_ipsum() + 
   NULL 
-ggplotly(gini_plot)
+ggplotly(gini_plot) %>% layout(font=plot_font)
 
 
 ```
@@ -1417,7 +1421,7 @@ licence_value_plot <- licence_value %>%
   facet_wrap(~Fishery, ncol=1, scales = "free") +
   scale_color_ipsum() + 
   NULL
-ggplotly(licence_value_plot)
+ggplotly(licence_value_plot) %>% layout(font=plot_font)
 
 ##The above plot has overlapping labels for the facet titles and they are not left aligned
 ```
@@ -1463,7 +1467,7 @@ bc_seafood_average_plot <- bc_seafood_average %>%
   ylab("") + 
   labs(fill="Seafood category") + 
   NULL
-ggplotly(bc_seafood_average_plot)
+ggplotly(bc_seafood_average_plot) %>% layout(font=plot_font)
 
 ```
 
@@ -1527,7 +1531,7 @@ sog_salmon_amount <- sog_salmon %>% ggplot(aes(x=Year, y=AMOUNT, color=SPECIES))
   labs(color="Species") + 
   scale_color_ipsum() + 
   NULL
-ggplotly(sog_salmon_amount)
+ggplotly(sog_salmon_amount) %>% layout(font=plot_font)
 
 ```
 
@@ -1541,7 +1545,7 @@ sog_salmon_value <- sog_salmon %>% ggplot(aes(x=Year, y=VALUE, color=SPECIES)) +
   labs(color="Species") + 
   scale_color_ipsum() + 
   NULL
-ggplotly(sog_salmon_value)
+ggplotly(sog_salmon_value) %>% layout(font=plot_font)
 ```
 
 In addition to the commercial fishery in the Strait of Georgia, there is a valuable recreational fishery for salmon in the Strait of Georgia. While other areas of the BC coast account for larger numbers of salmon caught by recreational fishers, the Strait of Georgia has the most fishing effort recorded in boat days for those areas with data (Note: Northern and Central coast data was not available for this year). One crude measure of the value of the recreational fisheries is the value they produce in fish themselves if the fish was sold commercially [@Colquhoun2015]. This measure of value is crude and non-inclusive as recreational fishing is not solely for the production of fish, and countless studies have shown that the value recreational fishing gives to society far exceeds this 'product' value. Nevertheless, the product value of recreational tidal water salmon fisheries in BC is over 15 million dollars annually, with the Strait of Georgia accounting for 1.3 million dollars of this.   
@@ -1572,7 +1576,7 @@ sog_rec_pieces_plot <- sog_rec %>%
   scale_fill_ipsum() + 
   ylab("Salmon (# of individuals)") + 
   NULL
-ggplotly(sog_rec_pieces_plot)
+ggplotly(sog_rec_pieces_plot) %>% layout(font=plot_font)
 ```
 
 
@@ -1625,7 +1629,7 @@ sog_rec_value_plot <- sog_rec %>%
   scale_fill_ipsum() + 
   ylab("Catch value (Million $)") + 
   NULL
-ggplotly(sog_rec_value_plot)
+ggplotly(sog_rec_value_plot) %>% layout(font=plot_font)
 
 ```
 
@@ -1642,7 +1646,7 @@ sog_rec_effort_plot <- sog_rec %>%
   ylab("Fishing effort (# of boat days)") + 
   
   NULL
-ggplotly(sog_rec_effort_plot)
+ggplotly(sog_rec_effort_plot) %>% layout(font=plot_font)
 ```
 
 # Going forward: A look into closing the roe herring fishery
