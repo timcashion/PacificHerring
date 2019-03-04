@@ -1,6 +1,6 @@
 ---
 title: "Economic Value of Pacific Herring in the Strait of Georgia"
-author: "Tim Cashion"
+author: "Prepared by Tim Cashion for Pacific Wild"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output:
   bookdown::html_document2
@@ -21,6 +21,8 @@ library(hrbrthemes)
 library(bookdown)
 library(plotly)
 library(kableExtra)
+library(ineq)
+extrafont::loadfonts()
 source("./R/cpi_function.R")
 cpi <- read_csv("./Data/Canadian_CPI.csv") %>% 
   mutate(base_year=2002) %>% 
@@ -34,7 +36,7 @@ theme_set(theme_ipsum_rc() +
                   axis.title.y = element_text(family="Alegreya Sans")
                   ))
 plot_font <- list(
-  family = c("Alegreya Sans", "Open Sans"),
+  family = c("Alegreya Sans", "Alegreya Sans Regular", "Open Sans"),
   familysrc = "http://fonts.googleapis.com/css?family=Alegreya+Sans")
 
 
@@ -353,8 +355,12 @@ sup {
 
 ```
 
+### About the Author
+Tim Cashion is a PhD student studying fisheries economics at the University of British Columbia, under the supervision of Rashid Sumaila. Tim’s research at IRES and the Institute for the Oceans and Fisheries will continue to work on environmental and economic trade-offs in fisheries especially focusing on the impacts of fishing gear and reduction fisheries. Recently, Tim has worked for the Sea Around Us at UBC working on various projects including fish used for fishmeal and fish oil, analyzing trends in fisheries discards, and researching global fisheries gear use. Tim received a double major BA from Huron University College at the University of Western Ontario. Tim began his fisheries research during his masters at Dalhousie University focusing on the environmental and ecological impacts of reduction fisheries and seafood life cycle assessment.
 
-Prepared for Pacific Wild  
+
+Pacific Wild is a non-profit conservation organization based in British Columbia. We are committed to defending wildlife and their habitat on Canada's Pacific Coast by developing and implementing conservation solutions in collaboration with First Nations communities, scientists, other organizations and individuals. Recently, we worked alongside the Heiltsuk First Nation to document the crucial importance of Pacific herring to the ecological and cultural integrity of British Columbia's Central Coast.
+
 
 ```{r PW-logo, fig.align = 'center'}
 knitr::include_graphics("./PW Logo files/PNG (raster)/large-png-pacific-wild-logo/pw-logo-dark-transparent-bg@2x.png")
@@ -373,16 +379,17 @@ knitr::include_graphics("./PW Logo files/PNG (raster)/large-png-pacific-wild-log
 
 # Executive Summary
 
-The Pacific herring roe fishery is a longstanding fishery in BC, and its epicenter is now the Strait of Georgia. Here, we investigate the economic value of the fishery within the context of other fisheries in the region and its history. In general, landings, overall value, and prices have declined for the sector over the past 20 years. This is a challenge to the BC seafood industry as the herring fishery has a strategic importance to the fisheries and seafood processing sector of generating work in the off-season, and the decrease in catches also leads to decreases in employment in the processing and export sectors. Those invested in the fishery have seen the decline in value as the licences and lease costs have decreased substantially along with the decline in value of the herring. Finally, we investigate the costs of closing the fishery for the 2019 season as a proposed means of recovery of the herring stocks and protection of species that rely upon them. 
+The Pacific herring roe fishery (also known as the 'sac roe' fishery) is a longstanding fishery in areas all along the B.C. coast. As of 2019, its epicenter is the Strait of Georgia. Here, we investigate the economic value of the fishery within the context of other fisheries in the region and its history. In general, landings, overall value, and prices have declined for the sector over the past 20 years. This is a challenge to the B.C. seafood industry as the herring fishery has a strategic importance to the fisheries and seafood processing sector of generating work in the off-season, and the decrease in catches also leads to decreases in employment in the processing and export sectors. Those invested in the fishery have seen the decline in value as the licences and lease costs have decreased substantially along with the decline in value of the herring. Finally, we investigate the costs of closing the fishery for the 2019 season as a proposed means of recovery of the herring stocks and protection of species that rely upon them. 
 
 ## Terms & Notes
-Ex-vessel value - the value of fish or seafood at its first point of sale (i.e., the price the fishers receive)
-Unless otherwise stated, all values are expressed in real 2015 dollars to account for inflation over the time period studied. 
-Tonnes refers to metric tonnes (1000 kilograms, 1kg = 2.2 lbs). Some reports use short tons (2000 lbs) and this was converted to metric tonnes when necessary. 
+- Ex-vessel value -is the value of fish or seafood at its first point of sale (i.e., the price the fishers receive). Also known as the landed value.
+
+- Unless otherwise stated, all values are expressed in real 2015 dollars to account for inflation over the time period studied. 
+- Tonnes refers to metric tonnes (1000 kilograms or 2204.6 lbs). Some data sources use short tons (2000 lbs) and this was converted to metric tonnes when necessary. 
 
 # Introduction
 
-This report was prepared for Pacific Wild to evaluate the current value of the Pacific herring (*Clupea pallasii*) roe fishery in the Strait of Georgia. The herring roe fishery has a long history in British Columbia and is a valuable part of BC's seafood exports. This fishery makes up the largest component of the Pacific herring fisheries in BC, and is the most valuable aspect of the fishery. The herring fishery in BC is composed of several segments: roe herring undertaken with purse seines and gillnets, food and bait herring, herring spawn on kelp, and special use herring. Each of these has their own (or several) licences within the category that allow fishers to fish for this purpose. This report focuses specifically on the seine and gillnet roe fishery, while including the food and bait fishery and spawn on kelp fisheries when important for context. We also focus on one key fishing ground for the roe fishery, the Strait of Georgia (Figure \@ref(fig:map)), where the fishery has been especially concentrated in recent years. 
+The Pacific herring (*Clupea pallasii*) roe fishery (sometimes referredd to as the 'sac roe' fishery) has a long history in British Columbia and is a valuable part of B.C.'s seafood exports. This fishery makes up the largest component of the Pacific herring fisheries in B.C., with respect to the quantity of fish harvested and also the value of the catch. The fisheries that harvest Pacific herring in B.C. include: roe herring undertaken with purse seines and gillnets, food and bait herring caught with purse seines, herring spawn on kelp, and special use herring captured with multiple methods. Each of these has their own specific (or multiple) licences within the category that allow fishers to fish for this purpose. This report focuses specifically on the seine and gillnet roe fishery, while including the food and bait fishery and spawn on kelp fisheries when important for context. We also focus on one key fishing ground for the roe fishery, the Strait of Georgia (Figure \@ref(fig:map)), where the fishery has been especially concentrated in recent years. 
 
 ```{r map, echo=FALSE, fig.cap="Figure 1. Map of roe herring fishing areas in British Columbia. Source: Fisheries and Oceans Canada, 2018.", out.width = '50%'}
 #Probably need a map of the area here. 
@@ -390,9 +397,9 @@ knitr::include_graphics("DFO_Map.png")
 ```
 
 # The Fisheries
-The Pacific herring fishery was formerly the largest fishery in BC until the fishery collapsed in the 1960s. Until that point, most of the fishery was used for the production of fishmeal and fish oil to support agriculture and livestock. The fishery was re-started in the 1970s with smaller catches destined for a high-value export of roe to the Japanese market. This fishery has proceeded to today being the main component of the herring fishery in BC (Figure \@ref(fig:catch-by-type)), with other fisheries being of much less importance by catch and value. The exception to this is the spawn on kelp fishery which is fished both commercial and as a Food, Social, and Ceremonial fishery by First Nations in BC. The other major component of the herring fishery in BC is the food and bait fishery. There are several other smaller special herring fisheries that are much smaller in tonnage and value than the three aforementioned components. Here we focus on the economically most important fishery: the herring roe fishery (Figure \@ref(fig:roe-fishery-sog)). 
+In the 1950s and early 1960s,  the Pacific herring fishery was the largest fishery in B.C. with catches often exceeding 200,000 tonnes [@HerringSchool2015]. In 1967, the fishery collapsed coast-wide. Until that point, most of the fishery was used for the production of fishmeal and fish oil to support agriculture and livestock. The fishery was re-started in the 1970s with smaller catches destined for a high-value export of roe to the Japanese market. This fishery has proceeded to today being the main component of the herring fishery in B.C. (Figure \@ref(fig:catch-by-type)), with other fisheries being of much less importance by catch and value. The exception to this is the spawn on kelp fishery which is fished both commercially and as a Food, Social, and Ceremonial (FSC) fishery by First Nations in B.C., for whom herring are an important source of nourishment and cultural value. The second largest component of the herring fishery in B.C. is the food and bait fishery. There are several other herring fisheries that fall under special use licences and are much smaller in tonnage and value than the three aforementioned components. They include human food and bait, sport fishing bait, personal use and fish for zoos and aquaria. Here we focus on the economically most important fishery: the herring roe fishery (Figure \@ref(fig:roe-fishery-sog)). 
 
-```{r catch-by-type, echo=F, warning=F, message=F, fig.cap="Catch of herring by fishery type. Source: BC Ministry of Agriculture, 2018."}
+```{r catch-by-type, echo=F, warning=F, message=F, fig.cap="Catch of herring by fishery type. Source: B.C. Ministry of Agriculture, 2018."}
 ##Plots of catch, landed value, and wholesale values
 fisherytype_value <- read_csv("./Data/HerringValueFisheries.csv")
 fisherytype_value <- fisherytype_value %>%
@@ -411,12 +418,14 @@ fisherytype_value_plot <- fisherytype_value %>%
   scale_color_ipsum() + 
   NULL
 
+ggsave("./Images/Catch of herring by fishery type. Source: BC Ministry of Agriculture, 2018.tiff", fisherytype_value_plot, dpi=300)
+
 ggplotly(fisherytype_value_plot) %>% layout(font=plot_font)
 ```
 
 
 
-For the 2019 season, the expected catches across all herring fisheries is ~30,000 tonnes (Figure \@ref(fig:bar-chart-area-use)). The gillnet and seine roe fisheries are going to occur solely within the Strait of Georgia. Outside the Strait of Georgia, there are small fisheries as part of First Nations and commercial spawn on kelp fisheries (SOK), as well as Food, Social, and Ceremonial (FSC) fisheries. Other special use herring fisheries include human food and bait, sport fishing bait, personal use and fish for zoos and aquaria totalling ~800 tonnes. Grouping these together, the only commercial fishing outside the Strait of Georgia is for commercial spawn on kelp herring fisheries. 
+For the 2019 season, the expected catch across all herring fisheries is approximately 30,000 tonnes (Figure \@ref(fig:bar-chart-area-use)). The only statistical area open to the gillnet and seine roe fisheries is within the Strait of Georgia. Outside the Strait of Georgia, there are small fisheries as part of First Nations and commercial spawn on kelp fisheries (SOK), as well as Food, Social, and Ceremonial (FSC) fisheries. Other special use herring fisheries are predicted to total approximately 800 tonnes. Grouping these together, the only commercial fishing for herring outside the Strait of Georgia is for commercial spawn on kelp. 
 
 ```{r bar-chart-area-use, echo=F, warning=F, message=F, fig.cap="Expected catches (metric tonnes) of herring by area and fishery for the 2019 season areas. CC: Central Coast; HG: Haida Gwaii; PR: Prince Rupert; SOG: Strait of Georgia; WCVI: West Coast Vancouver Island. FSC: Food, Social, and Ceremonial; SOK: Spawn on Kelp. Source: DFO, 2018"}
 expected_2019 <- read.csv("./Data/Herring2019SeasonExpectedUse.csv")
@@ -452,6 +461,8 @@ expected_2019_summary_plot <- expected_2019_summary  %>%
   xlab("") + 
   labs(fill="Fishery group") +
   NULL
+
+ggsave("./Images/Expected catches (metric tonnes) of herring by area and fishery for the 2019 season areas.tiff", dpi=300)
 
 ggplotly(expected_2019_summary_plot) %>% layout(font=plot_font)
 
@@ -491,6 +502,8 @@ season_summary_plot <- season_summary %>%
   scale_color_ipsum() + 
   NULL
 #plot(season_summary_plot)
+ggsave("./Images/Roe herring landings by gear in the Strait of Georgia. Source: Compiled season summary data from DFO reports.tiff", dpi=300)
+
 ggplotly(season_summary_plot) %>% layout(font=plot_font)
 
 ```
@@ -498,7 +511,7 @@ ggplotly(season_summary_plot) %>% layout(font=plot_font)
 
 
 # The Products
-The main product of the roe fishery is the herring roe. This is exported in both frozen and cured forms to Japan. In general, the decline in ex-vessel prices for herring in BC are attributed to a decline in demand from the Japanese market. This has been attributed to a weakened Japanese economy and a change in tastes from older to younger generations. There is a growing share of herring products exported outside of Japan, mainly to China and the USA [@DFO2018]. 
+The main product of the roe fishery is the herring roe, or the eggs of the female fish. The roe is exported in both frozen and cured forms to Japan. In general, the decline in ex-vessel prices for herring in B.C. is attributed to a decline in demand from the Japanese market, potentially caused by a weakened Japanese economy and a change in tastes from older to younger generations [@Newell1999]. There is a growing share of herring products exported outside of Japan, mainly to China and the USA [@DFO2018]. 
 
 ```{r by-product-calculations}
 roe_weight <- .125 #This is the value used by McGrath et al. 2015 and not far from what I hear from the industry. 
@@ -508,7 +521,7 @@ carcass_weight <- 1 - roe_weight
 carcass_value <- 1 #Unknown at present 
 
 
-#In 2007 (Pelletier et al. 2007), 4.1 kg/tonne of pacific herring by-product meal and 3.1 kg/tonne of pacific herring by-product oil were used per tonne of salmon feed used in BC. Average use was 1.313 tonnes of feed per 1 tonne of live-weight salmon produced. 
+#In 2007 (Pelletier et al. 2007), 4.1 kg/tonne of pacific herring by-product meal and 3.1 kg/tonne of pacific herring by-product oil were used per tonne of salmon feed used in B.C.. Average use was 1.313 tonnes of feed per 1 tonne of live-weight salmon produced. 
 
 
 #In 2013 (McGrath et al. 2015), average Canadian salmon feed is modelled as FM=18.4% (13.4% from anchoveta and 5.0% from Pacific herring) and FO=9.8% (5.0% gulf menhaden, 2.4% anchoveta, 2.4% pacific herring). This Pacific herring is modelled as solely from by-products of the roe fishery. 
@@ -580,15 +593,26 @@ herring_fm_prod <- prettyNum(roe_herring_2014_2015 * carcass_weight * fm_yield, 
 ```
 
 
-While the roe is the backbone of the fishery, the majority by weight is the by-product of herring carcasses used for fishmeal and fish oil. There is limited information on the value of the carcasses, but one processor contacted during this study said that they are not paid for the carcasses, but they are picked up by the reduction company for no cost. By all accounts the carcasses from the roe herring fishery are used to produce fishmeal and fish oil in BC.  This fishmeal and fish oil are used primarily for salmon feed production that is fed to BC farmed salmon [@McGrath2015a]. Using industry average information, we can estimate the amount of fishmeal produced on average from the roe herring fishery, and the amount likely required by the BC farmed salmon industry. 
+While the roe is the backbone of the fishery, the majority by weight is the by-product of herring carcasses, which are processed into fishmeal and fish oil. There is limited information on the value of the carcasses, but according to one processor contacted during this study, carcasses generate no income for the processing company; rather, they are picked up by a reduction company for no cost. By all accounts, the carcasses from the roe herring fishery are reduced to produce fishmeal and fish oil in B.C. The fishmeal and fish oil are used primarily to produce salmon feed that is fed to B.C. farmed Atlantic salmon [@McGrath2015a]. Using information about the average industry aquaculture feed composition obtained from McGrath et al. (2015), we can estimate the amount of fishmeal produced on average from the roe herring fishery, and the amount likely required by the B.C. farmed salmon industry. 
 
-The carcass weight that is used for fishmeal is between 84% and 89% of the landed weight [@McGrath2015a; Anonymous Pers. Comm.]. The feed conversion ratio (the ratio of feed used per output of salmon) for farmed salmon in BC was 1.313 in 2009 [@Pelletier2009]. The average annual amount of farmed Atlantic salmon produced in BC was `r number_call(bc_farmed_salmon_prod, 5)` tonnes from 2014 to 2016 [@AgriServiceBC2017]. A standard BC salmon feed contains `r number_call(herring_fm_perc, 1)`% herring by-product meal and `r number_call(herring_fo_perc, 1)`% herring by-product oil [@McGrath2015a]. Thus, we can estimate the herring fishmeal required to be `r number_call(herring_fm_req, 1)` tonnes. Alternatively, we can estimate the amount of herring fishmeal and fish oil produced from the roe fishery by-products (averaged for 2014 and 2015) as `r number_call(herring_fm_prod, 0)` and `r number_call(herring_fo_prod, 0)` tonnes, respectively. Based on current export prices for herring meal and herring oil from Canada [@FAO2016a], the value of these combined products is estimated to be `r number_call((herring_fm_prod_value+herring_fo_prod_value)/1000000, 2)` million CAD. 
+The carcass weight that is used for fishmeal is between 84% and 89% of the landed weight [@McGrath2015a; @Anonymous2018]. The feed conversion ratio (FCR), or the ratio of feed used per output of salmon, for farmed salmon in B.C. was 1.313 in 2009 [@Pelletier2009]. The average annual amount of farmed Atlantic salmon produced in B.C. was `r number_call(bc_farmed_salmon_prod, 5)` tonnes from 2014 to 2016 [@AgriServiceBC2017]. A standard B.C. salmon feed contains `r number_call(herring_fm_perc, 1)`% herring by-product meal and `r number_call(herring_fo_perc, 1)`% herring by-product oil [@McGrath2015a]. Thus, we can estimate the herring fishmeal required:  
+Herring FM Demand = FCR \* Salmon Production \* Herring FM %  
+Herring FM Demand = 1.313 \* `r number_call(bc_farmed_salmon_prod, 5)` tonnes \* `r number_call(herring_fm_perc, 1)`%  
+
+We estimate the herring by-product meal demand to be `r number_call(herring_fm_req, 1)` tonnes. Alternatively, we can estimate the amount of herring fishmeal and fish oil produced from the roe fishery by-products (averaged for 2014 and 2015):  
+Herring FM Supply = Roe herring landings \* Carcass weight \* Fishmeal yield  
+Herring FM Supply = `r number_call(roe_herring_2014_2015, 1)` tonnes \* `r number_call(carcass_weight*100, 1)`% \* `r number_call(fm_yield*100, 1)`%  
+
+Herring FO Supply = Roe herring landings \* Carcass weight \* Fish oil yield  
+Herring FO Supply = `r number_call(roe_herring_2014_2015, 1)` tonnes \* `r number_call(carcass_weight*100, 1)`% \* `r number_call(fo_yield*100, 1)`%  
+
+We estimate the herring by-product meal and oil supply as `r number_call(herring_fm_prod, 0)` and `r number_call(herring_fo_prod, 0)` tonnes, respectively. Based on current export prices for herring meal and herring oil from Canada [@FAO2016a], the value of these combined products is estimated to be `r number_call((herring_fm_prod_value+herring_fo_prod_value)/1000000, 2)` million CAD. 
 
 
 # The Supply Chain
-Here, we measure employment in full-time equivalents (FTEs) to standardize the importance of these various industries that are seasonal by nature. A standard measure of full-time equivalent is 2080 hours annual, defined as 40 hours per week for 52 weeks per year. 
+It is not only the fish harvesters themselves who are employed in the supply chair of the herring roe fishery in the Strait of Georgia, B.C. Here, we enumerate the number of types of jobs generated by the supply chain. We measure employment in full-time equivalents (FTEs) to standardize the importance of these various industries that are seasonal by nature. A standard measure of full-time equivalent is 2080 hours annually, defined as 40 hours per week for 52 weeks per year. 
 
-The combined fisheries for herring roe and food and bait generated 790 jobs during the season equivalent to 91 full-time equivalents [@SeafoodProducersAssociationofBC2015a]. The processing of herring generates more jobs, hours of work and total income for those involved than the capture portion of the fishery. There are additional jobs generated through spin-off employment including transportation, unloading of herring, and marketing and sales, although these are a much smaller portion when compared to fishing and processing. 
+The combined fisheries for herring roe and food and bait generated 790 jobs during the fishing season, which is equivalent to 91 full-time jobs [@SeafoodProducersAssociationofBC2015a]. The processing of herring generates more jobs, hours of work, and total income than those generated by the capture portion of the fishery. There are additional jobs generated through spin-off employment including transportation, unloading of herring, and marketing and sales, although these are a much smaller portion when compared to fishing and processing. 
 
 ```{r ftes-processing, echo=F, warning=F, message=F, fig.cap="Processing employment by fishery type. Source: Estimated based on processing requirements in DFO, 2018."}
 # According to a survey commissioned by DFO to link seafood landings with processing areas and employment, on average the processing of spawn-on-kelp requires 36 hrs/Metric Tonne at a wage of $25/hr. In contrast, the processing of roe herring requires 22 hrs/Metric Tonne at a wage of $25/hr, and the processing of Food & Bait herring requires 12.5 hrs/Metric Tonne at a wage of $20/hr. Based on the landings data reported above, an average of 210 full time equivalent (FTE) jobs were required annually over the past five years for herring processing and paid wages (on average) of $10M/yr. #Source: IFMP Pacific Herring 2018/2019
@@ -621,7 +645,7 @@ fte_plot <- processing %>%
   ylab("Processing jobs (FTEs)") + 
   scale_color_ipsum() + 
   NULL
-  
+ggsave("./Images/Processing employment by fishery type. Source: Estimated based on processing requirements in DFO, 2018.tiff", dpi=300)
 #print(fte_plot)
 ggplotly(fte_plot) %>% layout(font=plot_font)
 ```
@@ -651,7 +675,7 @@ income_total_plot <-processing %>% group_by(Year) %>%
   ylab("Wages (Million 2017$)") + 
   scale_color_ipsum(name = "Fishery", labels = c("Total", "Food and bait", "Roe herring", "Spawn on kelp")) + 
   NULL
-
+ggsave("./Images/Wage income from processing (inflation adjusted million $). Source: Estimated based on processing requirements in DFO, 2018.tiff", dpi=300)
 
 # print(income_total_plot)
 ggplotly(income_total_plot) %>% layout(font=plot_font)
@@ -688,6 +712,7 @@ other_labour <- other_labour %>%
 
 ```{r supply-chain-table, echo=F, warning=F, message=F}
 supply_chain_table <- read_csv("./Data/supply-chain-table.csv")
+
 note1 <- supply_chain_table[8,1] %>% pull()
 note2 <- supply_chain_table[9,1] %>% pull()
 
@@ -702,7 +727,7 @@ kable(supply_chain_table, caption = "Fishery expenses, wages, and jobs for the h
 
 # Value of the Fisheries
 
-To participate in the herring roe fishery, you need an active licence from DFO. At the beginning of the season, you must declare the area where you would like to fish that licence and the quota is distributed amongst the licences that are fishing in that area. The herring roe fishery is undertaken with gillnet (aka drift nets) and purse seines. These are licenced separately. 
+To participate in the herring roe fishery, a fisher requires an active licence from DFO. At the beginning of the season, fishers are required to declare the area where they would like to fish that licence and the quota is distributed amongst the licences that are fishing in each of the management areas. The herring roe fishery is undertaken with gillnet (also known as  drift nets) and purse seines. These are licenced separately. 
 
 
 ```{r season-summaries, echo=F, warning=F, message=F}
@@ -766,6 +791,8 @@ season_summary_gillnet_roe_plot <- season_summary_landings %>%
   scale_color_ipsum() + 
   NULL
 #plot(season_summary_gillnet_roe_plot)
+ggsave("./Images/Gillnet roe herring landings by area. Source: Compiled season summary data from DFO reports.tiff", dpi=300)
+
 ggplotly(season_summary_gillnet_roe_plot) %>% layout(font=plot_font)
 ```
 
@@ -781,11 +808,19 @@ season_summary_seine_roe_plot <- season_summary_landings %>%
   scale_color_ipsum() + 
   NULL
 # plot(season_summary_seine_roe_plot)
+ggsave("./Images/Seine roe herring landings by area. Source: Compiled season summary data from DFO reports.tiff", dpi=300)
+
 ggplotly(season_summary_seine_roe_plot) %>% layout(font=plot_font)
 ```
 
 
-The herring fishery is divided into five major stock areas. In the 1980s and 1990s the catch was more evenly distributed amongst these areas but the catch became concentrated in the Strait of Georgia over time, and now the most important area for the roe herring fishery is the Strait (Figure \@ref(fig:catches-area)). For the upcoming herring season (March-April 2019), there are no catches in the roe herring fisheries expected outside of the Strait of Georgia [@DFO2018]. The catches for the gillnet roe fishery have risen sharply in the past few years while the seine roe fishery landings have declined. The total quota assigned has fluctuated but the proportion used by the gillnet fishery has risen in recent years. This is partially attributed to an increasing number of seine roe licences being used to fish in the food and bait fishery instead of the roe fishery. The initial allocation of herring roe catches by gear type is a 55:45 split for the seine roe fishery [@DFO2018]. 
+The herring fishery is divided into five major management areas, or stock areas: Haida Gwaii, Prince Rupert District, Central Coast, West Coast of Vancouver Island, and Strait of Georgia. In the 1980s and 1990s, the catch was more evenly distributed amongst these areas, but as the herring populations declined in the other four management areas, the the catch became concentrated in the Strait of Georgia over time. 
+These areas have been progressively closed to the roe herring fishery (although some have been assigned unfulfilled quota in recent years). The last year these roe herring fisheries operated in each of the areas were: 2000 for WCVI, 2002 for Haida Gwaii, 2016 for Central Coast, and 2018 for Prince Rupert District.
+
+
+For the roe herring fishery (seine and gillnet catches combined), in the Strait of Georgia accounted for 34% of the catches. By the year 2000, It accounted for over 50% of catches, and in 2018 it accounted for 96% of catches. 
+
+Now the most important area for the roe herring fishery is the Strait (Figure \@ref(fig:catches-area)), and in 2019 there are no roe herring catches expected outside of the Strait of Georgia [@DFO2018]. The catches for the gillnet roe fishery have risen sharply in the past few years while the seine roe fishery landings have declined. The total quota assigned has fluctuated but the proportion used by the gillnet fishery has risen in recent years. This is partially attributed to an increasing number of seine roe licences being used to fish in the food and bait fishery instead of the roe fishery. At the beginning of each season, the initial allocation of herring roe catches by gear type is a 55:45 split for the seine roe fishery [@DFO2018]. However, seine licences can opt to have their quota switched to the food and bait fishery at the beginning of the season, although this does not change the total allowable catch for the season. 
 
 
 ```{r quota-sog, echo=F, warning=F, message=F, fig.cap="Roe herring quota issued in the Strait of Georgia by licence type. Source: Compiled season summary data from DFO reports."}
@@ -806,6 +841,8 @@ season_summary_quota_roe_plot <- season_summary_quota %>%
   stat_summary(fun.y = sum, na.rm = TRUE, aes(group = 3, color = 'Total roe herring'), geom ='line') + 
   NULL
 #plot(season_summary_quota_roe_plot)
+ggsave("./Images/Roe herring quota issued in the Strait of Georgia by licence type. Source: Compiled season summary data from DFO reports.tiff", dpi=300)
+
 ggplotly(season_summary_quota_roe_plot) %>% layout(font=plot_font)
 
 ```
@@ -839,6 +876,7 @@ season_summary_quota_roe_plot <- season_summary_quota_licence %>%
   scale_x_continuous(breaks = c(seq(2010, 2019, 4)), labels=c(seq(2010, 2019, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Roe herring quota per licence in the Strait of Georgia by licence type. Source: Compiled season summary data from DFO reports.tiff", dpi=300)
 
 ggplotly(season_summary_quota_roe_plot) %>% layout(font=plot_font)
 
@@ -927,14 +965,16 @@ catch_area_plot <- catch_area %>% ggplot(aes(x=Year,y=Amount, color=Area)) +
   #annotate(geom="text", x=end_year+.25, y= end_year_value-2000, label=paste(end_year_perc_value, "%", sep=""), color="#75b8d1") +
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Roe herring catches by major fishing area. Source: Compiled season summary data from DFO reports.tiff", dpi=300)
+
 ggplotly(catch_area_plot) %>% layout(font=plot_font)
 
 ```
 
 
-Over the past 10 years, the roe herring fishery has fluctuated between an ex-vessel value of 4 and 17 million (Figure \@ref(fig:landed-value)). Formerly the values were much higher exceeding 100 million CAD in 1987. In addition, the wholesale value is substantially higher than the landed value as herring roe is a value-added product. 
+Over the past 10 years, the roe herring fishery has fluctuated between an ex-vessel value of 4 and 17 million (Figure \@ref(fig:landed-value)). Formerly the values were much higher exceeding 100 million CAD in 1987. In addition, the wholesale value is substantially higher than the ex-vessel value as herring roe is a value-added product. 
 
-```{r landed-value, echo=F, warning=F, message=F, fig.cap="Ex-vessel value of herring fisheries. Source: BC Ministry of Agriculture, 2018."}
+```{r landed-value, echo=F, warning=F, message=F, fig.cap="Ex-vessel value of herring fisheries. Source: B.C. Ministry of Agriculture, 2018."}
 
 fisherytype_landed_value_plot <- fisherytype_value %>%
   filter(Measure=="Landed value") %>% 
@@ -945,13 +985,15 @@ fisherytype_landed_value_plot <- fisherytype_value %>%
   scale_x_continuous(expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Ex-vessel value of herring fisheries. Source: BC Ministry of Agriculture, 2018.tiff", dpi=300)
+
 ggplotly(fisherytype_landed_value_plot) %>% layout(font=plot_font)
 ```
 
 
 As herring roe is a processed product, it naturally has a higher price than the raw material of whole herring. In addition, the wholesale value includes the value of the fishery derived from the processing of roe and production of fishmeal and fish oil from the herring by-products. 
 
-```{r wholesale-value, echo=F, warning=F, message=F, fig.cap="Wholesale value of herring fisheries. Source: BC Ministry of Agriculture, 2018."}
+```{r wholesale-value, echo=F, warning=F, message=F, fig.cap="Wholesale value of herring fisheries. Source: B.C. Ministry of Agriculture, 2018."}
 fisherytype_end_value_plot <- fisherytype_value %>%
   filter(Measure=="Wholesale value") %>% 
   ggplot(aes(x=Year,y=Value, color=Fishery)) +
@@ -961,12 +1003,14 @@ fisherytype_end_value_plot <- fisherytype_value %>%
   scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Wholesale value of herring fisheries. Source: BC Ministry of Agriculture, 2018.tiff", dpi=300)
+
 ggplotly(fisherytype_end_value_plot) %>% layout(font=plot_font)
 ```
 
-The decline in total value of the fishery is both a function of a decline in landings, and a decline in ex-vessel prices received by fishers. There is some indication, however, that the prices reported by fishers does not necessarily indicate lower profitability as processors have been more willing to pay fishers' fees (e.g., licence costs and Dockside Monitoring Program costs) thus lowering their cost of fishing [@SeafoodProducersAssociationofBC2015a]. Thus, the ex-vessel price decreases may be partially or wholly offset by the increased costs covered by processors. 
+The decline in total value of the fishery is both a function of a decline in landings, and a decline in ex-vessel prices received by fishers. There is some indication, however, that the prices reported by fishers does not necessarily indicate lower profitability as processors have been more willing to pay fishers' fees (e.g., licence costs and Dockside Monitoring Program costs) thus lowering their cost of fishing [@SeafoodProducersAssociationofBC2015a]. Thus, the ex-vessel price decreases may be partially or wholly offset by the increased costs covered by processors. The effect of this on total profitability is unknown at this time.  
 
-```{r ex-vessel-price, echo=F, warning=F, message=F, fig.cap="Ex-vessel price by fishery. Source: BC Ministry of Agriculture, 2018."}
+```{r ex-vessel-price, echo=F, warning=F, message=F, fig.cap="Ex-vessel price by fishery. Source: B.C. Ministry of Agriculture, 2018."}
 fisherytype_value <- read_csv("./Data/HerringValueFisheries.csv")
 fisherytype_value <- fisherytype_value %>%
   mutate_if(is.character, as.factor) %>%
@@ -1010,6 +1054,8 @@ exvessel_price_plot <- price_factor_clean %>%
   # scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Ex-vessel price by fishery. Source: BC Ministry of Agriculture, 2018.tiff", dpi=300)
+
 ggplotly(exvessel_price_plot) %>% layout(font=plot_font)
 
 
@@ -1049,12 +1095,14 @@ herring_species_gear_plot <- herring_species_gear %>%
   labs(colour="Fishery") + 
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Coastwide ex-vessel price by gear for the roe fishery. Source: DFO, 2017.tiff", dpi=300)
+
 ggplotly(herring_species_gear_plot) %>% layout(font=plot_font)
 
 ```
 
 
-```{r value-added-plot, echo=F, warning=F, message=F, fig.cap="Value-added factor by fishery. Source: BC Ministry of Agriculture, 2018."}
+```{r value-added-plot, echo=F, warning=F, message=F, fig.cap="Value-added factor by fishery. Source: B.C. Ministry of Agriculture, 2018."}
 value_added_plot <- price_factor_clean %>%
   filter(key=="AddedValue") %>%
 #  filter(Fishery!="Spawn on Kelp") %>%
@@ -1065,16 +1113,17 @@ value_added_plot <- price_factor_clean %>%
   # scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Value-added factor by fishery. Source: BC Ministry of Agriculture, 2018.tiff", dpi=300)
+
 ggplotly(value_added_plot) %>% layout(font=plot_font)
 
 
 ```
 
 # Ownership and Licenses
-The roe herring fishery is managed by a limited entry licence program. The total allowable catch (TAC) is set at the beginning of the season based on DFO stock assessments. Before the season the licences must be pooled into self-selected groups for ease of management where the gillnet pools must have a  minimum of 4 licences per pool, and the seine fishery must have eight licences per pool but no more than 10 pools permitted in the Strait of Georgia [@DFO2018]. The TAC is then divided based on the number of licences in each pool. A seine roe licence can elect to fish instead in the Food and Bait fishery and then the amount of catch they would have caught in the roe fishery is switched to allow them to fish in the Food and Bait fishery. 
+The roe herring fishery is managed by a limited entry licence program. The total allowable catch (TAC) is set at the beginning of the season based on DFO stock assessments. Before the season begins, the licences must be pooled into self-selected groups for ease of management where the gillnet pools must have a  minimum of 4 licences per pool, and the seine fishery must have eight licences per pool -- but no more than 10 pools total permitted in the Strait of Georgia [@DFO2018]. The TAC is then divided, based on the number of licences in each pool. Each seine or gillnet licence receives an equal proportion of the TAC, so pools with a greater number of licences have a larger portion of the total TAC for that fishery. A fisher with a seine roe licence can elect to fish instead in the food and bait fishery instead; in that case, the amount of quota that licence would have caught in the roe fishery is switched to the food and bait fishery. 
 
-While the number of roe herring seine licenses is relatively constant, this does not have a strong relationship to the number of vessels actually fishing. Most vessels that fish have two licenses stacked on their vessel.
-In 2007, only 38 seine vessels registered landings, while the total fleet of 133 vessels owned 248 licenses  [@Nelson2009]. The number of active fishing vessels in the seine fishery increased to 43 active vessels in 2009 [@Nelson2011].
+While the total number of roe herring licenses is relatively constant, this does not have a strong relationship to the number of vessels actually fishing. Most vessels that fish have two licenses stacked per vessel. In 2007, only 38 seine vessels registered landings, while the total fleet of 133 vessels owned 248 licenses  [@Nelson2009]. The number of active fishing vessels in the seine fishery increased to 43 active vessels in 2009 [@Nelson2011].
 
 ```{r licence-number, echo=F, warning=F, message=F, fig.cap="Total herring licenses by fishery type"}
 #Plots of change in licensing over time
@@ -1178,6 +1227,8 @@ herring_lic_plot <- herring_lic %>% ggplot(aes(x=Year, y=n, color=Group)) +
   scale_x_continuous(expand=c(0,0)) + 
   scale_color_ipsum() + 
   NULL 
+ggsave("./Images/Total herring licenses by fishery type.tiff", dpi=300)
+
 ggplotly(herring_lic_plot) %>% layout(font=plot_font)
 
 
@@ -1186,7 +1237,7 @@ ggplotly(herring_lic_plot) %>% layout(font=plot_font)
 ```
 
 
-The trend in licences by area should be interpreted with caution as the field is blank for many of the entries in the commercial licence database. However, there does appear to be movement of licences to the remaining fishing areas as would be expected as some of the main fishing areas have been closed for several years (Figure \@ref(fig:licence-area)). This trend is apparent for the Strait of Georgia as well since 2000 (Figure \@ref(fig:licence-sog)).
+The trend in licences by area should be interpreted with caution, as the field is blank for many of the entries in the commercial licence database [@FisheriesandOceansCanada2018a]. However, there does appear to be movement of licences from closed management areas to the remaining fishing. This is not unexpected, as some of the main fishing areas, like Haida Gwaii, Central Coast, and the West Coast of Vancouver Island, have been closed for several years (Figure \@ref(fig:licence-area)). This trend of licences moving in to the Strait of Georgia is apparent since 2000, and a more recent shift from Prince Rupert District into the Strait from 2014 onwards (Figure \@ref(fig:licence-sog)).
 
 
 ```{r licence-area, echo=F, warning=F, message=F, fig.cap="Net licence movement for the two main roe fishing areas."}
@@ -1234,7 +1285,7 @@ net_change_area_licences <- lic_area_lag_summary %>%
 
 areas <- c("Strait of Georgia", "Prince Rupert")
 
-net_change_area_licences$AREA <- gsub(net_change_area_licences$AREA, pattern= "BC COAST WIDE", replacement = "BC Coast Wide")
+net_change_area_licences$AREA <- gsub(net_change_area_licences$AREA, pattern= "BC COAST WIDE", replacement = "B.C. Coast Wide")
 net_change_area_licences$AREA <- gsub(net_change_area_licences$AREA, pattern= "HAIDA GWAII", replacement = "Haida Gwaii")
 net_change_area_licences$AREA <- gsub(net_change_area_licences$AREA, pattern= "CENTRAL", replacement = "Central Coast")
 net_change_area_licences$AREA <- gsub(net_change_area_licences$AREA, pattern= "WCVI", replacement = "West Coast Vancouver Island")
@@ -1250,6 +1301,8 @@ herring_lic_area_plot <- net_change_area_licences %>%
   facet_wrap(~AREA, ncol=1) + 
   #theme(plot.title = element_text(hjust = 0.5)) + 
   NULL 
+ggsave("./Images/Net licence movement for the two main roe fishing areas.tiff", dpi=300)
+
 ggplotly(herring_lic_area_plot) %>% layout(font=plot_font)
 
 ```
@@ -1277,6 +1330,7 @@ herring_lic_sog_plot <- lic_area %>% ggplot(aes(x=Year, y=n, color=Group)) +
   scale_color_ipsum() + 
   NULL 
 #herring_lic_sog_plot
+ggsave("./Images/Number of herring licences in the Strait of Georgia (excluding special use).tiff", dpi=300)
 
 ggplotly(herring_lic_sog_plot) %>% layout(font=plot_font)
 
@@ -1315,6 +1369,7 @@ pattison_roe_combined <- top_10_company_table$nn[which(top_10_company_table$Lice
 
 colnames(top_10_company_table) <- c("Company", "2018 Herring roe licences")
 top_10_company_table$Company <- str_to_title(top_10_company_table$Company)
+write_csv(top_10_company_table, "./Tables/Top 10 companies by herring roe licence ownership (seine and gillnet combined).csv")
 kable(top_10_company_table, caption="Top 10 companies by herring roe licence ownership (seine and gillnet combined)")
 
 sog_roe_quota <- 21493 # short tons in 2019 
@@ -1324,7 +1379,7 @@ pattison_2019_quota <- pattison_roe_seine_2019_quota + pattison_roe_gillnet_2019
 
 ```
 
-The largest owner(s) of herring roe licences are the companies belonging to the Jim Pattison Group (Table \@ref(tab:licence-table)). This concentration in this firm has grown over time and now represents `r number_call(pattison_roe_combined * 100, 0)`% of total roe licences. Of these, the Pattison group is more heavily invested in the seine licences which are worth more and account for more landings in the roe fisheries (Figure \@ref(fig:licence-pattison)). Therefore, the Pattison Group's expected quota for 2019 in the Strait of Georgia is `r number_call(pattison_2019_quota, 0)` out of the total `r number_call(sog_roe_quota, 2)` metric tonnes (`r number_call((pattison_2019_quota/sog_roe_quota)*100, 3)`%).  Outside of those owned by the Jim Pattison Group, there is significant concentration in the top 10 largest herring licence holders. 
+The largest owner(s) of herring roe licences are the companies belonging to the Jim Pattison Group (Table \@ref(tab:licence-table)). The concentration of licence ownership in this firm has grown over time and now represents `r number_call(pattison_roe_combined * 100, 0)`% of total roe licences. The Pattison group is more heavily invested in the seine licences, which are worth more and account for more landings in the roe fisheries than the gillnet licences (Figure \@ref(fig:licence-pattison)). Therefore, the Pattison Group's expected quota for 2019 in the Strait of Georgia is `r number_call(pattison_2019_quota, 0)` out of the total `r number_call(sog_roe_quota, 2)` metric tonnes (`r number_call((pattison_2019_quota/sog_roe_quota)*100, 3)`%).  Outside of those owned by the Jim Pattison Group, there is significant concentration in the top 10 largest herring licence holders (Table \@ref(tab:licence-table)). 
 
 ```{r licence-pattison, echo=F, warning=F, message=F, fig.cap="Herring licences owned by the Jim Pattison Group"}
 
@@ -1344,12 +1399,14 @@ herring_lic_pattison_plot <- herring_lic_pattison %>% ggplot(aes(x=Year, y=n, co
   scale_color_ipsum() + 
   labs(color="") + 
   NULL 
+ggsave("./Images/Herring licences owned by the Jim Pattison Group.tiff", dpi=300)
+
 ggplotly(herring_lic_pattison_plot) %>% layout(font=plot_font)
 
 ```
 
 
-A standard measure of inequality is the Gini index. The Gini index is a value between 0 and 1, where 1 represents perfect inequality and 0 represents perfect equality. This measure has been applied to fishing licences and fleets to measure equity. It was applied to the BC salmon and herring fisheries and found a large share of corporate control [@Haas2016]. As corporate control has become a concern for BC, here we investigate the change in inequality in the fishery over time. There has been a significant increase in the inequality of the herring licence division over time occurring in both the seine and gillnet roe fisheries (Figure \@ref(fig:gini-time)). 
+A standard measure of inequality is the Gini index. The Gini index is a value between 0 and 1, where 1 represents perfect inequality and 0 represents perfect equality. This measure has been applied to fishing licences and fleets to measure equity. It was applied to the B.C. salmon and herring fisheries with data up to 2012, and there was found to be a large share of corporate control [@Haas2016]. Corporate control in B.C. fisheries has become a concern among fisheries and society more broadly. Here we find there has been a significant increase in the inequality of the herring licence division over time occurring in both the seine and gillnet roe fisheries (Figure \@ref(fig:gini-time)). 
 
 
 ```{r gini-time, echo=F, warning=F, message=F, fig.cap="Gini coefficient for roe herring licences"}
@@ -1362,7 +1419,7 @@ licences_agg <- licences %>%
   arrange(desc(Year,`FISHERY GROUP`, Count))
 
 lic_2018 <- lic_2018 %>% arrange(desc(Count))
-library(ineq)
+
 gini_df_blank <- data_frame(Year=NA, Fishery=NA, Gini=NA)
 gini_df <- gini_df_blank[0,]
 fisheries <- key_groups
@@ -1389,13 +1446,15 @@ gini_plot <- gini_df %>% ggplot(aes(x=Year, y=Gini, color=Fishery)) +
   ylab("Gini Index") + 
   scale_color_ipsum() + 
   NULL 
+ggsave("./Images/Gini coefficient for roe herring licences.tiff", dpi=300)
+
 ggplotly(gini_plot) %>% layout(font=plot_font)
 
 
 ```
 
 
-The value of roe herring licences for both the gillnet and seine have declined substantially since high levels in the late 1990s and early 2000s. The outright licence fees are so much lower that the lease value of these licences has dropped to near zero. By industry accounts, there is very little leasing of licences in the gillnet fishery and almost none in the seine fishery. 
+The value of roe herring licences for both the gillnet and seine have declined substantially since high levels in the late 1990s and early 2000s. The outright licence fees are so much lower that the lease value of these licences has dropped to near zero. By industry accounts, there is very little leasing of licences in the gillnet fishery and almost none in the seine fishery [@Nelson2016]. 
 
 ```{r licence-value, echo=F, warning=F, message=F, fig.height=6, fig.cap="Herring licence values by fishery type and fee. Source: Compiled from various reports of Nelson Bros Fisheries Ltd."}
 licence_value <- read_csv("./Data/licence_value.csv")
@@ -1421,6 +1480,8 @@ licence_value_plot <- licence_value %>%
   facet_wrap(~Fishery, ncol=1, scales = "free") +
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Herring licence values by fishery type and fee. Source: Compiled from various reports of Nelson Bros Fisheries Ltd.tiff", dpi=300)
+
 ggplotly(licence_value_plot) %>% layout(font=plot_font)
 
 ##The above plot has overlapping labels for the facet titles and they are not left aligned
@@ -1428,9 +1489,9 @@ ggplotly(licence_value_plot) %>% layout(font=plot_font)
 
 
 # How does the roe herring fishery stack up?
-Based on data from BC statistics [@AgriServiceBC2018], wild salmon processing generates ~4x as much in wages as herring processing does. In 2016 when wild salmon and herring catches were comparable (24,700 tonnes and 24,100 tonnes, respectively), wild salmon generated 5.4x as many processing jobs (annual average of 1,400 compared to 332 for herring) [@AgriServiceBC2018]. Similarly, these jobs resulted in higher wages for wild salmon that generated just over \$2,000/tonne processed while herring was \$525/tonne. 
+Based on data from B.C. statistics [@AgriServiceBC2018], wild salmon processing generates approximately 4x as much in wages as herring processing does. In 2016, when wild salmon and herring catches were comparable (24,700 tonnes and 24,100 tonnes, respectively), wild salmon generated 5.4x as many processing jobs (annual average of 1,400 compared to 332 for herring) [@AgriServiceBC2018]. Similarly, the processing of salmon generates a greater value-added of just over \$2,000 per tonne of salmon processed, while herring was \$525 per tonne of herring. 
 
-```{r bc-seafood,  echo=F, warning=F, message=F, fig.cap="Harvest and value (landed and wholesale) of BC seafood production averaged over 2014-2016. Source: BC AgriService 2017."}
+```{r bc-seafood,  echo=F, warning=F, message=F, fig.cap="Harvest and value (ex-vessel and wholesale) of B.C. seafood production averaged over 2014-2016. Source: BC AgriService 2017."}
 bc_seafood <- read_csv("./Data/BC_Seafood_Production.csv")
 bc_seafood$System <- "wild"
 bc_seafood$System[grepl(bc_seafood$Group , pattern="Farmed", ignore.case=T)] <- "farmed"
@@ -1467,12 +1528,14 @@ bc_seafood_average_plot <- bc_seafood_average %>%
   ylab("") + 
   labs(fill="Seafood category") + 
   NULL
+ggsave("./ImagesHarvest and value (ex-vessel and wholesale) of BC seafood production averaged over 2014-2016. Source: BC AgriService 2017.tiff", dpi=300)
+
 ggplotly(bc_seafood_average_plot) %>% layout(font=plot_font)
 
 ```
 
 
-Compared to other valuable species in the Strait of Georgia, such as salmon, herring catches are higher in tonnage but lower in value. 
+Compared to other valuable species in the Strait of Georgia, such as salmon, herring catches are higher in tonnage but lower in value (Figures \@ref(fig:salmon-district-amount) & \@ref(fig:salmon-district-value)). 
 
 ```{r salmon-district-amount,  echo=F, warning=F, message=F, fig.cap="Commercial salmon landings in the Strait of Georgia. Source: DFO, 2017."}
 salmon_district_data <- read_csv("./Data/SalmonDistrictOutputData.csv") %>% 
@@ -1531,6 +1594,8 @@ sog_salmon_amount <- sog_salmon %>% ggplot(aes(x=Year, y=AMOUNT, color=SPECIES))
   labs(color="Species") + 
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Commercial salmon landings in the Strait of Georgia. Source: DFO, 2017.tiff", dpi=300)
+
 ggplotly(sog_salmon_amount) %>% layout(font=plot_font)
 
 ```
@@ -1545,12 +1610,14 @@ sog_salmon_value <- sog_salmon %>% ggplot(aes(x=Year, y=VALUE, color=SPECIES)) +
   labs(color="Species") + 
   scale_color_ipsum() + 
   NULL
+ggsave("./Images/Commercial salmon ex-vessel value in the Strait of Georgia. Source: DFO, 2017.tiff", dpi=300)
+
 ggplotly(sog_salmon_value) %>% layout(font=plot_font)
 ```
 
-In addition to the commercial fishery in the Strait of Georgia, there is a valuable recreational fishery for salmon in the Strait of Georgia. While other areas of the BC coast account for larger numbers of salmon caught by recreational fishers, the Strait of Georgia has the most fishing effort recorded in boat days for those areas with data (Note: Northern and Central coast data was not available for this year). One crude measure of the value of the recreational fisheries is the value they produce in fish themselves if the fish was sold commercially [@Colquhoun2015]. This measure of value is crude and non-inclusive as recreational fishing is not solely for the production of fish, and countless studies have shown that the value recreational fishing gives to society far exceeds this 'product' value. Nevertheless, the product value of recreational tidal water salmon fisheries in BC is over 15 million dollars annually, with the Strait of Georgia accounting for 1.3 million dollars of this.   
+In addition to the commercial salmon fishery in the Strait of Georgia, there is a valuable recreational fishery for salmon in the Strait of Georgia. While other areas of the B.C. coast account for larger numbers of salmon caught by recreational fishers, the Strait of Georgia has the most fishing effort recorded in boat days for those areas with data (Note: North and Central coast data were not available for this year). One measure of the value of the recreational fisheries is the value they produce in fish themselves if the fish was sold commercially [@Colquhoun2015]. This measure of value is crude and non-inclusive, as recreational fishing is not solely for the production of fish, and countless studies have shown that the value of recreational fishing to society far exceeds this 'product' value. Nevertheless, the product value of recreational tidal water salmon fisheries in B.C. is over 15 million dollars annually, with the Strait of Georgia accounting for 1.3 million dollars of this.   
 
-```{r recreational-fishes, echo=F, warning=F, message=F, fig.cap="Recreational salmon landings (tidal water) in BC by area for 2009. JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island. Source: DFO, 2016"}
+```{r recreational-fishes, echo=F, warning=F, message=F, fig.cap="Recreational salmon landings (tidal water) in B.C. by area for 2009. JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island. Source: DFO, 2016"}
 sog_rec <- read_csv("./Data/salmon_recreational_2009.csv")
 
 areas <- c("NorthCentral", "Johnstone Strait", "Strait of Georgia", "Juan de Fuca Strait", "WCVI")
@@ -1576,11 +1643,13 @@ sog_rec_pieces_plot <- sog_rec %>%
   scale_fill_ipsum() + 
   ylab("Salmon (# of individuals)") + 
   NULL
+ggsave("./Images/Recreational salmon landings (tidal water) in BC by area for 2009.tiff", dpi=300)
+
 ggplotly(sog_rec_pieces_plot) %>% layout(font=plot_font)
 ```
 
 
-```{r recreational-value, echo=F, warning=F, message=F, fig.cap="Recreational salmon value (tidal water) in BC by area  for 2009. JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island. Source: Estimated based on commercial value of salmon and landings data from DFO, 2016"}
+```{r recreational-value, echo=F, warning=F, message=F, fig.cap="Recreational salmon value (tidal water) in B.C. by area  for 2009. JDFS: Juan de Fuca Strait; JS: Johnstone Strait; NC: North Central Coast; SoG: Strait of Georgia; WCVI: West Coast of Vancouver Island. Source: Estimated based on commercial value of salmon and landings data from DFO, 2016"}
 
 
 salmon_district_data <- read_csv("./Data/SalmonDistrictOutputData.csv") %>% 
@@ -1629,6 +1698,8 @@ sog_rec_value_plot <- sog_rec %>%
   scale_fill_ipsum() + 
   ylab("Catch value (Million $)") + 
   NULL
+ggsave("./Images/Recreational salmon value (tidal water) in BC by area  for 2009.tiff", dpi=300)
+
 ggplotly(sog_rec_value_plot) %>% layout(font=plot_font)
 
 ```
@@ -1644,8 +1715,9 @@ sog_rec_effort_plot <- sog_rec %>%
   geom_col() +
   scale_fill_ipsum() + 
   ylab("Fishing effort (# of boat days)") + 
-  
   NULL
+ggsave("./Images/Recreational salmon fishing effort in the Strait of Georgia for 2009.tiff", dpi=300)
+
 ggplotly(sog_rec_effort_plot) %>% layout(font=plot_font)
 ```
 
@@ -1695,26 +1767,23 @@ cost_of_2019_closure <- prettyNum((fishers_fte + processors_fte) * maximum_weekl
 
 ```
 
-Pacific Wild asked the author to consider a temporary closure of the fishery with the aim of protecting the ecosystem as herring plays an important role in many of its predators' diets. This closure has been proposed to rebuild herring stocks and protect the species that rely upon herring in this ecosystem. The following details options based on previous experience of temporary fishery closures and licence buy-backs in Canada. 
+Pacific herring play an important role in many of their predators’ diets, so we considered the economic cost of a temporary closure of the fishery, for the purpose of rebuilding herring stocks and protecting the integrity of the Strait of Georgia ecosystem. This section of the report details options based on previous instances of temporary fishery closures and licence buy-backs in Canada.
 
-The first example will draw directly from the BC herring fishery. In recent years, the roe herring fishery has had quota assigned to fishing areas where a fishery opening did not occur [@GovernmentofCanada2014]. Many fishers had purchases licences for these areas prior to the fishery opening and were not allowed to fish them. In these cases, the fishers were reimbursed for the cost of the licence [@GovernmentofCanada2014], but not for any extra costs or the lost income of the fishery. In this case, the cost of reimbursement for the licences for the 2019 season is expected to be a maximum of `r number_call(licence_reimbursement_2019, 7)` (assuming that all licences are full fee, which gives a maximum value rather than the true value).
+The first example draws directly from the B.C. herring fishery. In recent years, the roe herring fishery has had quota assigned to fishing areas where a fishery opening did not occur [@GovernmentofCanada2014]. Many fishers had purchases licences for these areas prior to the fishery opening and were not allowed to fish them. In these cases, the fishers were reimbursed for the cost of the licences [@GovernmentofCanada2014], but not for any extra costs associated with preparing for the fishering season or the lost income of the fishery. In the case of the 2019 herring roe fishery in the Strait of Gerogia, we calculated the cost of reimbursement for the licences for the 2019 season is expected to be a maximum of `r number_call(licence_reimbursement_2019, 7)` CAD (assuming that all licences are full fee, which gives a maximum value rather than the true value).
 
-For a temporary closure, the government could act in ways that is has in the past when extenuating circumstances warrant a closure of a fishery. In this case, the compensation that fishers receive is closely in line with what fishers receive for employment insurance payments [@Emery1992a; @CBCNews2007]. These payments take into account the regional rate of unemployment, earnings from fishing, earnings from other activities, and a predetermined allowed maximum weekly amount [@GovernmentofCanada2019]. The maximum weekly amount in 2019 is \$1,021 a week [@GovernmentofCanada2019]. If a fisher's total weekly earnings was less than this, they would use that amount in its place. The amount paid is 55% of the lower of the two numbers, thus making the maximum amount paid per fisher \$562. As we determined the full-time equivalent contribution of the roe herring fishers in the Strait of Georgia and the processing jobs they generate, we can use these FTEs and the maximum weekly amount paid to compensate for the loss of this fishery to fishers and processors as has been done with other fishery closures [@Emery1992a]. Therefore, the cost of income supplements for a temporary closure of the fishery is estimated to be \$`r toString(cost_of_2019_closure)`. 
+For a temporary closure, the government could act in ways that is has in the past when extenuating circumstances warranted a closure of a fishery. In this case, the compensation that fishers receive is closely in line with what fishers receive for employment insurance payments [@Emery1992a; @CBCNews2007]. These payments take into account the regional rate of unemployment, earnings from fishing, earnings from other activities, and a predetermined allowed maximum weekly amount [@GovernmentofCanada2019]. The maximum weekly amount in 2019 is \$1,021 a week [@GovernmentofCanada2019]. If a fisher's total weekly earnings was less than this, they would use that amount in its place. The amount paid is 55% of the lower of the two numbers, thus making the maximum amount paid per fisher \$562. As we determined the full-time equivalent contribution of the roe herring fishers in the Strait of Georgia and the processing jobs they generate, we can use these FTEs and the maximum weekly amount paid to compensate for the loss of this fishery to fishers and processors as has been done with other fishery closures [@Emery1992a]. Therefore, the cost of income supplements for a temporary closure of the fishery is estimated to be \$`r toString(cost_of_2019_closure)`. 
 
-Licenses are retired in fisheries to reduce capacity to a more ecologically or economically sustainable level, or to permanently close the fishery. The roe herring fishery is a limited entry licence fishery similar to the Pacific salmon fisheries in BC. Therefore, we can use the salmon fishery licence buybacks as an option for this fishery if there are believed to be benefits from reducing capacity. From 1996 to 2000, 1,406 salmon licences (34% of licenses in 1996) were retired at a total cost of \$195 million dollars (~\$138,000 per licence). As the roe herring licences are at a near all-time low cost, it would likely be less expensive to remove these licenses and there are less licenses to begin with in the fishery (total roe herring licenses of `r number_call(sum(lic_2018$Count),0)`). In addition, the average seine herring license is valued at approximately \$50,000 and the average gillnet herring licence is valued at \$25,000. Therefore, the cost of retiring these licenses would likely be less than it was for salmon. The effectiveness of a licene retirement program is predicated on the limiting of expansion of effort in the remaining fleet. Therefore, a licence retirment program would not be successful without additional caps on fishing capacity and effort. 
+Licenses are retired in fisheries to reduce capacity to a more ecologically or economically sustainable level, or to permanently close the fishery. The roe herring fishery is a limited entry licence fishery, similar to the Pacific salmon fisheries in B.C. Therefore, we can use the salmon fishery licence buyback program as an option for this fishery, if there are believed to be benefits from reducing capacity. From 1996 to 2000, 1,406 salmon licences (34% of licenses in 1996) were retired at a total cost of \$195 million dollars (~\$138,000 per licence). As the roe herring licences are at a near all-time low cost, it would likely be less expensive to remove these licenses, especially considering there are fewer herring licenses to begin with (total roe herring licenses of `r number_call(sum(lic_2018$Count),0)`). In addition, the average seine herring license is valued at approximately \$50,000 and the average gillnet herring licence is valued at \$25,000. Therefore, the cost of retiring these licenses would likely be less than it was for salmon. The effectiveness of a licene retirement program is predicated on the limiting of expansion of effort in the remaining fleet. Therefore, a licence retirment program would not be successful without additional caps on fishing capacity and effort. 
 
-These strategies may not fully consider the potential strategic importance of the fishery. The herring fishery may be of particular strategic importance as it is a fishing and processing activity that occurs at an off-peak time of year for the fishing industry, and keeps income flowing to keep people employed closer to year-round. This may be especially important for the administrative side of the industry and provides additional weeks of employment to fishers and processors [@SeafoodProducersAssociationofBC2015a]. Without these additional weeks, the increased precariousness of employment could lead to higher turnover of staff. 
+It is important to note that these strategies may not fully consider the potential strategic importance of the herring roe fishery. The herring fishery may be of particular strategic importance as it is a fishing and processing activity that occurs at an off-peak time of year for the fishing industry, and keeps income flowing to keep people employed closer to year-round. This may be especially important for the administrative side of the industry and provides additional weeks of employment to fishers and processors [@SeafoodProducersAssociationofBC2015a]. Without these additional weeks, the increased precariousness of employment could lead to higher turnover of staff. 
 
 # Conclusion
 
-The roe herring fishery's catches declined substantially over the 2000s, but have begun to increase again since 2011. However, the value the fishery has not responded in the same way due to decreasing prices paid to the fishers (ex-vessel value), and the decline in value of the main product of the fishery: herring roe. The fishery is now concentrated solely in the Strait of Georgia. 
+The commercial fishery for Pacific herring has a long history in Canada, and the herring roe fishery was the largest fishery in B.C. at one time. Over the 2000s, the roe herring fishery’s catches declined substantially and, although they have increased since 2011, the fishery is now closed in four of the province’s five management areas, because of declines in herring abundance. As of 2019, the entirety of the commercial herring roe catch will be from the population that spawns in the Strait of Georgia. 
 
-```{r other-references, echo=F}
-bc_ministry <- 1
+Since the 1990s, the value of the commercial herring roe fishery has declined alongside the decline in catches—but it has not seen a corresponding increase in recent years. This is due to reduction in the price paid to fishers (the ex-vessel value), and the decline in the global market value of herring roe, which is the main value-added product of the fishery. The combination of declining value and rising cost of fishing mean that fewer herring fishers now actively fish; multiple licenses are frequently stacked on a single boat to increase profitability. Concentration of license ownership continues to be a concern in the herring roe fishery; corporate control has significantly increased over time in ownership of both seine and gillnet licenses.
 
-
-
-```
+If a fishery closure is necessary to conserve the abundance of the herring population in the Strait of Georgia, the costs are unlikely to be prohibitive, due to the current low value of seine and gillnet licenses for herring roe and the relatively few full time-equivalent jobs generated by the fishery and associated supply chain. However, the herring roe fishery may retain a strategic importance, because it occurs in early spring, providing work and income for fishers and processors at a time when few other fisheries are operating.
 
 
 ```{r}
