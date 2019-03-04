@@ -1,62 +1,463 @@
 ---
-title: "HerringTest"
-author: "Tim Cashion"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+header-includes:
+- usepackage{titling}
+- pretitle{\begin{center}\LARGE\includegraphics[width=6cm]{./PW Logo files/PNG (raster)/large-png-pacific-wild-logo/pw-logo-dark-transparent-bg@2x.png}\\[\bigskipamount]}
+- posttitle{\end{center}}
 output: html_document
 always_allow_html: yes
 ---
+# Economic Value of Pacific Herring in the Strait of Georgia  
+Tim Cashion  
+`r format(Sys.time(), '%B %d, %Y')`  
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-library(knitr) 
+options(knitr.kable.NA = '')
+library(knitr)
 library(tidyverse)
 library(hrbrthemes)
 library(bookdown)
 library(plotly)
+library(kableExtra)
+#library(Cairo)
 source("./R/cpi_function.R")
 cpi <- read_csv("./Data/Canadian_CPI.csv") %>% 
   mutate(base_year=2002) %>% 
   select(-InflationRate)
 cpi_2015 <- inflation_adjust(cpi, 2015) %>% 
   rename(Year=year)
-theme_set(theme_ipsum()) # Doesn't work on PC because it's missing Arial Narrow font.
-#theme_set(theme_ipsum_rc())
+#theme_set(theme_ipsum()) # Doesn't work on PC because it's missing Arial Narrow font.
+theme_set(theme_ipsum_rc() + 
+            theme(text=element_text(family="Alegreya Sans"),
+                  axis.title.x = element_text(family="Alegreya Sans"),
+                  axis.title.y = element_text(family="Alegreya Sans")
+                  ))
+plot_font <- list(
+  family = c("Alegreya Sans", "Open Sans"),
+  familysrc = "http://fonts.googleapis.com/css?family=Alegreya+Sans")
+
 
 number_call <- function(num, decimals){
   x <- prettyNum(num, big.mark = ",", small.mark = ".", digits=decimals) 
   return(x)
 }
 
+short_to_metric_multiplier <- 2000 /2204.623
 
-Sys.setenv("plotly_username"="tcashion")
-Sys.setenv("plotly_api_key"="Id6eUYBY8tOU2V0gRuXd")
+
+```
+
+```{css, echo=FALSE}
+
+body {
+   font-family: "Alegreya Sans", sans-serif;
+   font-size: 14px;
+   line-height: 1.6;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   background-color: white;
+   padding: 10px; }
+
+body > *:first-child {
+   margin-top: 0 !important; }
+body > *:last-child {
+   margin-bottom: 0 !important; }
+
+a {
+   color: #4183C4; }
+a.absent {
+   color: #cc0000; }
+a.anchor {
+   display: block;
+   padding-left: 30px;
+   margin-left: -30px;
+   cursor: pointer;
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+   margin: 20px 0 10px;
+   padding: 0;
+   font-weight: bold;
+   -webkit-font-smoothing: antialiased;
+   cursor: text;
+   position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+   text-decoration: none; }
+
+h1 tt, h1 code {
+   font-size: inherit; }
+
+h2 tt, h2 code {
+   font-size: inherit; }
+
+h3 tt, h3 code {
+   font-size: inherit; }
+
+h4 tt, h4 code {
+   font-size: inherit; }
+
+h5 tt, h5 code {
+   font-size: inherit; }
+
+h6 tt, h6 code {
+   font-size: inherit; }
+
+h1 {
+   font-size: 28px;
+   color: black; }
+
+h2 {
+   font-size: 24px;
+   border-bottom: 1px solid #cccccc;
+   color: black; }
+
+h3 {
+   font-size: 18px; }
+
+h4 {
+   font-size: 16px; }
+
+h5 {
+   font-size: 14px; }
+
+h6 {
+   color: #777777;
+   font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+   margin: 15px 0; }
+
+hr {
+   border: 0 none;
+   color: #cccccc;
+   height: 4px;
+   padding: 0;
+}
+
+body > h2:first-child {
+   margin-top: 0;
+   padding-top: 0; }
+body > h1:first-child {
+   margin-top: 0;
+   padding-top: 0; }
+body > h1:first-child + h2 {
+   margin-top: 0;
+   padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+   margin-top: 0;
+   padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+   margin-top: 0;
+   padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+   margin-top: 0; }
+
+li p.first {
+   display: inline-block; }
+li {
+   margin: 0; }
+ul, ol {
+   padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+   margin-top: 0; }
+
+dl {
+   padding: 0; }
+dl dt {
+   font-size: 14px;
+   font-weight: bold;
+   font-style: italic;
+   padding: 0;
+   margin: 15px 0 5px; }
+dl dt:first-child {
+   padding: 0; }
+dl dt > :first-child {
+   margin-top: 0; }
+dl dt > :last-child {
+   margin-bottom: 0; }
+dl dd {
+   margin: 0 0 15px;
+   padding: 0 15px; }
+dl dd > :first-child {
+   margin-top: 0; }
+dl dd > :last-child {
+   margin-bottom: 0; }
+
+blockquote {
+   border-left: 4px solid #dddddd;
+   padding: 0 15px;
+   color: #777777; }
+blockquote > :first-child {
+   margin-top: 0; }
+blockquote > :last-child {
+   margin-bottom: 0; }
+
+table {
+   padding: 0;border-collapse: collapse; }
+table tr {
+   border-top: 1px solid #cccccc;
+   background-color: white;
+   margin: 0;
+   padding: 0; }
+table tr:nth-child(2n) {
+   background-color: #f8f8f8; }
+table tr th {
+   font-weight: bold;
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr td {
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+   margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+   margin-bottom: 0; }
+
+img {
+   max-width: 100%; }
+
+span.frame {
+   display: block;
+   overflow: hidden; }
+span.frame > span {
+   border: 1px solid #dddddd;
+   display: block;
+   float: left;
+   overflow: hidden;
+   margin: 13px 0 0;
+   padding: 7px;
+   width: auto; }
+span.frame span img {
+   display: block;
+   float: left; }
+span.frame span span {
+   clear: both;
+   color: #333333;
+   display: block;
+   padding: 5px 0 0; }
+span.align-center {
+   display: block;
+   overflow: hidden;
+   clear: both; }
+span.align-center > span {
+   display: block;
+   overflow: hidden;
+   margin: 13px auto 0;
+   text-align: center; }
+span.align-center span img {
+   margin: 0 auto;
+   text-align: center; }
+span.align-right {
+   display: block;
+   overflow: hidden;
+   clear: both; }
+span.align-right > span {
+   display: block;
+   overflow: hidden;
+   margin: 13px 0 0;
+   text-align: right; }
+span.align-right span img {
+   margin: 0;
+   text-align: right; }
+span.float-left {
+   display: block;
+   margin-right: 13px;
+   overflow: hidden;
+   float: left; }
+span.float-left span {
+   margin: 13px 0 0; }
+span.float-right {
+   display: block;
+   margin-left: 13px;
+   overflow: hidden;
+   float: right; }
+span.float-right > span {
+   display: block;
+   overflow: hidden;
+   margin: 13px auto 0;
+   text-align: right; }
+
+code, tt {
+   margin: 0 2px;
+   padding: 0 5px;
+   white-space: nowrap;
+   border: 1px solid #eaeaea;
+   background-color: #f8f8f8;
+   border-radius: 3px; }
+
+pre code {
+   margin: 0;
+   padding: 0;
+   white-space: pre;
+   border: none;
+   background: transparent; }
+
+.highlight pre {
+   background-color: #f8f8f8;
+   border: 1px solid #cccccc;
+   font-size: 13px;
+   line-height: 19px;
+   overflow: auto;
+   padding: 6px 10px;
+   border-radius: 3px; }
+
+pre {
+   background-color: #f8f8f8;
+   border: 1px solid #cccccc;
+   font-size: 13px;
+   line-height: 19px;
+   overflow: auto;
+   padding: 6px 10px;
+   border-radius: 3px; }
+pre code, pre tt {
+   background-color: transparent;
+   border: none; }
+
+sup {
+   font-size: 0.83em;
+   vertical-align: super;
+   line-height: 0;
+}
+* {
+	 -webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+   body {
+      width: 854px;
+      margin:0 auto;
+   }
+}
+@media print {
+	 table, pre {
+		  page-break-inside: avoid;
+	 }
+	 pre {
+		  word-wrap: break-word;
+	 }
+}
+
+p.caption {
+  font-size: 0.9em;
+  font-style: italic;
+  color: grey;
+  margin-right: 10%;
+  margin-left: 10%;  
+  text-align: justify;
+  
+}
+figure {
+  float: right;
+  width: 30%;
+  text-align: center;
+  text-indent: 0;
+  margin: 0;
+  padding: 0;
+}
+```
+
+
+```{r by-product-calculations}
+roe_weight <- .125 #This is the value used by McGrath et al. 2015 and not far from what I hear from the industry. 
+#Talked with direct of sales at Canfisco. He said the range is from 11-16% with gillnet having a higher average 14-16%, and seine having lower (11-13%) due to their selectivity for larger fishes
+#Keegan McGrath uses a value of 12.5% in his study with 87.5% destined for by-product meal. 
+carcass_weight <- 1 - roe_weight 
+carcass_value <- 1 #Unknown at present 
+
+
+#In 2007 (Pelletier et al. 2007), 4.1 kg/tonne of pacific herring by-product meal and 3.1 kg/tonne of pacific herring by-product oil were used per tonne of salmon feed used in B.C.. Average use was 1.313 tonnes of feed per 1 tonne of live-weight salmon produced. 
+
+
+#In 2013 (McGrath et al. 2015), average Canadian salmon feed is modelled as FM=18.4% (13.4% from anchoveta and 5.0% from Pacific herring) and FO=9.8% (5.0% gulf menhaden, 2.4% anchoveta, 2.4% pacific herring). This Pacific herring is modelled as solely from by-products of the roe fishery. 
+
+canadian_fcr <- 1.313 #Pelletier 2009. Could be lower now. 
+canadian_fcr <- 1.1 #Could be lower now?
+
+bc_seafood <- read_csv("./Data/BC_Seafood_Production.csv")
+bc_seafood$System <- "Wild"
+bc_seafood$System[grepl(bc_seafood$Group , pattern="Farmed", ignore.case=T)] <- "Farmed"
+bc_seafood$Group <- gsub(bc_seafood$Group, pattern=" .*", replacement = "")
+
+bc_farmed_salmon_prod <- 1000* mean(bc_seafood %>%
+                         filter(System=="Farmed") %>% 
+                         filter(Group=="SALMON") %>%
+                         filter(Species=="Atlantic") %>% 
+                         filter(Measure=="HARVEST (000 Tonnes)") %>% 
+                         pull(Value)) #Average of BC farmed Atlantic prod from 2014-2016. 
+fm_yield <- .19 #Using value from McGrath 2015 which may be biased downwards because it includes Pacific hake. 
+fo_yield <- 0.05 #Using average values for now. Look at Pelletier 2009.
+herring_fm_perc <- 5
+herring_fo_perc <- 2.4
+
+herring_fm_of_feed <- herring_fm_perc/100 #Using value from McGrath 2015
+herring_fo_of_feed <- herring_fo_perc/100 #Using value from McGrath 2015
+herring_fm_req <- (canadian_fcr * bc_farmed_salmon_prod * herring_fm_of_feed)
+herring_req <- herring_fm_req * (1/fm_yield)
+
+
+catch <- read_csv("./Data/FinfishOutputData_Clean.csv")
+catch <- catch %>% mutate(TONNES=AMOUNT/1000) %>% 
+  rename(Year = YEAR)
+herring_sum <- catch %>% 
+  filter(grepl(SPECIES, pattern="HERRING|SPAWN")) %>% 
+  group_by(SPECIES_GROUP, SPECIES, Year, GEAR) %>%
+  summarize(TONNES = sum(TONNES),
+            VALUE = sum(VALUE)) %>%
+  mutate(FISHERY = paste(SPECIES, GEAR, sep="/"))
+roe_herring_2014_2015 <- (1/2) *  sum(herring_sum %>% 
+  filter(Year >= 2014 & Year <=2016) %>% 
+  filter(SPECIES=="ROE HERRING") %>% 
+  pull(TONNES)) #Average across two years
+
+herring_fm_prod <- roe_herring_2014_2015 * carcass_weight * fm_yield
+herring_fo_prod <- roe_herring_2014_2015 * carcass_weight * fo_yield
+
+
+herring_meal_price <- 2.069299e+03 * 1.30 #FAO USD price (multiplied by 1.30 to convert to CAD) for Canadian herring meal exports in 2016. 
+herring_oil_price <- 2419.7531 * 1.30
+
+#This price could be improved with a number from WCL Redux if possible. 
+#Index Mundi: Peruvian fishmeal prices 
+# Month	Price	Change
+# Dec 2017	1,887.88	-
+# Jan 2018	1,985.20	5.15 %
+# Feb 2018	2,019.22	1.71 %
+# Mar 2018	2,074.66	2.75 %
+# Apr 2018	2,007.17	-3.25 %
+# May 2018	1,946.44	-3.03 %
+
+herring_fm_prod_value <- herring_fm_prod * herring_meal_price
+herring_fo_prod_value <- herring_fo_prod * herring_oil_price
+redux_value <- (herring_fm_prod_value + herring_fo_prod_value)/1000000 #Reduction products are worth 8.6 million
+
+herring_fm_req <- prettyNum(canadian_fcr * bc_farmed_salmon_prod * herring_fm_of_feed, big.mark = ",", small.mark = ".", digits=0) 
+herring_fm_prod <- prettyNum(roe_herring_2014_2015 * carcass_weight * fm_yield, big.mark = ",", small.mark = ".", digits=0) 
+
 
 ```
 
 
-```{r catch-by-type, echo=F, warning=F, message=F, fig.cap="Catch of herring by fishery type"}
-##Plots of catch, landed value, and wholesale values
-fisherytype_value <- read_csv("./Data/HerringValueFisheries.csv")
-fisherytype_value <- fisherytype_value %>%
-  mutate_if(is.character, as.factor) %>%
-  filter(Fishery != "Total") %>% 
-  left_join(cpi_2015) %>% 
-  mutate(Value= if_else(str_detect(Measure, pattern=" value"), Value*adj_value, Value))
+While the roe is the backbone of the fishery, the majority by weight is the by-product of herring carcasses, which are processed into fishmeal and fish oil. There is limited information on the value of the carcasses, but according to one processor contacted during this study, carcasses generate no income for the processing company; rather, they are picked up by a reduction company for no cost. By all accounts, the carcasses from the roe herring fishery are reduced to produce fishmeal and fish oil in B.C. The fishmeal and fish oil are used primarily to produce salmon feed that is fed to B.C. farmed Atlantic salmon [@McGrath2015a]. Using information about the average industry aquaculture feed composition obtained from McGrath et al. (2015), we can estimate the amount of fishmeal produced on average from the roe herring fishery, and the amount likely required by the B.C. farmed salmon industry. 
 
-fisherytype_value_plot <- fisherytype_value %>%
-  filter(Measure=="Landings") %>% 
-  ggplot(aes(x=Year,y=Value, color=Fishery)) +
-  geom_line() +
-  ylab("Landings (thousand tonnes)") + 
-  scale_y_continuous(expand=c(0,0)) + 
-  scale_x_continuous(labels=c(seq(2001, 2018, 4)), expand=c(0,0)) +
-  scale_color_ipsum() + 
-  NULL
+The carcass weight that is used for fishmeal is between 84% and 89% of the landed weight [@McGrath2015a; @Anonymous2018]. The feed conversion ratio (FCR), or the ratio of feed used per output of salmon, for farmed salmon in B.C. was 1.313 in 2009 [@Pelletier2009]. The average annual amount of farmed Atlantic salmon produced in B.C. was `r number_call(bc_farmed_salmon_prod, 5)` tonnes from 2014 to 2016 [@AgriServiceBC2017]. A standard B.C. salmon feed contains `r number_call(herring_fm_perc, 1)`% herring by-product meal and `r number_call(herring_fo_perc, 1)`% herring by-product oil [@McGrath2015a]. Thus, we can estimate the herring fishmeal required:  
+Herring FM Demand = FCR \* Salmon Production \* Herring FM %  
+Herring FM Demand = 1.313 \* `r number_call(bc_farmed_salmon_prod, 5)` tonnes \* `r number_call(herring_fm_perc, 1)`%  
 
-#print(fisherytype_value_plot)
-p <- ggplotly(fisherytype_value_plot)
-p
-api_create(p, filename = "herring-fishery-type-plot")
+We estimate the herring by-product meal demand to be `r number_call(herring_fm_req, 1)` tonnes. Alternatively, we can estimate the amount of herring fishmeal and fish oil produced from the roe fishery by-products (averaged for 2014 and 2015):  
+Herring FM Supply = Roe herring landings \* Carcass weight \* Fishmeal yield  
+Herring FM Supply = `r number_call(roe_herring_2014_2015, 1)` tonnes \* `r number_call(carcass_weight*100, 1)`% \* `r number_call(fm_yield*100, 1)`%  
 
-```
+Herring FO Supply = Roe herring landings \* Carcass weight \* Fish oil yield  
+Herring FO Supply = `r number_call(roe_herring_2014_2015, 1)` tonnes \* `r number_call(carcass_weight*100, 1)`% \* `r number_call(fo_yield*100, 1)`%  
+
+We estimate the herring by-product meal and oil supply as `r number_call(herring_fm_prod, 0)` and `r number_call(herring_fo_prod, 0)` tonnes, respectively. Based on current export prices for herring meal and herring oil from Canada [@FAO2016a], the value of these combined products is estimated to be `r number_call((herring_fm_prod_value+herring_fo_prod_value)/1000000, 2)` million CAD. 
 
