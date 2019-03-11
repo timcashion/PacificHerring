@@ -49,5 +49,29 @@ short_to_metric_multiplier <- 2000 /2204.623
 ```
 
 
-The commercial fishery for Pacific herring has a long history in Canada, and the herring roe fishery was the largest fishery in B.C. at one time. Over the 2000s, the roe herring fishery\'s catches declined substantially and, although they have increased since 2011, the fishery is now closed in four of the province\'s five management areas, because of declines in herring abundance. As of 2019, the entirety of the commercial herring roe catch will be from the population that spawns in the Strait of Georgia. 
+
+```{r licence-number, echo=F, warning=F, message=F, fig.cap="Total herring licenses by fishery type"}
+areas <- c("Strait of Georgia", "Prince Rupert")
+
+net_change_area_licences <- read.csv("./Data/net_change_area_licences.csv")
+herring_lic_area_plot <- net_change_area_licences %>% 
+  filter(AREA %in% areas) %>% 
+  rename(`Source Area`= LagAREA) %>% 
+  ggplot(aes(x=Year, y=NetChange, color=`Source Area`)) +
+  geom_line() +
+  ylab("") +
+  #ylab("Number of herring licences switching to new area") + 
+  labs(color="Area") + 
+  scale_color_ipsum() + 
+  facet_wrap(~AREA, ncol=1) + 
+  #theme(plot.title = element_text(hjust = 0.5)) + 
+  NULL 
+# ggsave("./Images/Net licence movement for the two main roe fishing areas.tiff", dpi=300)
+
+ggplotly(herring_lic_area_plot) %>% 
+  layout(font=plot_font) %>% 
+  layout(yaxis = list(title = paste0(c("Number of herring licences switching to new area                ",
+                                         rep("\n", 1)),
+                                       collapse = "")))
+
 

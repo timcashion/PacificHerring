@@ -3,7 +3,7 @@ title: "The Economic Value of Pacific Herring in the Strait of Georgia"
 author: "Prepared by Tim Cashion for Pacific Wild"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output:
-  bookdown::html_document2
+  bookdown::word_document2
 bibliography: MyCollection.bib
 always_allow_html: yes
 biblio-style: "apalike"
@@ -1302,11 +1302,19 @@ herring_lic_area_plot <- net_change_area_licences %>%
   labs(color="Area") + 
   scale_color_ipsum() + 
   facet_wrap(~AREA, ncol=1) + 
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0))) +
   #theme(plot.title = element_text(hjust = 0.5)) + 
   NULL 
 ggsave("./Images/Net licence movement for the two main roe fishing areas.tiff", dpi=300)
 
-ggplotly(herring_lic_area_plot) %>% layout(font=plot_font)
+herring_lic_area_plot <- herring_lic_area_plot +
+  ylab("")
+
+ggplotly(herring_lic_area_plot, width = 900, height =600) %>% 
+  layout(font=plot_font) %>% 
+  layout(yaxis = list(title = paste0(c("Number of herring licences switching to new area                ",
+                                         rep("\n", 1)),
+                                       collapse = "")))
 
 ```
 
@@ -1367,13 +1375,14 @@ top_10_company_table <- group_by(lic_2018, Licence_Holder) %>%
   group_by(Licence_Holder = factor(c(Licence_Holder[1:top_n], rep("Other", n() - top_n)),
                             levels = c(Licence_Holder[1:top_n], "Other"))) %>%
   tally(n) 
+colnames(top_10_company_table)[2] <- "Count"
 
-pattison_roe_combined_number <- top_10_company_table$n[which(top_10_company_table$Licence_Holder=="JIM PATTISON GROUP")]
-top10_roe_combined_number <- sum(top_10_company_table$n[which(top_10_company_table$Licence_Holder!="Other")])
+pattison_roe_combined_number <- top_10_company_table$Count[which(top_10_company_table$Licence_Holder=="JIM PATTISON GROUP")]
+top10_roe_combined_number <- sum(top_10_company_table$Count[which(top_10_company_table$Licence_Holder!="Other")])
 
-total_roe_combined_licences <- sum(top_10_company_table$n)
+total_roe_combined_licences <- sum(top_10_company_table$Count)
 top10_roe_combined_percent <- top10_roe_combined_number /total_roe_combined_licences * 100
-pattison_roe_combined <- top_10_company_table$nn[which(top_10_company_table$Licence_Holder=="JIM PATTISON GROUP")]/ sum(top_10_company_table$nn) #Pattison companies own 15.5% of licences. 
+pattison_roe_combined <- top_10_company_table$Count[which(top_10_company_table$Licence_Holder=="JIM PATTISON GROUP")]/ sum(top_10_company_table$Count) #Pattison companies own 15.5% of licences. 
 
 colnames(top_10_company_table) <- c("Company", "2018 Herring roe licences")
 top_10_company_table$Company <- str_to_title(top_10_company_table$Company)

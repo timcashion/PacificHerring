@@ -1,0 +1,134 @@
+"AREA","LagAREA","ChangeInArea","OppositeChange","Year","n","Group.x","AREA.y","LagAREA.y","loss_n","Group.y","NetChange"
+"Central Coast","BC COAST WIDE","BC COAST WIDE/CENTRAL","CENTRAL/BC COAST WIDE",1999,1,"BC COAST WIDE/CENTRAL",NA,NA,NA,NA,NA
+"Central Coast","HAIDA GWAII","HAIDA GWAII/CENTRAL","CENTRAL/HAIDA GWAII",1999,2,"HAIDA GWAII/CENTRAL","HAIDA GWAII","CENTRAL",12,"CENTRAL/HAIDA GWAII",-10
+"Central Coast","HAIDA GWAII","HAIDA GWAII/CENTRAL","CENTRAL/HAIDA GWAII",2000,7,"HAIDA GWAII/CENTRAL","HAIDA GWAII","CENTRAL",4,"CENTRAL/HAIDA GWAII",3
+"Central Coast","HAIDA GWAII","HAIDA GWAII/CENTRAL","CENTRAL/HAIDA GWAII",2001,6,"HAIDA GWAII/CENTRAL",NA,NA,NA,NA,NA
+"Central Coast","HAIDA GWAII","HAIDA GWAII/CENTRAL","CENTRAL/HAIDA GWAII",2003,2,"HAIDA GWAII/CENTRAL",NA,NA,NA,NA,NA
+"Central Coast","Prince Rupert","Prince Rupert/CENTRAL","CENTRAL/Prince Rupert",1999,25,"Prince Rupert/CENTRAL","Prince Rupert","CENTRAL",7,"CENTRAL/Prince Rupert",18
+"Central Coast","Prince Rupert","Prince Rupert/CENTRAL","CENTRAL/Prince Rupert",2000,12,"Prince Rupert/CENTRAL","Prince Rupert","CENTRAL",43,"CENTRAL/Prince Rupert",-31
+"Central Coast","Prince Rupert","Prince Rupert/CENTRAL","CENTRAL/Prince Rupert",2001,11,"Prince Rupert/CENTRAL","Prince Rupert","CENTRAL",23,"CENTRAL/Prince Rupert",-12
+"Central Coast","Prince Rupert","Prince Rupert/CENTRAL","CENTRAL/Prince Rupert",2002,16,"Prince Rupert/CENTRAL","Prince Rupert","CENTRAL",30,"CENTRAL/Prince Rupert",-14
+"Central Coast","Prince Rupert","Prince Rupert/CENTRAL","CENTRAL/Prince Rupert",2003,10,"Prince Rupert/CENTRAL","Prince Rupert","CENTRAL",10,"CENTRAL/Prince Rupert",0
+"Central Coast","Prince Rupert","Prince Rupert/CENTRAL","CENTRAL/Prince Rupert",2005,4,"Prince Rupert/CENTRAL","Prince Rupert","CENTRAL",3,"CENTRAL/Prince Rupert",1
+"Central Coast","Prince Rupert","Prince Rupert/CENTRAL","CENTRAL/Prince Rupert",2006,4,"Prince Rupert/CENTRAL","Prince Rupert","CENTRAL",4,"CENTRAL/Prince Rupert",0
+"Central Coast","Prince Rupert","Prince Rupert/CENTRAL","CENTRAL/Prince Rupert",2007,3,"Prince Rupert/CENTRAL",NA,NA,NA,NA,NA
+"Central Coast","Strait of Georgia","Strait of Georgia/CENTRAL","CENTRAL/Strait of Georgia",1999,45,"Strait of Georgia/CENTRAL","Strait of Georgia","CENTRAL",44,"CENTRAL/Strait of Georgia",1
+"Central Coast","Strait of Georgia","Strait of Georgia/CENTRAL","CENTRAL/Strait of Georgia",2000,78,"Strait of Georgia/CENTRAL","Strait of Georgia","CENTRAL",110,"CENTRAL/Strait of Georgia",-32
+"Central Coast","Strait of Georgia","Strait of Georgia/CENTRAL","CENTRAL/Strait of Georgia",2001,55,"Strait of Georgia/CENTRAL","Strait of Georgia","CENTRAL",122,"CENTRAL/Strait of Georgia",-67
+"Central Coast","Strait of Georgia","Strait of Georgia/CENTRAL","CENTRAL/Strait of Georgia",2002,42,"Strait of Georgia/CENTRAL","Strait of Georgia","CENTRAL",77,"CENTRAL/Strait of Georgia",-35
+"Central Coast","Strait of Georgia","Strait of Georgia/CENTRAL","CENTRAL/Strait of Georgia",2003,27,"Strait of Georgia/CENTRAL","Strait of Georgia","CENTRAL",50,"CENTRAL/Strait of Georgia",-23
+"Central Coast","Strait of Georgia","Strait of Georgia/CENTRAL","CENTRAL/Strait of Georgia",2004,22,"Strait of Georgia/CENTRAL","Strait of Georgia","CENTRAL",42,"CENTRAL/Strait of Georgia",-20
+"Central Coast","Strait of Georgia","Strait of Georgia/CENTRAL","CENTRAL/Strait of Georgia",2005,30,"Strait of Georgia/CENTRAL","Strait of Georgia","CENTRAL",15,"CENTRAL/Strait of Georgia",15
+"Central Coast","Strait of Georgia","Strait of Georgia/CENTRAL","CENTRAL/Strait of Georgia",2006,18,"Strait of Georgia/CENTRAL","Strait of Georgia","CENTRAL",29,"CENTRAL/Strait of Georgia",-11
+"Central Coast","Strait of Georgia","Strait of Georgia/CENTRAL","CENTRAL/Strait of Georgia",2007,9,"Strait of Georgia/CENTRAL","Strait of Georgia","CENTRAL",63,"CENTRAL/Strait of Georgia",-54
+"Central Coast","WCVI","WCVI/CENTRAL","CENTRAL/WCVI",1999,50,"WCVI/CENTRAL","WCVI","CENTRAL",24,"CENTRAL/WCVI",26
+"Central Coast","WCVI","WCVI/CENTRAL","CENTRAL/WCVI",2000,39,"WCVI/CENTRAL","WCVI","CENTRAL",10,"CENTRAL/WCVI",29
+"Central Coast","WCVI","WCVI/CENTRAL","CENTRAL/WCVI",2001,14,"WCVI/CENTRAL",NA,NA,NA,NA,NA
+"Central Coast","WCVI","WCVI/CENTRAL","CENTRAL/WCVI",2003,3,"WCVI/CENTRAL","WCVI","CENTRAL",18,"CENTRAL/WCVI",-15
+"Central Coast","WCVI","WCVI/CENTRAL","CENTRAL/WCVI",2004,7,"WCVI/CENTRAL","WCVI","CENTRAL",3,"CENTRAL/WCVI",4
+"Central Coast","WCVI","WCVI/CENTRAL","CENTRAL/WCVI",2005,14,"WCVI/CENTRAL","WCVI","CENTRAL",5,"CENTRAL/WCVI",9
+"Central Coast","WCVI","WCVI/CENTRAL","CENTRAL/WCVI",2006,11,"WCVI/CENTRAL",NA,NA,NA,NA,NA
+"Haida Gwaii","CENTRAL","CENTRAL/HAIDA GWAII","HAIDA GWAII/CENTRAL",1999,12,"CENTRAL/HAIDA GWAII","CENTRAL","HAIDA GWAII",2,"HAIDA GWAII/CENTRAL",10
+"Haida Gwaii","CENTRAL","CENTRAL/HAIDA GWAII","HAIDA GWAII/CENTRAL",2000,4,"CENTRAL/HAIDA GWAII","CENTRAL","HAIDA GWAII",7,"HAIDA GWAII/CENTRAL",-3
+"Haida Gwaii","CENTRAL","CENTRAL/HAIDA GWAII","HAIDA GWAII/CENTRAL",2002,5,"CENTRAL/HAIDA GWAII",NA,NA,NA,NA,NA
+"Haida Gwaii","Prince Rupert","Prince Rupert/HAIDA GWAII","HAIDA GWAII/Prince Rupert",1999,12,"Prince Rupert/HAIDA GWAII",NA,NA,NA,NA,NA
+"Haida Gwaii","Prince Rupert","Prince Rupert/HAIDA GWAII","HAIDA GWAII/Prince Rupert",2002,1,"Prince Rupert/HAIDA GWAII",NA,NA,NA,NA,NA
+"Haida Gwaii","Strait of Georgia","Strait of Georgia/HAIDA GWAII","HAIDA GWAII/Strait of Georgia",1999,18,"Strait of Georgia/HAIDA GWAII","Strait of Georgia","HAIDA GWAII",1,"HAIDA GWAII/Strait of Georgia",17
+"Haida Gwaii","Strait of Georgia","Strait of Georgia/HAIDA GWAII","HAIDA GWAII/Strait of Georgia",2000,3,"Strait of Georgia/HAIDA GWAII","Strait of Georgia","HAIDA GWAII",32,"HAIDA GWAII/Strait of Georgia",-29
+"Haida Gwaii","Strait of Georgia","Strait of Georgia/HAIDA GWAII","HAIDA GWAII/Strait of Georgia",2002,2,"Strait of Georgia/HAIDA GWAII",NA,NA,NA,NA,NA
+"Haida Gwaii","WCVI","WCVI/HAIDA GWAII","HAIDA GWAII/WCVI",1999,10,"WCVI/HAIDA GWAII","WCVI","HAIDA GWAII",4,"HAIDA GWAII/WCVI",6
+"Haida Gwaii","WCVI","WCVI/HAIDA GWAII","HAIDA GWAII/WCVI",2000,6,"WCVI/HAIDA GWAII","WCVI","HAIDA GWAII",5,"HAIDA GWAII/WCVI",1
+"Prince Rupert","BC COAST WIDE","BC COAST WIDE/Prince Rupert","Prince Rupert/BC COAST WIDE",1999,1,"BC COAST WIDE/Prince Rupert",NA,NA,NA,NA,NA
+"Prince Rupert","CENTRAL","CENTRAL/Prince Rupert","Prince Rupert/CENTRAL",1999,7,"CENTRAL/Prince Rupert","CENTRAL","Prince Rupert",25,"Prince Rupert/CENTRAL",-18
+"Prince Rupert","CENTRAL","CENTRAL/Prince Rupert","Prince Rupert/CENTRAL",2000,43,"CENTRAL/Prince Rupert","CENTRAL","Prince Rupert",12,"Prince Rupert/CENTRAL",31
+"Prince Rupert","CENTRAL","CENTRAL/Prince Rupert","Prince Rupert/CENTRAL",2001,23,"CENTRAL/Prince Rupert","CENTRAL","Prince Rupert",11,"Prince Rupert/CENTRAL",12
+"Prince Rupert","CENTRAL","CENTRAL/Prince Rupert","Prince Rupert/CENTRAL",2002,30,"CENTRAL/Prince Rupert","CENTRAL","Prince Rupert",16,"Prince Rupert/CENTRAL",14
+"Prince Rupert","CENTRAL","CENTRAL/Prince Rupert","Prince Rupert/CENTRAL",2003,10,"CENTRAL/Prince Rupert","CENTRAL","Prince Rupert",10,"Prince Rupert/CENTRAL",0
+"Prince Rupert","CENTRAL","CENTRAL/Prince Rupert","Prince Rupert/CENTRAL",2004,4,"CENTRAL/Prince Rupert",NA,NA,NA,NA,NA
+"Prince Rupert","CENTRAL","CENTRAL/Prince Rupert","Prince Rupert/CENTRAL",2005,3,"CENTRAL/Prince Rupert","CENTRAL","Prince Rupert",4,"Prince Rupert/CENTRAL",-1
+"Prince Rupert","CENTRAL","CENTRAL/Prince Rupert","Prince Rupert/CENTRAL",2006,4,"CENTRAL/Prince Rupert","CENTRAL","Prince Rupert",4,"Prince Rupert/CENTRAL",0
+"Prince Rupert","CENTRAL","CENTRAL/Prince Rupert","Prince Rupert/CENTRAL",2008,4,"CENTRAL/Prince Rupert",NA,NA,NA,NA,NA
+"Prince Rupert","HAIDA GWAII","HAIDA GWAII/Prince Rupert","Prince Rupert/HAIDA GWAII",2000,25,"HAIDA GWAII/Prince Rupert",NA,NA,NA,NA,NA
+"Prince Rupert","HAIDA GWAII","HAIDA GWAII/Prince Rupert","Prince Rupert/HAIDA GWAII",2001,5,"HAIDA GWAII/Prince Rupert",NA,NA,NA,NA,NA
+"Prince Rupert","HAIDA GWAII","HAIDA GWAII/Prince Rupert","Prince Rupert/HAIDA GWAII",2003,1,"HAIDA GWAII/Prince Rupert",NA,NA,NA,NA,NA
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",1999,30,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",87,"Prince Rupert/Strait of Georgia",-57
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2000,110,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",106,"Prince Rupert/Strait of Georgia",4
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2001,116,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",184,"Prince Rupert/Strait of Georgia",-68
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2002,146,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",136,"Prince Rupert/Strait of Georgia",10
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2003,149,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",146,"Prince Rupert/Strait of Georgia",3
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2004,161,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",147,"Prince Rupert/Strait of Georgia",14
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2005,147,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",136,"Prince Rupert/Strait of Georgia",11
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2006,109,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",189,"Prince Rupert/Strait of Georgia",-80
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2007,65,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",154,"Prince Rupert/Strait of Georgia",-89
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2008,138,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",48,"Prince Rupert/Strait of Georgia",90
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2009,319,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",99,"Prince Rupert/Strait of Georgia",220
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2010,155,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",259,"Prince Rupert/Strait of Georgia",-104
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2011,61,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",236,"Prince Rupert/Strait of Georgia",-175
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2012,92,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",65,"Prince Rupert/Strait of Georgia",27
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2013,179,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",81,"Prince Rupert/Strait of Georgia",98
+"Prince Rupert","Strait of Georgia","Strait of Georgia/Prince Rupert","Prince Rupert/Strait of Georgia",2018,90,"Strait of Georgia/Prince Rupert","Strait of Georgia","Prince Rupert",323,"Prince Rupert/Strait of Georgia",-233
+"Prince Rupert","WCVI","WCVI/Prince Rupert","Prince Rupert/WCVI",1999,36,"WCVI/Prince Rupert","WCVI","Prince Rupert",20,"Prince Rupert/WCVI",16
+"Prince Rupert","WCVI","WCVI/Prince Rupert","Prince Rupert/WCVI",2000,31,"WCVI/Prince Rupert","WCVI","Prince Rupert",8,"Prince Rupert/WCVI",23
+"Prince Rupert","WCVI","WCVI/Prince Rupert","Prince Rupert/WCVI",2001,11,"WCVI/Prince Rupert",NA,NA,NA,NA,NA
+"Prince Rupert","WCVI","WCVI/Prince Rupert","Prince Rupert/WCVI",2003,4,"WCVI/Prince Rupert","WCVI","Prince Rupert",20,"Prince Rupert/WCVI",-16
+"Prince Rupert","WCVI","WCVI/Prince Rupert","Prince Rupert/WCVI",2004,10,"WCVI/Prince Rupert","WCVI","Prince Rupert",11,"Prince Rupert/WCVI",-1
+"Prince Rupert","WCVI","WCVI/Prince Rupert","Prince Rupert/WCVI",2005,13,"WCVI/Prince Rupert","WCVI","Prince Rupert",32,"Prince Rupert/WCVI",-19
+"Prince Rupert","WCVI","WCVI/Prince Rupert","Prince Rupert/WCVI",2006,15,"WCVI/Prince Rupert",NA,NA,NA,NA,NA
+"Strait of Georgia","BC COAST WIDE","BC COAST WIDE/Strait of Georgia","Strait of Georgia/BC COAST WIDE",1999,1,"BC COAST WIDE/Strait of Georgia",NA,NA,NA,NA,NA
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",1999,44,"CENTRAL/Strait of Georgia","CENTRAL","Strait of Georgia",45,"Strait of Georgia/CENTRAL",-1
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",2000,110,"CENTRAL/Strait of Georgia","CENTRAL","Strait of Georgia",78,"Strait of Georgia/CENTRAL",32
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",2001,122,"CENTRAL/Strait of Georgia","CENTRAL","Strait of Georgia",55,"Strait of Georgia/CENTRAL",67
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",2002,77,"CENTRAL/Strait of Georgia","CENTRAL","Strait of Georgia",42,"Strait of Georgia/CENTRAL",35
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",2003,50,"CENTRAL/Strait of Georgia","CENTRAL","Strait of Georgia",27,"Strait of Georgia/CENTRAL",23
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",2004,42,"CENTRAL/Strait of Georgia","CENTRAL","Strait of Georgia",22,"Strait of Georgia/CENTRAL",20
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",2005,15,"CENTRAL/Strait of Georgia","CENTRAL","Strait of Georgia",30,"Strait of Georgia/CENTRAL",-15
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",2006,29,"CENTRAL/Strait of Georgia","CENTRAL","Strait of Georgia",18,"Strait of Georgia/CENTRAL",11
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",2007,63,"CENTRAL/Strait of Georgia","CENTRAL","Strait of Georgia",9,"Strait of Georgia/CENTRAL",54
+"Strait of Georgia","CENTRAL","CENTRAL/Strait of Georgia","Strait of Georgia/CENTRAL",2008,13,"CENTRAL/Strait of Georgia",NA,NA,NA,NA,NA
+"Strait of Georgia","HAIDA GWAII","HAIDA GWAII/Strait of Georgia","Strait of Georgia/HAIDA GWAII",1999,1,"HAIDA GWAII/Strait of Georgia","HAIDA GWAII","Strait of Georgia",18,"Strait of Georgia/HAIDA GWAII",-17
+"Strait of Georgia","HAIDA GWAII","HAIDA GWAII/Strait of Georgia","Strait of Georgia/HAIDA GWAII",2000,32,"HAIDA GWAII/Strait of Georgia","HAIDA GWAII","Strait of Georgia",3,"Strait of Georgia/HAIDA GWAII",29
+"Strait of Georgia","HAIDA GWAII","HAIDA GWAII/Strait of Georgia","Strait of Georgia/HAIDA GWAII",2001,10,"HAIDA GWAII/Strait of Georgia",NA,NA,NA,NA,NA
+"Strait of Georgia","HAIDA GWAII","HAIDA GWAII/Strait of Georgia","Strait of Georgia/HAIDA GWAII",2003,5,"HAIDA GWAII/Strait of Georgia",NA,NA,NA,NA,NA
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",1999,87,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",30,"Strait of Georgia/Prince Rupert",57
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2000,106,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",110,"Strait of Georgia/Prince Rupert",-4
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2001,184,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",116,"Strait of Georgia/Prince Rupert",68
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2002,136,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",146,"Strait of Georgia/Prince Rupert",-10
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2003,146,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",149,"Strait of Georgia/Prince Rupert",-3
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2004,147,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",161,"Strait of Georgia/Prince Rupert",-14
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2005,136,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",147,"Strait of Georgia/Prince Rupert",-11
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2006,189,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",109,"Strait of Georgia/Prince Rupert",80
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2007,154,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",65,"Strait of Georgia/Prince Rupert",89
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2008,48,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",138,"Strait of Georgia/Prince Rupert",-90
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2009,99,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",319,"Strait of Georgia/Prince Rupert",-220
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2010,259,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",155,"Strait of Georgia/Prince Rupert",104
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2011,236,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",61,"Strait of Georgia/Prince Rupert",175
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2012,65,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",92,"Strait of Georgia/Prince Rupert",-27
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2013,81,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",179,"Strait of Georgia/Prince Rupert",-98
+"Strait of Georgia","Prince Rupert","Prince Rupert/Strait of Georgia","Strait of Georgia/Prince Rupert",2018,323,"Prince Rupert/Strait of Georgia","Prince Rupert","Strait of Georgia",90,"Strait of Georgia/Prince Rupert",233
+"Strait of Georgia","WCVI","WCVI/Strait of Georgia","Strait of Georgia/WCVI",1999,119,"WCVI/Strait of Georgia","WCVI","Strait of Georgia",43,"Strait of Georgia/WCVI",76
+"Strait of Georgia","WCVI","WCVI/Strait of Georgia","Strait of Georgia/WCVI",2000,128,"WCVI/Strait of Georgia","WCVI","Strait of Georgia",24,"Strait of Georgia/WCVI",104
+"Strait of Georgia","WCVI","WCVI/Strait of Georgia","Strait of Georgia/WCVI",2001,54,"WCVI/Strait of Georgia",NA,NA,NA,NA,NA
+"Strait of Georgia","WCVI","WCVI/Strait of Georgia","Strait of Georgia/WCVI",2003,34,"WCVI/Strait of Georgia","WCVI","Strait of Georgia",63,"Strait of Georgia/WCVI",-29
+"Strait of Georgia","WCVI","WCVI/Strait of Georgia","Strait of Georgia/WCVI",2004,59,"WCVI/Strait of Georgia","WCVI","Strait of Georgia",84,"Strait of Georgia/WCVI",-25
+"Strait of Georgia","WCVI","WCVI/Strait of Georgia","Strait of Georgia/WCVI",2005,67,"WCVI/Strait of Georgia","WCVI","Strait of Georgia",74,"Strait of Georgia/WCVI",-7
+"Strait of Georgia","WCVI","WCVI/Strait of Georgia","Strait of Georgia/WCVI",2006,136,"WCVI/Strait of Georgia",NA,NA,NA,NA,NA
+"West Coast Vancouver Island","BC COAST WIDE","BC COAST WIDE/WCVI","WCVI/BC COAST WIDE",1999,1,"BC COAST WIDE/WCVI",NA,NA,NA,NA,NA
+"West Coast Vancouver Island","CENTRAL","CENTRAL/WCVI","WCVI/CENTRAL",1999,24,"CENTRAL/WCVI","CENTRAL","WCVI",50,"WCVI/CENTRAL",-26
+"West Coast Vancouver Island","CENTRAL","CENTRAL/WCVI","WCVI/CENTRAL",2000,10,"CENTRAL/WCVI","CENTRAL","WCVI",39,"WCVI/CENTRAL",-29
+"West Coast Vancouver Island","CENTRAL","CENTRAL/WCVI","WCVI/CENTRAL",2003,18,"CENTRAL/WCVI","CENTRAL","WCVI",3,"WCVI/CENTRAL",15
+"West Coast Vancouver Island","CENTRAL","CENTRAL/WCVI","WCVI/CENTRAL",2004,3,"CENTRAL/WCVI","CENTRAL","WCVI",7,"WCVI/CENTRAL",-4
+"West Coast Vancouver Island","CENTRAL","CENTRAL/WCVI","WCVI/CENTRAL",2005,5,"CENTRAL/WCVI","CENTRAL","WCVI",14,"WCVI/CENTRAL",-9
+"West Coast Vancouver Island","HAIDA GWAII","HAIDA GWAII/WCVI","WCVI/HAIDA GWAII",1999,4,"HAIDA GWAII/WCVI","HAIDA GWAII","WCVI",10,"WCVI/HAIDA GWAII",-6
+"West Coast Vancouver Island","HAIDA GWAII","HAIDA GWAII/WCVI","WCVI/HAIDA GWAII",2000,5,"HAIDA GWAII/WCVI","HAIDA GWAII","WCVI",6,"WCVI/HAIDA GWAII",-1
+"West Coast Vancouver Island","Prince Rupert","Prince Rupert/WCVI","WCVI/Prince Rupert",1999,20,"Prince Rupert/WCVI","Prince Rupert","WCVI",36,"WCVI/Prince Rupert",-16
+"West Coast Vancouver Island","Prince Rupert","Prince Rupert/WCVI","WCVI/Prince Rupert",2000,8,"Prince Rupert/WCVI","Prince Rupert","WCVI",31,"WCVI/Prince Rupert",-23
+"West Coast Vancouver Island","Prince Rupert","Prince Rupert/WCVI","WCVI/Prince Rupert",2002,11,"Prince Rupert/WCVI",NA,NA,NA,NA,NA
+"West Coast Vancouver Island","Prince Rupert","Prince Rupert/WCVI","WCVI/Prince Rupert",2003,20,"Prince Rupert/WCVI","Prince Rupert","WCVI",4,"WCVI/Prince Rupert",16
+"West Coast Vancouver Island","Prince Rupert","Prince Rupert/WCVI","WCVI/Prince Rupert",2004,11,"Prince Rupert/WCVI","Prince Rupert","WCVI",10,"WCVI/Prince Rupert",1
+"West Coast Vancouver Island","Prince Rupert","Prince Rupert/WCVI","WCVI/Prince Rupert",2005,32,"Prince Rupert/WCVI","Prince Rupert","WCVI",13,"WCVI/Prince Rupert",19
+"West Coast Vancouver Island","Strait of Georgia","Strait of Georgia/WCVI","WCVI/Strait of Georgia",1999,43,"Strait of Georgia/WCVI","Strait of Georgia","WCVI",119,"WCVI/Strait of Georgia",-76
+"West Coast Vancouver Island","Strait of Georgia","Strait of Georgia/WCVI","WCVI/Strait of Georgia",2000,24,"Strait of Georgia/WCVI","Strait of Georgia","WCVI",128,"WCVI/Strait of Georgia",-104
+"West Coast Vancouver Island","Strait of Georgia","Strait of Georgia/WCVI","WCVI/Strait of Georgia",2002,50,"Strait of Georgia/WCVI",NA,NA,NA,NA,NA
+"West Coast Vancouver Island","Strait of Georgia","Strait of Georgia/WCVI","WCVI/Strait of Georgia",2003,63,"Strait of Georgia/WCVI","Strait of Georgia","WCVI",34,"WCVI/Strait of Georgia",29
+"West Coast Vancouver Island","Strait of Georgia","Strait of Georgia/WCVI","WCVI/Strait of Georgia",2004,84,"Strait of Georgia/WCVI","Strait of Georgia","WCVI",59,"WCVI/Strait of Georgia",25
+"West Coast Vancouver Island","Strait of Georgia","Strait of Georgia/WCVI","WCVI/Strait of Georgia",2005,74,"Strait of Georgia/WCVI","Strait of Georgia","WCVI",67,"WCVI/Strait of Georgia",7
